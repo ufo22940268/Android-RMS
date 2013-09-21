@@ -17,7 +17,7 @@ import org.json.*;
 
 import android.support.v4.app.Fragment;
 
-public class RepoManageFragment extends Fragment {
+public class RepoManageFragment extends BaseFragment {
 
     static public final String[][] TITLES = {
         {"产品入库", "Warehousing Managemengt"},
@@ -51,19 +51,30 @@ public class RepoManageFragment extends Fragment {
 
         for (int i = 0; i < TITLES.length; i ++) {
             String t[] = TITLES[i];
-            addRow(parent, halfScreenWidth, t[0], t[1]);
+            View item = addRow(parent, halfScreenWidth, t[0], t[1]);
+            if (i != 0) {
+                item.setEnabled(false);
+            } else {
+                item.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startFragment(new ImportFragment());
+                    }
+                });
+            }
         }
 
         return parent;
     }
 
-    private void addRow(ViewGroup container, int width, String major, String minor) {
+    private View addRow(ViewGroup container, int width, String major, String minor) {
         View item = LayoutInflater.from(
                 getActivity()).inflate(R.layout.row_item_repo_manage, container, false);
         item.getLayoutParams().width = width;
         ((TextView)item.findViewById(R.id.major)).setText(major);
         ((TextView)item.findViewById(R.id.minor)).setText(minor);
         container.addView(item);
+        return item;
     }
 
     @Override

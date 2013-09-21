@@ -16,8 +16,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.*;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 
 /**
  * This example illustrates a common usage of the DrawerLayout widget
@@ -156,8 +157,7 @@ public class MainActivity extends FragmentActivity {
         Fragment fragment;
 
         if (position == 0) {
-            //fragment = new RepoManageFragment();
-            fragment = new ImportFragment();
+            fragment = new RepoManageFragment();
         } else  {
             fragment = new PlanetFragment();
         }
@@ -166,7 +166,7 @@ public class MainActivity extends FragmentActivity {
         fragment.setArguments(args);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+       fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         // update selected item and title, then close the drawer
         mDrawerList.setItemChecked(position, true);

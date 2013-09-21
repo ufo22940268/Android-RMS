@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dip"
+    android:background="?attr/activatedBackgroundIndicator"
+    android:stretchColumns="1">
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="入库单号:"
+            />
+
+        <TextView 
+            android:id="@+id/value"
+            android:textColor="#f00"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="产品编码:"
+            />
+
+        <TextView 
+            android:id="@+id/value"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="产品名称:"
+            />
+
+        <TextView 
+            android:id="@+id/value"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="入库数量:"
+            />
+
+        <TextView 
+            android:id="@+id/value"
+            />
+
+    </TableRow>
+
+</TableLayout>

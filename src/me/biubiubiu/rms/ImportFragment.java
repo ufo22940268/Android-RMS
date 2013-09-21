@@ -69,7 +69,15 @@ public class ImportFragment extends BaseFragment {
 
         @Override
         public Fragment getItem(int position) {
-            return new AddProductFragment();
+            if (position == 0) {
+                return new AddProductFragment();
+            } else if (position == 1) {
+                return new RepoStatusFragment();
+            } else if (position == 2) {
+                return new PrintFragment();
+            }
+
+            return null;
         }
 
         @Override

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dip"
+    android:paddingBottom="10dip"
+    >
+
+    <TextView 
+        android:id="@+id/label"
+        />
+
+    <EditText
+        android:id="@+id/field"
+        android:layout_marginLeft="6dip"
+        />
+
+</TableRow>
