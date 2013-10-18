@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="6dip"
-    android:background="?attr/activatedBackgroundIndicator"
     android:stretchColumns="1">
+    <!--android:background="?attr/activatedBackgroundIndicator"-->
 
     <TableRow
         >

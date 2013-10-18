@@ -31,7 +31,21 @@
         </dependency>
 
         <dependency>
-            <groupId>com.viewpagerindicator</groupId>
+            <groupId>android.support</groupId>
+            <artifactId>compatibility-v7-appcompat</artifactId>
+            <version>18</version>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>android.support</groupId>
+            <artifactId>compatibility-v7-appcompat</artifactId>
+            <version>18</version>
+            <type>apklib</type>
+        </dependency>
+
+        <dependency>
+            <groupId>rms.viewpagerindicator</groupId>
             <artifactId>biubiubiu-library</artifactId>
             <version>2.4.1</version>
             <type>apklib</type>
@@ -78,7 +92,7 @@
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
-                <version>3.6.2-SNAPSHOT</version>
+                <version>3.7.0</version>
                 <configuration>
                     <sdk>
                         <platform>17</platform>

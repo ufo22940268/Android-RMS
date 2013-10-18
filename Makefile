@@ -1,5 +1,3 @@
-SHELL := "bash"
-
 .PHONY : main
 main: 
 	mvn -Dmaven.test.skip=true android:undeploy install android:redeploy android:run
@@ -38,4 +36,4 @@ vim:
 release:
 	mvn install -Psign
 
-#.DEFAULT_GOAL := release
+.DEFAULT_GOAL := main

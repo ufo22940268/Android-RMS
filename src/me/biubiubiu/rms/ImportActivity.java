@@ -22,9 +22,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TabPageIndicator;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
 
 
-public class ImportFragment extends BaseFragment {
+public class ImportActivity extends ActionBarActivity {
 
     FragmentPagerAdapter mAdapter;
 
@@ -34,30 +36,27 @@ public class ImportFragment extends BaseFragment {
         "打印列表",
     };
 
-    public ImportFragment(){
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.import_fragment);
+         ActionBar actionBar = getSupportActionBar();
+         actionBar.setDisplayHomeAsUpEnabled(true);
+         actionBar.setTitle("asdfaf");
+        //TabPageIndicator indicator = (TabPageIndicator)findViewById(R.id.content_indicator);
+        //ViewPager pager = (ViewPager)findViewById(R.id.content_pager);
+
+        //if (mAdapter == null) {
+            //mAdapter = new ContentAdapter(getSupportFragmentManager());
+        //}
+        //pager.setAdapter(mAdapter);
+        //indicator.setViewPager(pager);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (container == null) {
-            return null;
-        }
-
-        ViewGroup view = (ViewGroup)inflater.inflate(R.layout.import_fragment, container, false);
-        TabPageIndicator indicator = (TabPageIndicator)view.findViewById(R.id.content_indicator);
-        ViewPager pager = (ViewPager)view.findViewById(R.id.content_pager);
-
-        if (mAdapter == null) {
-            mAdapter = new ContentAdapter(getChildFragmentManager());
-        }
-        pager.setAdapter(mAdapter);
-        indicator.setViewPager(pager);
-        return view;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.imports, menu);
+        return true;
     }
 
     //Content fragment. Used to display ticket, summary and nearby restarant.

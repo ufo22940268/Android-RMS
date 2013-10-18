@@ -74,6 +74,3 @@ public class AddProductFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
     }
 }
-
-
-

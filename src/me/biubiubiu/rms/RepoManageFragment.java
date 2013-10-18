@@ -19,6 +19,8 @@ import android.support.v4.app.Fragment;
 
 public class RepoManageFragment extends BaseFragment {
 
+    private BlockAdapter mAdapter;
+
     static public final String[][] TITLES = {
         {"产品入库", "Warehousing Managemengt"},
         {"产品出库", "Warehousing Managemengt"},
@@ -38,47 +40,58 @@ public class RepoManageFragment extends BaseFragment {
             return null;
         }
 
-        ViewGroup parent = (ViewGroup)inflater.inflate(
+        GridView grid = (GridView)inflater.inflate(
                 R.layout.repo_manage_fragment, container, false);
+        mAdapter = new BlockAdapter();
+        grid.setAdapter(mAdapter);
+        grid.setOnItemClickListener(mAdapter);
 
-        Point size = new Point();
-
-        getActivity().getWindowManager().getDefaultDisplay().getSize(size);
-        int screenWidth = size.x;
-        int screenHeight = size.y;
-        int halfScreenWidth = (int)(screenWidth *0.5);
-        int quarterScreenWidth = (int)(halfScreenWidth * 0.5);
-
-        for (int i = 0; i < TITLES.length; i ++) {
-            String t[] = TITLES[i];
-            View item = addRow(parent, halfScreenWidth, t[0], t[1]);
-            if (i != 0) {
-                item.setEnabled(false);
-            } else {
-                item.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startFragment(new ImportFragment());
-                    }
-                });
-            }
-        }
-
-        return parent;
-    }
-
-    private View addRow(ViewGroup container, int width, String major, String minor) {
-        View item = LayoutInflater.from(
-                getActivity()).inflate(R.layout.row_item_repo_manage, container, false);
-        item.getLayoutParams().width = width;
-        ((TextView)item.findViewById(R.id.major)).setText(major);
-        ((TextView)item.findViewById(R.id.minor)).setText(minor);
-        container.addView(item);
-        return item;
+        return grid;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.imports, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    public class BlockAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
+
+        public int getCount() {
+            return TITLES.length;
+        }
+    
+        public Object getItem(int position) {
+            return null;
+        }
+    
+        public long getItemId(int position) {
+            return position;
+        }
+    
+        public View getView(int position, View convertView, ViewGroup parent) {
+            return getBlock(TITLES[position][0], TITLES[position][1]);
+        }
+
+        private View getBlock(String major, String minor) {
+            View item = LayoutInflater.from(
+                    getActivity()).inflate(R.layout.row_item_repo_manage, null, false);
+            ((TextView)item.findViewById(R.id.major)).setText(major);
+            ((TextView)item.findViewById(R.id.minor)).setText(minor);
+            return item;
+        }
+
+        @Override
+        public void onItemClick(AdapterView parent, View view, int pos, long id) {
+            if (pos == 0) {
+                Intent intent = new Intent(getActivity(), ImportActivity.class);
+                startActivity(intent);
+            }
+        }
     }
 }

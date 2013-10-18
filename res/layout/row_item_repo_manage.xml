@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:drawableTop="@drawable/ic_launcher"
-        style="@android:style/TextAppearance.Large"
+        android:singleLine="true"
+        style="@android:style/TextAppearance.Medium"
         />
 
     <TextView 
@@ -22,6 +23,7 @@
         android:layout_below="@id/major"
         android:layout_marginTop="6dip"
         android:layout_centerHorizontal="true"
+        android:singleLine="true"
         style="@android:style/TextAppearance.Small"
         />
 

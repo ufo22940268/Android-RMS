@@ -27,7 +27,7 @@ public class RepoStatusFragment extends BaseFragment {
         mListView = (ListView)parent.findViewById(R.id.list);
         ListView lv = getListView();
         lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-        lv.setMultiChoiceModeListener(new ModeCallback());
+        //lv.setMultiChoiceModeListener(new ModeCallback());
         lv.setAdapter(new ArrayAdapter<String>(getActivity(),
                 R.layout.list_item_repo_status, R.id.value, mStrings));
         return parent;
@@ -43,58 +43,58 @@ public class RepoStatusFragment extends BaseFragment {
         getActivity().getActionBar().setSubtitle("Long press to start selection");
     }
     
-    private class ModeCallback implements ListView.MultiChoiceModeListener {
+    //private class ModeCallback implements ListView.MultiChoiceModeListener {
 
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            MenuInflater inflater = getActivity().getMenuInflater();
-            inflater.inflate(R.menu.list_select_menu, menu);
-            mode.setTitle("Select Items");
-            setSubtitle(mode);
-            return true;
-        }
+        //public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            //MenuInflater inflater = getActivity().getMenuInflater();
+            //inflater.inflate(R.menu.list_select_menu, menu);
+            //mode.setTitle("Select Items");
+            //setSubtitle(mode);
+            //return true;
+        //}
 
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            return true;
-        }
+        //public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            //return true;
+        //}
 
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            switch (item.getItemId()) {
-            case R.id.share:
-                Toast.makeText(getActivity(), "Shared " + getListView().getCheckedItemCount() +
-                        " items", Toast.LENGTH_SHORT).show();
-                mode.finish();
-                break;
-            default:
-                Toast.makeText(getActivity(), "Clicked " + item.getTitle(),
-                        Toast.LENGTH_SHORT).show();
-                break;
-            }
-            return true;
-        }
+        //public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            //switch (item.getItemId()) {
+            //case R.id.share:
+                //Toast.makeText(getActivity(), "Shared " + getListView().getCheckedItemCount() +
+                        //" items", Toast.LENGTH_SHORT).show();
+                //mode.finish();
+                //break;
+            //default:
+                //Toast.makeText(getActivity(), "Clicked " + item.getTitle(),
+                        //Toast.LENGTH_SHORT).show();
+                //break;
+            //}
+            //return true;
+        //}
 
-        public void onDestroyActionMode(ActionMode mode) {
-        }
+        //public void onDestroyActionMode(ActionMode mode) {
+        //}
 
-        public void onItemCheckedStateChanged(ActionMode mode,
-                int position, long id, boolean checked) {
-            setSubtitle(mode);
-        }
+        //public void onItemCheckedStateChanged(ActionMode mode,
+                //int position, long id, boolean checked) {
+            //setSubtitle(mode);
+        //}
 
-        private void setSubtitle(ActionMode mode) {
-            final int checkedCount = getListView().getCheckedItemCount();
-            switch (checkedCount) {
-                case 0:
-                    mode.setSubtitle(null);
-                    break;
-                case 1:
-                    mode.setSubtitle("One item selected");
-                    break;
-                default:
-                    mode.setSubtitle("" + checkedCount + " items selected");
-                    break;
-            }
-        }
-    }
+        //private void setSubtitle(ActionMode mode) {
+            //final int checkedCount = getListView().getCheckedItemCount();
+            //switch (checkedCount) {
+                //case 0:
+                    //mode.setSubtitle(null);
+                    //break;
+                //case 1:
+                    //mode.setSubtitle("One item selected");
+                    //break;
+                //default:
+                    //mode.setSubtitle("" + checkedCount + " items selected");
+                    //break;
+            //}
+        //}
+    //}
 
     public static final String[] mStrings = {
             "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi",
