@@ -24,11 +24,13 @@ import com.viewpagerindicator.TabPageIndicator;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
+import com.andreabaccega.widget.FormEditText;
 
 
 public class ImportActivity extends ActionBarActivity {
 
-    FragmentPagerAdapter mAdapter;
+    private ContentAdapter mAdapter;
+    private int mPagePos;
 
     private String[] TITLES = {
         "添加产品",
@@ -39,28 +41,65 @@ public class ImportActivity extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.import_fragment);
-         ActionBar actionBar = getSupportActionBar();
-         actionBar.setDisplayHomeAsUpEnabled(true);
-         actionBar.setTitle("asdfaf");
-        //TabPageIndicator indicator = (TabPageIndicator)findViewById(R.id.content_indicator);
-        //ViewPager pager = (ViewPager)findViewById(R.id.content_pager);
+        setContentView(R.layout.import_fragment);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
-        //if (mAdapter == null) {
-            //mAdapter = new ContentAdapter(getSupportFragmentManager());
-        //}
-        //pager.setAdapter(mAdapter);
-        //indicator.setViewPager(pager);
+        TabPageIndicator indicator = (TabPageIndicator)findViewById(R.id.content_indicator);
+        ViewPager pager = (ViewPager)findViewById(R.id.content_pager);
+
+        if (mAdapter == null) {
+            mAdapter = new ContentAdapter(getSupportFragmentManager());
+        }
+        pager.setAdapter(mAdapter);
+        indicator.setOnPageChangeListener(mAdapter);
+        indicator.setViewPager(pager);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.imports, menu);
+        getMenuInflater().inflate(R.menu.save, menu);
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        validateAll();
+        return true;
+    }
+
+    private void validateAll() {
+        ViewGroup root = (ViewGroup)this.getWindow().getDecorView();
+        List<FormEditText> views = new ArrayList<FormEditText>();
+        getAllFormViews(views, root);
+
+        for (FormEditText view : views) {
+            System.out.println("++++++++++++++++++++key:" + view.getKey() + "++++++++++++++++++++");
+            if (!view.testValidity()) {
+                break;
+            }
+        }
+    }
+
+    private void getAllFormViews(List<FormEditText> views, ViewGroup root) {
+        if (root.getChildCount() == 0) {
+            return;
+        } 
+
+        for (int i = 0; i < root.getChildCount(); i ++) {
+            View child = root.getChildAt(i);
+            if (child instanceof FormEditText) {
+                views.add((FormEditText)child);
+            }
+
+            if (child instanceof ViewGroup) {
+                getAllFormViews(views, (ViewGroup)child);
+            }
+        }
+    }
+
     //Content fragment. Used to display ticket, summary and nearby restarant.
-    private class ContentAdapter extends FragmentPagerAdapter {
+    private class ContentAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
 
         public ContentAdapter(FragmentManager fm) {
             super(fm);
@@ -87,6 +126,19 @@ public class ImportActivity extends ActionBarActivity {
         @Override
         public int getCount() {
             return TITLES.length;
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            mPagePos = position;
+        }
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
         }
     }
 }

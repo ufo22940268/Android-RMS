@@ -54,12 +54,6 @@ public class RepoManageFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.imports, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
     public class BlockAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
 
         public int getCount() {

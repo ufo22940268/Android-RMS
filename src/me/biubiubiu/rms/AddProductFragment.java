@@ -49,22 +49,22 @@ public class AddProductFragment extends BaseFragment {
         }
 
         ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.add_product_fragment, container, false);
-        mContainer = (ViewGroup)parent.findViewById(R.id.container);
-        for (String title : TITLE_CATEGORY_1) {
-            View view = inflater.inflate(R.layout.item_import_category_1, container, false);
-            ((TextView)view.findViewById(R.id.label)).setText(title);
-            mContainer.addView(view);
-        }
+        //mContainer = (ViewGroup)parent.findViewById(R.id.container);
+        //for (String title : TITLE_CATEGORY_1) {
+            //View view = inflater.inflate(R.layout.item_import_category_1, container, false);
+            //((TextView)view.findViewById(R.id.label)).setText(title);
+            //mContainer.addView(view);
+        //}
 
-        TextView tv = (TextView)inflater.inflate(R.layout.label_text, container, false);
-        tv.setText("入库状态显示栏");
-        mContainer.addView(tv);
+        //TextView tv = (TextView)inflater.inflate(R.layout.label_text, container, false);
+        //tv.setText("入库状态显示栏");
+        //mContainer.addView(tv);
 
-        for (String title : TITLE_CATEGORY_2) {
-            View view = inflater.inflate(R.layout.item_import_category_1, container, false);
-            ((TextView)view.findViewById(R.id.label)).setText(title);
-            mContainer.addView(view);
-        }
+        //for (String title : TITLE_CATEGORY_2) {
+            //View view = inflater.inflate(R.layout.item_import_category_1, container, false);
+            //((TextView)view.findViewById(R.id.label)).setText(title);
+            //mContainer.addView(view);
+        //}
         
         return parent;
     }
