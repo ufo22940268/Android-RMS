@@ -26,8 +26,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import com.andreabaccega.widget.FormEditText;
 
+import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
+import me.biubiubiu.rms.util.*;
+import me.biubiubiu.rms.ui.*;
 
-public class ImportActivity extends ActionBarActivity {
+public class ImportActivity extends BaseActivity {
 
     private ContentAdapter mAdapter;
     private int mPagePos;
@@ -54,48 +57,6 @@ public class ImportActivity extends ActionBarActivity {
         pager.setAdapter(mAdapter);
         indicator.setOnPageChangeListener(mAdapter);
         indicator.setViewPager(pager);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.save, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        validateAll();
-        return true;
-    }
-
-    private void validateAll() {
-        ViewGroup root = (ViewGroup)this.getWindow().getDecorView();
-        List<FormEditText> views = new ArrayList<FormEditText>();
-        getAllFormViews(views, root);
-
-        for (FormEditText view : views) {
-            System.out.println("++++++++++++++++++++key:" + view.getKey() + "++++++++++++++++++++");
-            if (!view.testValidity()) {
-                break;
-            }
-        }
-    }
-
-    private void getAllFormViews(List<FormEditText> views, ViewGroup root) {
-        if (root.getChildCount() == 0) {
-            return;
-        } 
-
-        for (int i = 0; i < root.getChildCount(); i ++) {
-            View child = root.getChildAt(i);
-            if (child instanceof FormEditText) {
-                views.add((FormEditText)child);
-            }
-
-            if (child instanceof ViewGroup) {
-                getAllFormViews(views, (ViewGroup)child);
-            }
-        }
     }
 
     //Content fragment. Used to display ticket, summary and nearby restarant.

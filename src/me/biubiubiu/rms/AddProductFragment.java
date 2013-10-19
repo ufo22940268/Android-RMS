@@ -16,6 +16,7 @@ import java.util.*;
 import org.json.*;
 
 import android.support.v4.app.Fragment;
+import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 
 public class AddProductFragment extends BaseFragment {
 
@@ -48,24 +49,8 @@ public class AddProductFragment extends BaseFragment {
             return null;
         }
 
+        setHasOptionsMenu(true);
         ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.add_product_fragment, container, false);
-        //mContainer = (ViewGroup)parent.findViewById(R.id.container);
-        //for (String title : TITLE_CATEGORY_1) {
-            //View view = inflater.inflate(R.layout.item_import_category_1, container, false);
-            //((TextView)view.findViewById(R.id.label)).setText(title);
-            //mContainer.addView(view);
-        //}
-
-        //TextView tv = (TextView)inflater.inflate(R.layout.label_text, container, false);
-        //tv.setText("入库状态显示栏");
-        //mContainer.addView(tv);
-
-        //for (String title : TITLE_CATEGORY_2) {
-            //View view = inflater.inflate(R.layout.item_import_category_1, container, false);
-            //((TextView)view.findViewById(R.id.label)).setText(title);
-            //mContainer.addView(view);
-        //}
-        
         return parent;
     }
 
@@ -73,4 +58,38 @@ public class AddProductFragment extends BaseFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.save, menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        System.out.println("++++++++++++++++++++" + "onOptionsItemSelected" + "++++++++++++++++++++");
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("snum", "asdasdfasdf");
+        map.put("product_snum", "asdasdfasdf");
+        mHttp.add("import", map, new ResponseHandler() {
+            @Override
+            public void onSuccess(String result) {
+            }
+        });
+        return true;
+    }
+
+    //private void validateAll() {
+        //ViewGroup root = (ViewGroup)this.getWindow().getDecorView();
+        ////List<FormEditText> views = new ArrayList<FormEditText>();
+        //List<FormEditText> views = ViewUtils.getTypeViews(root, FormEditText.class);
+
+        //for (FormEditText view : views) {
+            //System.out.println("++++++++++++++++++++id:" + mRes.getResourceEntryName(view.getId()) + "++++++++++++++++++++");
+            //if (!view.testValidity()) {
+                //break;
+            //}
+        //}
+    //}
+
 }

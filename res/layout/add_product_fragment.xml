@@ -8,7 +8,7 @@
     >
 
 
-    <TableLayout
+    <me.biubiubiu.rms.Form
         android:id="@+id/container"
         android:orientation="vertical"
         android:layout_width="fill_parent"
@@ -26,14 +26,32 @@
 
             <TextView 
                 android:id="@+id/label"
-                android:text="入库类型"
+                android:text="入库单号"
+                android:layout_marginRight="6dip"
                 />
 
-            <com.andreabaccega.widget.FormEditText
-                android:id="@+id/field"
+            <TextView
+                android:id="@+id/snum"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="入库日期"
+                />
+
+            <TextView
+                android:id="@+id/time"
                 android:layout_marginLeft="6dip"
-                editTextFormExample:testType="alpha"
-                editTextFormExample:key="hongbosbb"
                 />
 
         </TableRow>
@@ -50,15 +68,198 @@
                 android:text="入库类型"
                 />
 
-            <com.andreabaccega.widget.FormEditText
-                android:id="@+id/field"
+            <Spinner
+                android:id="@+id/type"
                 android:layout_marginLeft="6dip"
-                editTextFormExample:testType="alpha"
-                editTextFormExample:key="hongbosbb"/>
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="采购人员"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/buyer"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="操作人员"
+                />
+
+            <Spinner
+                android:id="@+id/operator"
+                android:layout_marginLeft="6dip"
+                />
 
         </TableRow>
 
 
-    </TableLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="供应单位"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/buyer"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="产品编码"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/product_snum"
+                android:layout_marginLeft="6dip"
+                android:hint="手动输入或者点击扫描"
+                editTextFormExample:testType="alpha"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="产品名称"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/product_sname"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="颜色"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/color"
+                android:hint="请输入颜色"
+                android:layout_marginLeft="6dip"/>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="属性"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/property"
+                android:layout_marginLeft="6dip"/>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="备注"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/comment"
+                android:layout_marginLeft="6dip"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="单位"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/unit"
+                android:hint="如台，个，打"
+                android:layout_marginLeft="6dip"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="数量"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/quantity"
+                android:layout_marginLeft="6dip"
+                android:hint="请输入数字"
+                editTextFormExample:testType="numeric"
+                />
+
+        </TableRow>
+
+    </me.biubiubiu.rms.Form>
 
 </ScrollView>

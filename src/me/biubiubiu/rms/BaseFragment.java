@@ -4,6 +4,7 @@ import android.util.*;
 import android.widget.*;
 import android.view.*;
 import android.content.*;
+import android.content.res.*;
 import android.app.*;
 import android.os.*;
 import android.database.*;
@@ -18,20 +19,24 @@ import org.json.*;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
+import me.biubiubiu.rms.util.*;
+import me.biubiubiu.rms.ui.*;
 
 public class BaseFragment extends Fragment {
+
+    protected Resources mRes;
+    protected HttpHandler mHttp;
+
 
     public BaseFragment(){
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return null;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onCreate(Bundle savedInstance){
+        super.onCreate(savedInstance);
+        mRes = getActivity().getResources();
+        mHttp = new HttpHandler(getActivity());
     }
 
     protected void startFragment(Fragment f) {
