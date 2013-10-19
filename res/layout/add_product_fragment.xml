@@ -8,8 +8,8 @@
     >
 
 
-    <me.biubiubiu.rms.Form
-        android:id="@+id/container"
+    <me.biubiubiu.rms.ui.Form
+        android:id="@+id/form"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -125,7 +125,7 @@
                 />
 
             <com.andreabaccega.widget.FormEditText
-                android:id="@+id/buyer"
+                android:id="@+id/provider"
                 android:layout_marginLeft="6dip"
                 />
 
@@ -260,6 +260,6 @@
 
         </TableRow>
 
-    </me.biubiubiu.rms.Form>
+    </me.biubiubiu.rms.ui.Form>
 
 </ScrollView>

@@ -5,7 +5,7 @@
  * Distributed under terms of the MIT license.
  */
 
-package me.biubiubiu.rms;
+package me.biubiubiu.rms.ui;
 
 import android.util.*;
 import android.widget.*;
@@ -67,15 +67,21 @@ public class Form extends TableLayout {
         return prefix + "_NS" + ft;
     }
 
-    private DatePickerDialog.OnDateSetListener mDateSetListener =
-            new DatePickerDialog.OnDateSetListener() {
-
-                public void onDateSet(DatePicker view, int year, int monthOfYear,
-                        int dayOfMonth) {
-                    //mYear = year;
-                    //mMonth = monthOfYear;
-                    //mDay = dayOfMonth;
-                    //updateDisplay();
+    public Map<String, String> collect() {
+        Map<String, String> map = new HashMap<String, String>();
+        for (int i = 0; i < getChildCount(); i ++) {
+            ViewGroup row = (ViewGroup)getChildAt(i);
+            if (row.getChildCount() >= 2) {
+                View field = row.getChildAt(1);
+                if (field instanceof TextView) {
+                    String value = ((TextView)field).getText().toString();
+                    map.put(ViewUtils.getKey(field), value);
+                } else if (field instanceof Spinner) {
+                    //TODO 
                 }
-            };
+            }
+        }
+
+        return map;
+    }
 }

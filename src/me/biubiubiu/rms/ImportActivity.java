@@ -71,7 +71,7 @@ public class ImportActivity extends BaseActivity {
             if (position == 0) {
                 return new AddProductFragment();
             } else if (position == 1) {
-                return new RepoStatusFragment();
+                return new RepoListFragment();
             } else if (position == 2) {
                 return new PrintFragment();
             }

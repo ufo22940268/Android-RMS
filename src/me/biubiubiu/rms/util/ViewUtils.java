@@ -61,6 +61,14 @@ public class ViewUtils {
         Resources res = view.getContext().getResources();
         return res.getResourceEntryName(view.getId());
     }
+
+    public static void setEmptyView(Context context, ListView listView, int layout) {
+        View empty = LayoutInflater.from(context).inflate(
+                layout, listView, false);
+        empty.setVisibility(View.GONE);
+        ((ViewGroup)listView.getParent()).addView(empty);
+        listView.setEmptyView(empty);
+    }
 }
 
 

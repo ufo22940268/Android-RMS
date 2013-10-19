@@ -16,20 +16,26 @@ import java.util.*;
 import org.json.*;
 
 import android.support.v4.app.Fragment;
+import me.biubiubiu.rms.ui.*;
+import me.biubiubiu.rms.util.*;
 
-public class RepoStatusFragment extends BaseFragment {
+public class RepoListFragment extends BaseFragment {
 
     private ListView mListView;
+    private ArrayAdapter mAdapter;
+    private PageList mPageList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.repo_status_fragment, container, false);
+        mPageList = (PageList)parent.findViewById(R.id.page_list);
+        mPageList.condition("import", R.layout.list_item_repo_status);
         mListView = (ListView)parent.findViewById(R.id.list);
-        ListView lv = getListView();
-        lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        //ListView lv = getListView();
+        //lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         //lv.setMultiChoiceModeListener(new ModeCallback());
-        lv.setAdapter(new ArrayAdapter<String>(getActivity(),
-                R.layout.list_item_repo_status, R.id.value, mStrings));
+        //mAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_repo_status, R.id.value, new String[]{});
+        //lv.setAdapter(mAdapter);
         return parent;
     }
 
@@ -40,7 +46,7 @@ public class RepoStatusFragment extends BaseFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getActivity().getActionBar().setSubtitle("Long press to start selection");
+        //getActivity().getActionBar().setSubtitle("Long press to start selection");
     }
     
     //private class ModeCallback implements ListView.MultiChoiceModeListener {
