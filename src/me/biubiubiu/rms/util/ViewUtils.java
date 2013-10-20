@@ -69,6 +69,18 @@ public class ViewUtils {
         ((ViewGroup)listView.getParent()).addView(empty);
         listView.setEmptyView(empty);
     }
+
+    public static String getFormValue(View view) {
+        if (view == null) {
+            return null;
+        }
+
+        if (view instanceof TextView) {
+            return ((TextView)view).getText().toString();
+        } else {
+            return null;
+        }
+    }
 }
 
 

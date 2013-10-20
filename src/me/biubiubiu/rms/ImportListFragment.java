@@ -19,7 +19,7 @@ import android.support.v4.app.Fragment;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.util.*;
 
-public class RepoListFragment extends BaseFragment {
+public class ImportListFragment extends BaseFragment {
 
     private ListView mListView;
     private ArrayAdapter mAdapter;

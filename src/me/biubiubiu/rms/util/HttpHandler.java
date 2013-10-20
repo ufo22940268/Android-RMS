@@ -81,6 +81,7 @@ public class HttpHandler {
         AsyncHttpClient client = new AsyncHttpClient();
         client.setBasicAuth("asdf", "asdf");
         RequestParams params = new RequestParams();
+        //TODO Add entity to params.
         JSONObject jo = new JSONObject(entity);
         params.put("item1", jo.toString());
         client.addHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -99,6 +100,31 @@ public class HttpHandler {
         String url = getUrl(endPoint);
         url = url + "/" + entity.get("_id");
         client.delete(url, new MyAsyncHttpResponseHandler(handler, 0));
+    }
+
+    public void update(String endPoint, final Map<String, String> oldItem, final Map<String, String> entity, final ResponseHandler handler) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.setBasicAuth("asdf", "asdf");
+        String etag = oldItem.get("etag");
+        client.addHeader("If-Match", etag);
+        client.addHeader("X-HTTP-Method-Override", "PATCH");
+        String url = getUrl(endPoint);
+        url = url + "/" + oldItem.get("_id");
+        RequestParams params = new RequestParams();
+        addEntityToParams(entity, params);
+        client.post(url, params, new MyAsyncHttpResponseHandler(handler, 0));
+    }
+
+    private void addEntityToParams(Map<String, String> entity, RequestParams params) {
+        JSONObject jo = new JSONObject();
+        try {
+            for (String key : entity.keySet()) {
+                jo.put(key, entity.get(key));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        params.put("item1", jo.toString());
     }
 
     class MyAsyncHttpResponseHandler extends AsyncHttpResponseHandler {
