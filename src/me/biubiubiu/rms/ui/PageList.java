@@ -29,12 +29,14 @@ import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
 
-public class PageList extends FrameLayout {
+public class PageList extends FrameLayout implements AdapterView.OnItemLongClickListener, View.OnClickListener {
 
     private String mEndPoint;
     private int mItemLayout;
     private ListView mListView;
     private MyAdapter mAdapter;
+    private int mPage = 1;
+    private TextView mPageView;
 
     public PageList(Context context, AttributeSet attr) {
         super(context, attr);
@@ -44,17 +46,52 @@ public class PageList extends FrameLayout {
     public void condition(String endPoint, int itemLayout) {
         mEndPoint   = endPoint;
         mItemLayout = itemLayout;
-        start();
+        load();
     }
 
-    private void start() {
-        new HttpHandler(getContext()).get(mEndPoint, new ResponseHandler() {
+    private void load() {
+        new HttpHandler(getContext()).get(mEndPoint, mPage,  new ResponseHandler() {
             @Override
             public void onSuccess(String result) {
-                mAdapter.setList(Parser.items(result));
-                mAdapter.notifyDataSetChanged();
+                List<Map<String, String>> list = Parser.items(result);
+                if (list.size() > 0) {
+                    mAdapter.setList(Parser.items(result));
+                    mAdapter.notifyDataSetChanged();
+                    updatePage();
+                } else {
+                    // No more pages.
+                    if (mPage > 0) {
+                        mPage -= 1;
+                        Toast.makeText(getContext(),
+                            "已经最后一页了", Toast.LENGTH_LONG).show();
+                    }
+                }
             }
         });
+    }
+
+    public ListView getListView() {
+        return mListView;
+    }
+
+    @Override
+    public boolean onItemLongClick(AdapterView parent, View view, final int pos, long id) {
+        new AlertDialog.Builder(getContext())
+            .setTitle("操作")
+            .setItems(new String[]{"删除"}, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    System.out.println("++++++++++++++++++++" + "clicked" + "++++++++++++++++++++");
+                    new HttpHandler(getContext()).delete("import", mAdapter.getEntry(pos), new ResponseHandler() {
+                        public void onSuccess(String result) {
+                        }
+                    });
+
+                    mAdapter.remove(pos);
+                    mAdapter.notifyDataSetChanged();
+                }
+            })
+        .show();
+        return true;
     }
 
     @Override
@@ -65,6 +102,34 @@ public class PageList extends FrameLayout {
         mListView.setAdapter(mAdapter);
         ViewUtils.setEmptyView(getContext(), mListView, R.layout.empty_progress);
 
+        mListView.setOnItemLongClickListener(this);
+        findViewById(R.id.prev).setOnClickListener(this);
+        findViewById(R.id.next).setOnClickListener(this);
+        mPageView = (TextView)findViewById(R.id.page);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.next:
+                mPage += 1;
+                load();
+                break;
+            
+            case R.id.prev:
+                if (mPage - 1 <= 0) {
+                    break;
+                } else {
+                    mPage -= 1;
+                    load();
+                }
+                break;
+            
+        }
+    }
+
+    private void updatePage() {
+        mPageView.setText("页码:" + mPage);
     }
 
     public class MyAdapter extends BaseAdapter {
@@ -83,6 +148,14 @@ public class PageList extends FrameLayout {
             }
         }
 
+        public void remove(int pos) {
+            mList.remove(pos);
+        }
+
+        private Map<String, String> getEntry(int pos) {
+            return mList.get(pos);
+        }
+
         public Object getItem(int position) {
             return null;
         }
@@ -96,7 +169,7 @@ public class PageList extends FrameLayout {
             if (view == null) {
                 view = LayoutInflater.from(getContext()).inflate(mItemLayout, parent, false);
             }
-            
+
             Map<String, String> map = mList.get(position);
             List<TextView> views = ViewUtils.getTypeViews((ViewGroup)view, TextView.class);
             for (TextView tv : views) {

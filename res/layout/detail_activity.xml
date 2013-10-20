@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:editTextFormExample="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip"
+    >
+
+
+    <me.biubiubiu.rms.ui.Form
+        android:id="@+id/form"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1"
+        android:divider="@drawable/divider"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="入库单号"
+                android:layout_marginRight="6dip"
+                />
+
+            <TextView
+                android:id="@+id/snum"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="入库日期"
+                />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="入库类型"
+                />
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="采购人员"
+                />
+
+            <TextView
+                android:id="@+id/buyer"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="操作人员"
+                />
+
+            <TextView
+                android:id="@+id/operator"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="供应单位"
+                />
+
+            <TextView
+                android:id="@+id/provider"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="产品编码"
+                />
+
+            <TextView
+                android:id="@+id/product_snum"
+                android:layout_marginLeft="6dip"
+                android:hint="手动输入或者点击扫描"
+                editTextFormExample:testType="alpha"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="产品名称"
+                />
+
+            <TextView
+                android:id="@+id/product_sname"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="颜色"
+                />
+
+            <TextView
+                android:id="@+id/color"
+                android:hint="请输入颜色"
+                android:layout_marginLeft="6dip"/>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="属性"
+                />
+
+            <TextView
+                android:id="@+id/property"
+                android:layout_marginLeft="6dip"/>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="备注"
+                />
+
+            <TextView
+                android:id="@+id/comment"
+                android:layout_marginLeft="6dip"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="单位"
+                />
+
+            <TextView
+                android:id="@+id/unit"
+                android:hint="如台，个，打"
+                android:layout_marginLeft="6dip"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="数量"
+                />
+
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_marginLeft="6dip"
+                android:hint="请输入数字"
+                editTextFormExample:testType="numeric"
+                />
+
+        </TableRow>
+
+    </me.biubiubiu.rms.ui.Form>
+
+</ScrollView>

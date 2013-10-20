@@ -34,6 +34,13 @@ public class HttpHandler {
         mContext = context;
     }
 
+    public void get(String endPoint, int page, final ResponseHandler handler) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("max_results", "2");
+        map.put("page", String.valueOf(page));
+        get(endPoint, map, handler);
+    }
+
     public void get(String endPoint, final ResponseHandler handler) {
         get(endPoint, null, handler);
     }
@@ -42,7 +49,16 @@ public class HttpHandler {
         AsyncHttpClient client = new AsyncHttpClient();
         client.setBasicAuth("asdf", "asdf");
         String url = getUrl(endPoint);
-        client.get(url, new AsyncHttpResponseHandler() {
+        RequestParams params = new RequestParams();
+        putParams(params, entity);
+        params.put("sort", "[(\"_id\", -1)]");
+
+        final String fullUrl = AsyncHttpClient.getUrlWithQueryString(url, params);
+        if (DEBUG) {
+            Log.d(TAG, "++++++++++++++++++++full url:" + fullUrl);
+        }
+
+        client.get(url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(String response) {
                 if (DEBUG) {
@@ -72,15 +88,35 @@ public class HttpHandler {
         if (DEBUG) {
             Log.d(TAG, "++++++++++++++++++++url:" + url);
         }
-        client.post(url, params, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(String response) {
-                if (DEBUG) {
-                    Log.d(TAG, "++++++++++++++++++++response:" + response);
-                }
+        client.post(url, params, new MyAsyncHttpResponseHandler(handler, 0));
+    }
 
-                handler.onSuccess(response);
+    public void delete(String endPoint, final Map<String, String> entity, final ResponseHandler handler) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.setBasicAuth("asdf", "asdf");
+        String etag = entity.get("etag");
+        client.addHeader("If-Match", etag);
+        String url = getUrl(endPoint);
+        url = url + "/" + entity.get("_id");
+        client.delete(url, new MyAsyncHttpResponseHandler(handler, 0));
+    }
+
+    class MyAsyncHttpResponseHandler extends AsyncHttpResponseHandler {
+
+        private ResponseHandler mMyHandler;
+
+        public MyAsyncHttpResponseHandler(ResponseHandler handler, int i) {
+            mMyHandler = handler;
+        }
+
+        @Override
+        public void onSuccess(String response) {
+            if (DEBUG) {
+                Log.d(TAG, "++++++++++++++++++++response:" + response);
             }
+
+            mMyHandler.onSuccess(response);
+        }
 
         @Override
         public void onFailure(Throwable e, String response) {
@@ -88,9 +124,7 @@ public class HttpHandler {
                 Log.d(TAG, "++++++++++++++++++++response failed:" + response);
             }
         }
-
-        });
-    }
+    };
 
     public static class ResponseHandler {
 
@@ -98,6 +132,16 @@ public class HttpHandler {
         }
 
         public void onFinish() {
+        }
+    }
+
+    private void putParams(RequestParams params, Map<String, String> map) {
+        if (map == null) {
+            return;
+        }
+
+        for (String key : map.keySet()) {
+            params.put(key, map.get(key));
         }
     }
 

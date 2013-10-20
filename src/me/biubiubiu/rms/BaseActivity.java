@@ -45,7 +45,7 @@ public class BaseActivity extends ActionBarActivity {
     protected HttpHandler mHttp;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRes = getResources();
         mHttp = new HttpHandler(this);
