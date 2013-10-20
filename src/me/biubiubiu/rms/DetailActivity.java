@@ -30,19 +30,14 @@ import com.loopj.android.http.*;
 
 public class DetailActivity extends ItemBaseActivity  {
 
-    private String mId;
-    private String mEndPoint;
-
     @Override
     protected void onCreate(Bundle savedBundleInstance) {
         super.onCreate(savedBundleInstance);
         setContentView(R.layout.detail_activity);
         Intent intent = getIntent();
         Bundle extra = intent.getExtras();
-        //mEndPoint = extra.getString("end_point");
-        //mId = extra.getString("_id");
-        mEndPoint = "import";
-        mId = "5263425330bc220bf31c34e2";
+        mEndPoint = extra.getString("end_point");
+        mId = extra.getString("_id");
 
         loadById(mEndPoint, mId);
     }
@@ -56,6 +51,19 @@ public class DetailActivity extends ItemBaseActivity  {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return true;
+
+        if (item.getItemId() == R.id.edit) {
+            if (!isLoaded()) {
+                return true;
+            }
+
+            Intent intent = new Intent(this, EditActivity.class);
+            intent.putExtra("end_point", mEndPoint);
+            intent.putExtra("_id", mItemMap.get("_id"));
+            startActivity(intent);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 }

@@ -36,13 +36,6 @@ public class EditActivity extends ItemBaseActivity  {
     protected void onCreate(Bundle savedBundleInstance) {
         super.onCreate(savedBundleInstance);
         setContentView(R.layout.add_product_fragment);
-        Intent intent = getIntent();
-        Bundle extra = intent.getExtras();
-        //mEndPoint = extra.getString("end_point");
-        //mId = extra.getString("_id");
-        String mEndPoint = "import";
-        String mId = "5263425330bc220bf31c34e2";
-
         loadById(mEndPoint, mId);
     }
 
@@ -55,15 +48,19 @@ public class EditActivity extends ItemBaseActivity  {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (!isLoaded()) {
-            return false;
-        }
-
-        new HttpHandler(this).update("import", mItemMap, collectItem(), new ResponseHandler() {
-            public void onSuccess(String result) {
-                finish();
+        if (item.getItemId() == R.id.save) {
+            if (!isLoaded()) {
+                return true;
             }
-        });
-        return true;
+
+            new HttpHandler(this).update(mEndPoint, mItemMap, collectItem(), new ResponseHandler() {
+                public void onSuccess(String result) {
+                    finish();
+                }
+            });
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 }

@@ -56,6 +56,18 @@ public class BaseActivity extends ActionBarActivity {
         mRes = getResources();
         mHttp = new HttpHandler(this);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }
 
 

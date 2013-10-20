@@ -29,7 +29,7 @@ import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
 
-public class PageList extends FrameLayout implements AdapterView.OnItemLongClickListener, View.OnClickListener {
+public class PageList extends FrameLayout implements AdapterView.OnItemLongClickListener, View.OnClickListener, AdapterView.OnItemClickListener {
 
     private String mEndPoint;
     private int mItemLayout;
@@ -49,7 +49,7 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
         load();
     }
 
-    private void load() {
+    public void load() {
         new HttpHandler(getContext()).get(mEndPoint, mPage,  new ResponseHandler() {
             @Override
             public void onSuccess(String result) {
@@ -60,7 +60,7 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
                     updatePage();
                 } else {
                     // No more pages.
-                    if (mPage > 0) {
+                    if (mPage > 1) {
                         mPage -= 1;
                         Toast.makeText(getContext(),
                             "已经最后一页了", Toast.LENGTH_LONG).show();
@@ -75,12 +75,20 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
     }
 
     @Override
+    public void onItemClick(AdapterView parent, View view, final int pos, long id) {
+        Map<String, String> item = mAdapter.getEntry(pos);
+        Intent intent = new Intent(getContext(), DetailActivity.class);
+        intent.putExtra("end_point", mEndPoint);
+        intent.putExtra("_id", item.get("_id"));
+        ((Activity)getContext()).startActivity(intent);
+    }
+
+    @Override
     public boolean onItemLongClick(AdapterView parent, View view, final int pos, long id) {
         new AlertDialog.Builder(getContext())
             .setTitle("操作")
             .setItems(new String[]{"删除"}, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    System.out.println("++++++++++++++++++++" + "clicked" + "++++++++++++++++++++");
                     new HttpHandler(getContext()).delete("import", mAdapter.getEntry(pos), new ResponseHandler() {
                         public void onSuccess(String result) {
                         }
@@ -100,9 +108,9 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
         LayoutInflater.from(getContext()).inflate(R.layout.page_list, this);
         mListView = (ListView)findViewById(R.id.list);
         mListView.setAdapter(mAdapter);
-        ViewUtils.setEmptyView(getContext(), mListView, R.layout.empty_progress);
 
         mListView.setOnItemLongClickListener(this);
+        mListView.setOnItemClickListener(this);
         findViewById(R.id.prev).setOnClickListener(this);
         findViewById(R.id.next).setOnClickListener(this);
         mPageView = (TextView)findViewById(R.id.page);

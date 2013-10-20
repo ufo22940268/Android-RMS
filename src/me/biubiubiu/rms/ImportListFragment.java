@@ -41,7 +41,23 @@ public class ImportListFragment extends BaseFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        //getActivity().getActionBar().setSubtitle("Long press to start selection");
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.refresh, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.refresh) {
+        if (mPageList != null) {
+            mPageList.load();
+        }
+        return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 }
 

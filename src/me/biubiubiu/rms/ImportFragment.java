@@ -18,12 +18,14 @@ import org.json.*;
 import android.support.v4.app.Fragment;
 import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.ui.*;
+import me.biubiubiu.rms.util.*;
+import com.andreabaccega.widget.FormEditText;
 
-public class AddProductFragment extends BaseFragment {
+public class ImportFragment extends BaseFragment {
 
     private Form mForm;
 
-    public AddProductFragment(){
+    public ImportFragment(){
     }
 
     @Override
@@ -32,7 +34,6 @@ public class AddProductFragment extends BaseFragment {
             return null;
         }
 
-        setHasOptionsMenu(true);
         ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.add_product_fragment, container, false);
         mForm = (Form)parent.findViewById(R.id.form);
         return parent;
@@ -51,26 +52,35 @@ public class AddProductFragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        System.out.println("++++++++++++++++++++" + "onOptionsItemSelected" + "++++++++++++++++++++");
-        mHttp.add("import", mForm.collect(), new ResponseHandler() {
-            @Override
-            public void onSuccess(String result) {
+        if (item.getItemId() == R.id.save) {
+            Map<String, String> data = mForm.collect();
+            if (validateAll()) {
+                mHttp.add("import", data, new ResponseHandler() {
+                    @Override
+                    public void onSuccess(String result) {
+                        Toast.makeText(getActivity(),
+                            "添加成功", Toast.LENGTH_LONG).show();
+                    }
+                });
             }
-        });
-        return true;
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
-    //private void validateAll() {
-        //ViewGroup root = (ViewGroup)this.getWindow().getDecorView();
-        ////List<FormEditText> views = new ArrayList<FormEditText>();
+    private boolean validateAll() {
+        ViewGroup root = mForm;
+        return ((FormEditText)root.findViewById(R.id.product_snum)).testValidity() && ((FormEditText)root.findViewById(R.id.quantity)).testValidity();
+        //ViewGroup root = mForm;
         //List<FormEditText> views = ViewUtils.getTypeViews(root, FormEditText.class);
-
         //for (FormEditText view : views) {
-            //System.out.println("++++++++++++++++++++id:" + mRes.getResourceEntryName(view.getId()) + "++++++++++++++++++++");
             //if (!view.testValidity()) {
-                //break;
+                //return false;
             //}
         //}
-    //}
+
+        //return  true;
+    }
 
 }

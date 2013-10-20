@@ -69,7 +69,7 @@ public class ImportActivity extends BaseActivity {
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {
-                return new AddProductFragment();
+                return new ImportFragment();
             } else if (position == 1) {
                 return new ImportListFragment();
             } else if (position == 2) {

@@ -28,6 +28,7 @@
                 android:id="@+id/label"
                 android:text="入库单号"
                 android:layout_marginRight="6dip"
+                style="@style/form_label"
                 />
 
             <TextView
@@ -47,6 +48,7 @@
             <TextView 
                 android:id="@+id/label"
                 android:text="入库日期"
+                style="@style/form_label"
                 />
 
             <TextView
@@ -66,6 +68,7 @@
             <TextView 
                 android:id="@+id/label"
                 android:text="入库类型"
+                style="@style/form_label"
                 />
 
             <TextView
@@ -84,6 +87,7 @@
 
             <TextView 
                 android:text="采购人员"
+                style="@style/form_label"
                 />
 
             <TextView
@@ -103,6 +107,7 @@
             <TextView 
                 android:id="@+id/label"
                 android:text="操作人员"
+                style="@style/form_label"
                 />
 
             <TextView
@@ -122,6 +127,7 @@
 
             <TextView 
                 android:text="供应单位"
+                style="@style/form_label"
                 />
 
             <TextView
@@ -140,12 +146,13 @@
 
             <TextView 
                 android:text="产品编码"
+                style="@style/form_label"
                 />
 
             <TextView
                 android:id="@+id/product_snum"
                 android:layout_marginLeft="6dip"
-                android:hint="手动输入或者点击扫描"
+                style="@style/form_field"
                 editTextFormExample:testType="alpha"/>
 
         </TableRow>
@@ -162,7 +169,8 @@
                 />
 
             <TextView
-                android:id="@+id/product_sname"
+                android:id="@+id/product_name"
+                style="@style/form_field"
                 android:layout_marginLeft="6dip"
                 />
 
@@ -177,11 +185,12 @@
 
             <TextView 
                 android:text="颜色"
+                style="@style/form_label"
                 />
 
             <TextView
                 android:id="@+id/color"
-                android:hint="请输入颜色"
+                style="@style/form_field"
                 android:layout_marginLeft="6dip"/>
 
         </TableRow>
@@ -196,10 +205,12 @@
 
             <TextView 
                 android:text="属性"
+                style="@style/form_label"
                 />
 
             <TextView
                 android:id="@+id/property"
+                style="@style/form_field"
                 android:layout_marginLeft="6dip"/>
 
         </TableRow>
@@ -214,10 +225,12 @@
 
             <TextView 
                 android:text="备注"
+                style="@style/form_label"
                 />
 
             <TextView
                 android:id="@+id/comment"
+                style="@style/form_field"
                 android:layout_marginLeft="6dip"/>
 
         </TableRow>
@@ -231,11 +244,12 @@
 
             <TextView 
                 android:text="单位"
+                style="@style/form_label"
                 />
 
             <TextView
                 android:id="@+id/unit"
-                android:hint="如台，个，打"
+                style="@style/form_field"
                 android:layout_marginLeft="6dip"/>
 
         </TableRow>
@@ -249,12 +263,13 @@
 
             <TextView 
                 android:text="数量"
+                style="@style/form_label"
                 />
 
             <TextView
                 android:id="@+id/quantity"
                 android:layout_marginLeft="6dip"
-                android:hint="请输入数字"
+                style="@style/form_field"
                 editTextFormExample:testType="numeric"
                 />
 

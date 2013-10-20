@@ -27,8 +27,10 @@ public class HttpHandler {
 
     static public final boolean DEBUG = true;
     static public final String TAG = "HttpHandler";
-    static public final String BASE_URL = "http://192.168.1.101:5000/";
+    //static public final String BASE_URL = "http://192.168.1.101:5000/";
+    static public final String BASE_URL = "http://192.241.196.189:5000/";
     private Context mContext;
+    private ProgressDialog mLoadingDialog;
 
     public HttpHandler(Context context) {
         mContext = context;
@@ -58,32 +60,15 @@ public class HttpHandler {
             Log.d(TAG, "++++++++++++++++++++full url:" + fullUrl);
         }
 
-        client.get(url, params, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(String response) {
-                if (DEBUG) {
-                    Log.d(TAG, "++++++++++++++++++++response:" + response);
-                }
-
-                handler.onSuccess(response);
-            }
-
-        @Override
-        public void onFailure(Throwable e, String response) {
-            if (DEBUG) {
-                Log.d(TAG, "++++++++++++++++++++response failed:" + response);
-            }
-        }
-        });
+        showLoading();
+        client.get(url, params, new MyAsyncHttpResponseHandler(handler, 0));
     }
 
     public void add(String endPoint, final Map<String, String> entity, final ResponseHandler handler) {
         AsyncHttpClient client = new AsyncHttpClient();
         client.setBasicAuth("asdf", "asdf");
         RequestParams params = new RequestParams();
-        //TODO Add entity to params.
-        JSONObject jo = new JSONObject(entity);
-        params.put("item1", jo.toString());
+        addEntityToParams(entity, params);
         client.addHeader("Content-Type", "application/x-www-form-urlencoded");
         String url = BASE_URL + endPoint;
         if (DEBUG) {
@@ -99,6 +84,8 @@ public class HttpHandler {
         client.addHeader("If-Match", etag);
         String url = getUrl(endPoint);
         url = url + "/" + entity.get("_id");
+
+        showLoading();
         client.delete(url, new MyAsyncHttpResponseHandler(handler, 0));
     }
 
@@ -112,6 +99,9 @@ public class HttpHandler {
         url = url + "/" + oldItem.get("_id");
         RequestParams params = new RequestParams();
         addEntityToParams(entity, params);
+
+        showLoading();
+
         client.post(url, params, new MyAsyncHttpResponseHandler(handler, 0));
     }
 
@@ -119,7 +109,9 @@ public class HttpHandler {
         JSONObject jo = new JSONObject();
         try {
             for (String key : entity.keySet()) {
-                jo.put(key, entity.get(key));
+                if (!TextUtils.isEmpty(entity.get(key))) {
+                    jo.put(key, entity.get(key));
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -142,6 +134,7 @@ public class HttpHandler {
             }
 
             mMyHandler.onSuccess(response);
+            dismissLoading();
         }
 
         @Override
@@ -149,6 +142,9 @@ public class HttpHandler {
             if (DEBUG) {
                 Log.d(TAG, "++++++++++++++++++++response failed:" + response);
             }
+            Toast.makeText(mContext,
+                "出错了，请重试", Toast.LENGTH_LONG).show();
+            dismissLoading();
         }
     };
 
@@ -178,4 +174,23 @@ public class HttpHandler {
         }
         return url;
     }
+
+    public void showLoading() {
+        mLoadingDialog = new ProgressDialog(mContext);
+        mLoadingDialog.setMessage("加载中");
+        mLoadingDialog.setIndeterminate(true);
+        mLoadingDialog.setCancelable(true);
+        mLoadingDialog.show();
+    }
+
+    public void dismissLoading() {
+        try {
+            if (mLoadingDialog != null) {
+                mLoadingDialog.dismiss();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

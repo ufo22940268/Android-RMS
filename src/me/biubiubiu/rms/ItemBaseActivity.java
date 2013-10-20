@@ -47,6 +47,18 @@ public class ItemBaseActivity extends BaseActivity {
 
     protected Map<String, String> mItemMap;
     protected Map<Integer, String> mLoadedMap;
+    protected String mId;
+    protected String mEndPoint;
+
+    @Override
+    protected void onCreate(Bundle savedBundleInstance) {
+        super.onCreate(savedBundleInstance);
+        Intent intent = getIntent();
+        Bundle extra = intent.getExtras();
+        mEndPoint = extra.getString("end_point");
+        mId = extra.getString("_id");
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
     protected void loadById(String endPoint, String _id) {
         new HttpHandler(this).get(endPoint, 1,  new ResponseHandler() {
@@ -63,7 +75,8 @@ public class ItemBaseActivity extends BaseActivity {
                         int id = resIds[i];
                         String value = item.get(keys[i]);
                         View view = findViewById(id);
-                        if (view != null) {
+                        if (view != null && view instanceof TextView) {
+                            //TODO Extract as a method and put it into ViewUtils.
                             ((TextView)view).setText(value);
                         }
                     }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="form_label">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="form_field">
+    </style>
+</resources>
+<!-- vim:fenc=utf-8
+  -->
+

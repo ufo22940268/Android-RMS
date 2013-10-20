@@ -37,6 +37,7 @@ public class BaseFragment extends Fragment {
         super.onCreate(savedInstance);
         mRes = getActivity().getResources();
         mHttp = new HttpHandler(getActivity());
+        setHasOptionsMenu(true);
     }
 
     protected void startFragment(Fragment f) {
@@ -49,5 +50,16 @@ public class BaseFragment extends Fragment {
                 .addToBackStack(null)
                 .commit();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                getActivity().finish();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
