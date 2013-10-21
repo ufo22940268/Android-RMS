@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dip"
+    android:stretchColumns="1">
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="供应商名称:"
+            />
+
+        <TextView 
+            android:id="@+id/name"
+            android:textColor="#f00"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="供应商编号:"
+            />
+
+        <TextView 
+            android:id="@+id/product_snum"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="联系人:"
+            />
+
+        <TextView 
+            android:id="@+id/product_name"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="联系电话:"
+            />
+
+        <TextView 
+            android:id="@+id/quantity"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="手机:"
+            />
+
+        <TextView 
+            android:id="@+id/time"
+            />
+
+    </TableRow>
+
+</TableLayout>

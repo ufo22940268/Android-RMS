@@ -30,25 +30,34 @@ import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
 
-public class SearchResultActivity extends BaseActivity {
+public class ProviderActivity extends BaseActivity {
 
-    private String mEndPoint;
+    private PageList mPageList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search_result);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        setContentView(R.layout.page_list_fragment);
+        mPageList = (PageList)findViewById(R.id.page_list);
+        mPageList.condition("provider", R.layout.list_item_provider, null);
+    }
 
-        Bundle extra = getIntent().getExtras();
-        mEndPoint = extra.getString("end_point");
-        int layout = ViewUtils.getLayoutRes("list_item_" + mEndPoint);
-        String where = extra.getString("where");
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.provider, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-        PageListFragment fragment = new PageListFragment(mEndPoint, layout, where);
-        getSupportFragmentManager()
-            .beginTransaction().add(R.id.container, fragment).commit();
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //switch (item.getItemId())  {
+            //case :
+                
+            
+        //}
+        return super.onOptionsItemSelected(item);
     }
 }
 

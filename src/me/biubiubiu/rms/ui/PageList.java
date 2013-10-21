@@ -37,20 +37,22 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
     private MyAdapter mAdapter;
     private int mPage = 1;
     private TextView mPageView;
+    private String mWhere;
 
     public PageList(Context context, AttributeSet attr) {
         super(context, attr);
         mAdapter = new MyAdapter();
     }
 
-    public void condition(String endPoint, int itemLayout) {
+    public void condition(String endPoint, int itemLayout, String where) {
         mEndPoint   = endPoint;
         mItemLayout = itemLayout;
+        mWhere = where;
         load();
     }
 
     public void load() {
-        new HttpHandler(getContext()).get(mEndPoint, mPage,  new ResponseHandler() {
+        new HttpHandler(getContext()).getSearch(mEndPoint, mPage, mWhere,  new ResponseHandler() {
             @Override
             public void onSuccess(String result) {
                 List<Map<String, String>> list = Parser.items(result);

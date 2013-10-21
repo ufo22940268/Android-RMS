@@ -92,11 +92,20 @@ public class RepoManageFragment extends BaseFragment {
                     startActivity(intent);
                     break;
 
+                case 2:
+                    intent = new Intent(getActivity(), SearchActivity.class);
+                    startActivity(intent);
+                    break;
+
                 case 3:
                     intent = new Intent(getActivity(), ProductActivity.class);
                     startActivity(intent);
                     break;
 
+                case 4:
+                    intent = new Intent(getActivity(), ProviderActivity.class);
+                    startActivity(intent);
+                    break;
             }
         }
     }

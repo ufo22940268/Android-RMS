@@ -5,6 +5,7 @@ import android.widget.*;
 import android.view.*;
 import android.content.*;
 import android.app.*;
+import android.text.*;
 import android.os.*;
 import android.database.*;
 import android.net.*;
@@ -53,6 +54,10 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
 
                 Map<String, String> map = collectSearchMap();
                 String where = HttpHandler.buildWhere(map);
+                Intent intent = new Intent(getActivity(), SearchResultActivity.class);
+                intent.putExtra("end_point", mEndPoint);
+                intent.putExtra("where", where);
+                startActivity(intent);
                 break;
         }
     }
@@ -63,6 +68,14 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         //TODO Handle begin and end.
         map.remove("from");
         map.remove("to");
+
+        Iterator<String> iter = map.keySet().iterator();
+        while (iter.hasNext()) {
+            String key = iter.next();
+            if (TextUtils.isEmpty(map.get(key))) {
+                iter.remove();
+            }
+        }
 
         return map;
     }

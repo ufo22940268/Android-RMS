@@ -26,17 +26,24 @@ public class PageListFragment extends BaseFragment {
     private PageList mPageList;
     private String mEndPoint;
     private int mItemLayout;
+    private String mWhere;
 
     public PageListFragment(String endPoint, int itemLayout) {
         mEndPoint = endPoint;
         mItemLayout = itemLayout;
     }
 
+    public PageListFragment(String endPoint, int itemLayout, String where) {
+        mEndPoint = endPoint;
+        mItemLayout = itemLayout;
+        mWhere = where;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.page_list_fragment, container, false);
         mPageList = (PageList)parent.findViewById(R.id.page_list);
-        mPageList.condition(mEndPoint, mItemLayout);
+        mPageList.condition(mEndPoint, mItemLayout, mWhere);
         mListView = mPageList.getListView();
         return parent;
     }
