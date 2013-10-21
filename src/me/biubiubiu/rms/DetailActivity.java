@@ -33,12 +33,13 @@ public class DetailActivity extends ItemBaseActivity  {
     @Override
     protected void onCreate(Bundle savedBundleInstance) {
         super.onCreate(savedBundleInstance);
-        setContentView(R.layout.detail_activity);
         Intent intent = getIntent();
         Bundle extra = intent.getExtras();
         mEndPoint = extra.getString("end_point");
         mId = extra.getString("_id");
+        int layout = extra.getInt("layout");
 
+        setContentView(layout);
         loadById(mEndPoint, mId);
     }
 

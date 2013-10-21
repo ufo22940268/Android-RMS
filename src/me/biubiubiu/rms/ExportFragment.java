@@ -21,11 +21,11 @@ import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.util.*;
 import com.andreabaccega.widget.FormEditText;
 
-public class ImportFragment extends AddFragment {
+public class ExportFragment extends AddFragment {
 
     private Form mForm;
 
-    public ImportFragment(){
-        super(R.layout.update_import_fragment);
+    public ExportFragment(){
+        super(R.layout.update_export_fragment);
     }
 }

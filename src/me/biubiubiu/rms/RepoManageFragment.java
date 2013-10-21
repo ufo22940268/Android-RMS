@@ -82,9 +82,17 @@ public class RepoManageFragment extends BaseFragment {
 
         @Override
         public void onItemClick(AdapterView parent, View view, int pos, long id) {
-            if (pos == 0) {
-                Intent intent = new Intent(getActivity(), ImportActivity.class);
-                startActivity(intent);
+            switch (pos) {
+                case 0:
+                    Intent intent = new Intent(getActivity(), ImportActivity.class);
+                    startActivity(intent);
+                    break;
+                case 1:
+                    intent = new Intent(getActivity(), ExportActivity.class);
+                    startActivity(intent);
+                    break;
+
+
             }
         }
     }

@@ -21,6 +21,7 @@ import android.view.animation.*;
 
 import java.util.*;
 import org.json.*;
+import me.biubiubiu.rms.R;
 
 
 public class ViewUtils {
@@ -81,6 +82,14 @@ public class ViewUtils {
             return null;
         }
     }
+
+    public static int getLayoutRes(String name) {
+        R.layout ft = new R.layout();    
+        try {
+            return (Integer)ft.getClass().getField(name).get(ft);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Resouce name not founded.");
+        }
+    }
 }
-
-

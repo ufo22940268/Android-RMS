@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
     xmlns:editTextFormExample="http://schemas.android.com/apk/res-auto"
+    xmlns:form="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingLeft="10dip"
-    android:paddingRight="10dip"
     >
 
 
@@ -15,6 +14,7 @@
         android:layout_height="fill_parent"
         android:stretchColumns="1"
         android:divider="@drawable/divider"
+        form:endPoint="import"
         >
 
         <TableRow
@@ -27,7 +27,6 @@
             <TextView 
                 android:id="@+id/label"
                 android:text="入库单号"
-                android:layout_marginRight="6dip"
                 style="@style/form_label"
                 />
 
@@ -53,7 +52,6 @@
 
             <TextView
                 android:id="@+id/time"
-                android:layout_marginLeft="6dip"
                 android:hint="点击以选择日期"
                 />
 
@@ -74,7 +72,6 @@
 
             <Spinner
                 android:id="@+id/type"
-                android:layout_marginLeft="6dip"
                 />
 
         </TableRow>
@@ -93,7 +90,6 @@
 
             <com.andreabaccega.widget.FormEditText
                 android:id="@+id/buyer"
-                android:layout_marginLeft="6dip"
                 />
 
         </TableRow>
@@ -113,7 +109,6 @@
 
             <Spinner
                 android:id="@+id/operator"
-                android:layout_marginLeft="6dip"
                 />
 
         </TableRow>
@@ -133,7 +128,6 @@
 
             <com.andreabaccega.widget.FormEditText
                 android:id="@+id/provider"
-                android:layout_marginLeft="6dip"
                 />
 
         </TableRow>
@@ -152,7 +146,6 @@
 
             <com.andreabaccega.widget.FormEditText
                 android:id="@+id/product_snum"
-                android:layout_marginLeft="6dip"
                 android:hint="手动输入或者点击扫描"
                 style="@style/form_field"
                 editTextFormExample:testType="alpha"/>
@@ -168,12 +161,12 @@
 
             <TextView 
                 android:text="产品名称"
+                style="@style/form_label"
                 />
 
             <com.andreabaccega.widget.FormEditText
                 android:id="@+id/product_name"
                 style="@style/form_field"
-                android:layout_marginLeft="6dip"
                 />
 
         </TableRow>
@@ -193,8 +186,7 @@
             <com.andreabaccega.widget.FormEditText
                 android:id="@+id/color"
                 android:hint="请输入颜色"
-                style="@style/form_field"
-                android:layout_marginLeft="6dip"/>
+                style="@style/form_field"/>
 
         </TableRow>
 
@@ -214,7 +206,7 @@
             <com.andreabaccega.widget.FormEditText
                 android:id="@+id/property"
                 style="@style/form_field"
-                android:layout_marginLeft="6dip"/>
+                />
 
         </TableRow>
 
@@ -234,7 +226,7 @@
             <com.andreabaccega.widget.FormEditText
                 android:id="@+id/comment"
                 style="@style/form_field"
-                android:layout_marginLeft="6dip"/>
+                />
 
         </TableRow>
 
@@ -254,7 +246,7 @@
                 android:id="@+id/unit"
                 android:hint="如台，个，打"
                 style="@style/form_field"
-                android:layout_marginLeft="6dip"/>
+                />
 
         </TableRow>
 
@@ -272,7 +264,6 @@
 
             <com.andreabaccega.widget.FormEditText
                 android:id="@+id/quantity"
-                android:layout_marginLeft="6dip"
                 android:hint="请输入数字"
                 style="@style/form_field"
                 editTextFormExample:testType="numeric"

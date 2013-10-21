@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:editTextFormExample="http://schemas.android.com/apk/res-auto"
+    xmlns:form="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+
+    <me.biubiubiu.rms.ui.Form
+        android:id="@+id/form"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1"
+        android:divider="@drawable/divider"
+        form:endPoint="export"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="入库单号"
+                style="@style/form_label"
+                />
+
+            <TextView
+                android:id="@+id/snum"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="入库日期"
+                style="@style/form_label"
+                />
+
+            <TextView
+                android:id="@+id/time"
+                android:hint="点击以选择日期"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="入库类型"
+                style="@style/form_label"
+                />
+
+            <Spinner
+                android:id="@+id/type"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="采购人员"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/buyer"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="操作人员"
+                style="@style/form_label"
+                />
+
+            <Spinner
+                android:id="@+id/operator"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="供应单位"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/provider"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="产品编码"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/product_snum"
+                android:hint="手动输入或者点击扫描"
+                style="@style/form_field"
+                editTextFormExample:testType="alpha"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="产品名称"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/product_name"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="颜色"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/color"
+                android:hint="请输入颜色"
+                style="@style/form_field"/>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="属性"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/property"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="备注"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/comment"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="单位"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/unit"
+                android:hint="如台，个，打"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="数量"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/quantity"
+                android:hint="请输入数字"
+                style="@style/form_field"
+                editTextFormExample:testType="numeric"
+                />
+
+        </TableRow>
+
+    </me.biubiubiu.rms.ui.Form>
+
+</ScrollView>

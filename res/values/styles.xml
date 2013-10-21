@@ -2,6 +2,8 @@
 <resources>
     <style name="form_label">
         <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">6dip</item>
+        <item name="android:paddingRight">6dip</item>
     </style>
 
     <style name="form_field">

@@ -30,14 +30,14 @@ import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
 
-public class ImportActivity extends BaseActivity {
+public class ExportActivity extends BaseActivity {
 
     private ContentAdapter mAdapter;
     private int mPagePos;
 
     private String[] TITLES = {
         "添加产品",
-        "入库状态表",
+        "出库状态表",
         "打印列表",
     };
 
@@ -69,9 +69,9 @@ public class ImportActivity extends BaseActivity {
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {
-                return new ImportFragment();
+                return new ExportFragment();
             } else if (position == 1) {
-                return new PageListFragment("import", R.layout.list_item_import);
+                return new PageListFragment("export", R.layout.list_item_export);
             } else if (position == 2) {
                 return new PrintFragment();
             }

@@ -19,17 +19,24 @@ import android.support.v4.app.Fragment;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.util.*;
 
-public class ImportListFragment extends BaseFragment {
+public class PageListFragment extends BaseFragment {
 
     private ListView mListView;
     private ArrayAdapter mAdapter;
     private PageList mPageList;
+    private String mEndPoint;
+    private int mItemLayout;
+
+    public PageListFragment(String endPoint, int itemLayout) {
+        mEndPoint = endPoint;
+        mItemLayout = itemLayout;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.repo_status_fragment, container, false);
+        ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.page_list_fragment, container, false);
         mPageList = (PageList)parent.findViewById(R.id.page_list);
-        mPageList.condition("import", R.layout.list_item_repo_status);
+        mPageList.condition(mEndPoint, mItemLayout);
         mListView = mPageList.getListView();
         return parent;
     }
