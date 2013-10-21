@@ -9,11 +9,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-        <Button
+        <ImageButton
             android:id="@+id/prev"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="上一页"
+            android:src="@drawable/ic_action_previous_item"
             />
 
         <TextView 
@@ -21,15 +21,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_gravity="center"
             android:gravity="center"
             android:text="页码"
             />
     
-        <Button
+        <ImageButton
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="下一页"
+            android:src="@drawable/ic_action_next_item"
             />
     
     </LinearLayout>

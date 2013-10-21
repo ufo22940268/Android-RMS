@@ -28,41 +28,19 @@ import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
 
 
-public class DetailActivity extends ItemBaseActivity  {
+public class AddActivity extends BaseActivity  {
+
+    protected String mEndPoint;
 
     @Override
     protected void onCreate(Bundle savedBundleInstance) {
         super.onCreate(savedBundleInstance);
         Intent intent = getIntent();
         Bundle extra = intent.getExtras();
-        int layout = extra.getInt("layout");
-
-        setContentView(layout);
-        loadById(mEndPoint, mId);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.edit, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (item.getItemId() == R.id.edit) {
-            if (!isLoaded()) {
-                return true;
-            }
-
-            Intent intent = new Intent(this, EditActivity.class);
-            intent.putExtra("end_point", mEndPoint);
-            intent.putExtra("_id", mItemMap.get("_id"));
-            startActivity(intent);
-            return true;
-        } else {
-            return super.onOptionsItemSelected(item);
-        }
+        mEndPoint = extra.getString("end_point");
+        setContentView(R.layout.container);
+        int layout = ViewUtils.getLayoutRes("update_" + mEndPoint + "_fragment");
+        AddFragment frag = new AddFragment(layout);
+        addContainerFragment(frag);
     }
 }

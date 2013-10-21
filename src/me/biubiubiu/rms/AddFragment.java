@@ -25,9 +25,16 @@ public class AddFragment extends BaseFragment {
 
     private Form mForm;
     private int mLayout;
+    private boolean mInTab;
 
     public AddFragment(int layout){
         mLayout = layout;
+        mInTab = true;
+    }
+
+    public AddFragment(int layout, boolean inTab){
+        mLayout = layout;
+        mInTab = inTab;
     }
 
     @Override
@@ -51,7 +58,6 @@ public class AddFragment extends BaseFragment {
         inflater.inflate(R.menu.save, menu);
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.save) {
@@ -62,6 +68,9 @@ public class AddFragment extends BaseFragment {
                     public void onSuccess(String result) {
                         Toast.makeText(getActivity(),
                             "添加成功", Toast.LENGTH_LONG).show();
+                        if (!mInTab) {
+                            finish();
+                        }
                     }
                 });
             }
@@ -73,7 +82,12 @@ public class AddFragment extends BaseFragment {
 
     private boolean validateAll() {
         ViewGroup root = mForm;
-        return ((FormEditText)root.findViewById(R.id.product_snum)).testValidity() && ((FormEditText)root.findViewById(R.id.quantity)).testValidity();
+        try {
+            return ((FormEditText)root.findViewById(R.id.product_snum)).testValidity() && ((FormEditText)root.findViewById(R.id.quantity)).testValidity();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return true;
+        }
         //ViewGroup root = mForm;
         //List<FormEditText> views = ViewUtils.getTypeViews(root, FormEditText.class);
         //for (FormEditText view : views) {

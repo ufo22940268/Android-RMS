@@ -55,6 +55,8 @@ public class BaseActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         mRes = getResources();
         mHttp = new HttpHandler(this);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -66,6 +68,11 @@ public class BaseActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void addContainerFragment(Fragment frag) {
+        getSupportFragmentManager()
+            .beginTransaction().add(R.id.container, frag).commit();
     }
 }
 

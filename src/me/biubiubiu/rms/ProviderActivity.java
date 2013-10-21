@@ -52,11 +52,14 @@ public class ProviderActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //switch (item.getItemId())  {
-            //case :
-                
+        switch (item.getItemId())  {
+            case R.id.add:
+                Intent intent = new Intent(this, AddActivity.class);
+                intent.putExtra("end_point", "provider");
+                startActivity(intent);
+                break;
             
-        //}
+        }
         return super.onOptionsItemSelected(item);
     }
 }

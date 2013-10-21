@@ -98,7 +98,6 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
                         public void onSuccess(String result) {
                         }
                     });
-
                     mAdapter.remove(pos);
                     mAdapter.notifyDataSetChanged();
                 }
