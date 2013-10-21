@@ -24,7 +24,7 @@ public class RepoManageFragment extends BaseFragment {
     static public final String[][] TITLES = {
         {"产品入库", "Warehousing Managemengt"},
         {"产品出库", "Warehousing Managemengt"},
-        {"产品出库入库查询", "Infomation notice"},
+        {"产品出入库查询", "Infomation notice"},
         {"产品信息查询", "Products Management"},
         {"供应商管理", "Supplier Management"},
         {"操作员信息管理", "Operator Management"},
@@ -92,6 +92,10 @@ public class RepoManageFragment extends BaseFragment {
                     startActivity(intent);
                     break;
 
+                case 3:
+                    intent = new Intent(getActivity(), ProductActivity.class);
+                    startActivity(intent);
+                    break;
 
             }
         }

@@ -30,15 +30,15 @@ import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
 
-public class ImportActivity extends BaseActivity {
+public class SearchActivity extends BaseActivity {
 
     private ContentAdapter mAdapter;
     private int mPagePos;
 
     private String[] TITLES = {
-        "添加产品",
-        "入库状态表",
-        "打印列表",
+        "入库查询",
+        "出库查询",
+        "产品查询",
     };
 
     @Override
@@ -47,7 +47,6 @@ public class ImportActivity extends BaseActivity {
         setContentView(R.layout.tag_page_fragment);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("产品入库");
 
         TabPageIndicator indicator = (TabPageIndicator)findViewById(R.id.content_indicator);
         ViewPager pager = (ViewPager)findViewById(R.id.content_pager);
@@ -70,11 +69,11 @@ public class ImportActivity extends BaseActivity {
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {
-                return new ImportFragment();
+                return new SearchFragment("import");
             } else if (position == 1) {
-                return new PageListFragment("import", R.layout.list_item_import);
+                return new SearchFragment("export");
             } else if (position == 2) {
-                return new PrintFragment();
+                return new SearchFragment("product");
             }
 
             return null;

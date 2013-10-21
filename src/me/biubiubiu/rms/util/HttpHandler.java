@@ -38,7 +38,6 @@ public class HttpHandler {
 
     public void get(String endPoint, int page, final ResponseHandler handler) {
         Map<String, String> map = new HashMap<String, String>();
-        map.put("max_results", "2");
         map.put("page", String.valueOf(page));
         get(endPoint, map, handler);
     }
@@ -48,12 +47,30 @@ public class HttpHandler {
     }
 
     public void get(String endPoint, final Map<String, String> entity, final ResponseHandler handler) {
+        get(endPoint, entity, null, handler);
+    }
+
+    public void getSearch(String endPoint, int page, final String where, final ResponseHandler handler) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("page", String.valueOf(page));
+        map.put("where", where);
+        get(endPoint, entity, search, handler);
+    }
+
+    public static String buildWhere(Map<String, String> search) {
+        JSONObject jo = new JSONObject(search);
+        return jo.toString();
+    }
+
+    public void get(String endPoint, final Map<String, String> entity, final Map<String, String> search, final ResponseHandler handler) {
         AsyncHttpClient client = new AsyncHttpClient();
         client.setBasicAuth("asdf", "asdf");
         String url = getUrl(endPoint);
         RequestParams params = new RequestParams();
+        params.put("max_results", "2");
         putParams(params, entity);
         params.put("sort", "[(\"_id\", -1)]");
+        putSearch();
 
         final String fullUrl = AsyncHttpClient.getUrlWithQueryString(url, params);
         if (DEBUG) {

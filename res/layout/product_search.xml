@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:editTextFormExample="http://schemas.android.com/apk/res-auto"
+    xmlns:form="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+        <me.biubiubiu.rms.ui.Form
+            android:id="@+id/form"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:stretchColumns="1"
+            android:divider="@drawable/divider"
+            form:endPoint="product"
+            form:initData="false"
+            >
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dip"
+                android:paddingBottom="10dip"
+                >
+
+                <TextView 
+                    android:text="产品编码"
+                    style="@style/form_label"
+                    />
+
+                <com.andreabaccega.widget.FormEditText
+                    android:id="@+id/snum"
+                    style="@style/form_field"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dip"
+                android:paddingBottom="10dip"
+                >
+
+                <TextView 
+                    android:text="产品名称"
+                    style="@style/form_label"
+                    />
+
+                <com.andreabaccega.widget.FormEditText
+                    android:id="@+id/name"
+                    style="@style/form_field"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dip"
+                android:paddingBottom="10dip"
+                >
+
+                <TextView 
+                    android:id="@+id/label"
+                    android:text="起始时间"
+                    style="@style/form_label"
+                    />
+
+                <TextView
+                    android:id="@+id/from"
+                    android:hint="点击以选择日期"
+                    />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dip"
+                android:paddingBottom="10dip"
+                >
+
+                <TextView 
+                    android:id="@+id/label"
+                    android:text="结束时间"
+                    style="@style/form_label"
+                    />
+
+                <TextView
+                    android:id="@+id/to"
+                    android:hint="点击以选择日期"
+                    />
+
+            </TableRow>
+
+
+        </me.biubiubiu.rms.ui.Form>
+
+        <Button
+            android:id="@+id/do_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dip"
+            android:text="显示搜索结果"
+            />
+
+    </LinearLayout>
+</ScrollView>

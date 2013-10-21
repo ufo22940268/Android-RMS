@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:padding="6dip"
     android:stretchColumns="1">
+    <!--android:background="?attr/activatedBackgroundIndicator"-->
 
     <TableRow
         >
@@ -11,11 +12,11 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="产品名称:"
+            android:text="出库单号:"
             />
 
         <TextView 
-            android:id="@+id/name"
+            android:id="@+id/snum"
             android:textColor="#f00"
             />
 
@@ -27,26 +28,11 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="产品编号:"
+            android:text="产品编码:"
             />
 
         <TextView 
-            android:id="@+id/snum"
-            />
-
-    </TableRow>
-
-    <TableRow
-        >
-
-        <TextView 
-            android:id="@+id/label"
-            android:textStyle="bold"
-            android:text="产品规格:"
-            />
-
-        <TextView 
-            android:id="@+id/specification"
+            android:id="@+id/product_snum"
             />
 
     </TableRow>
@@ -57,11 +43,11 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="库存上限:"
+            android:text="产品名称:"
             />
 
         <TextView 
-            android:id="@+id/max"
+            android:id="@+id/product_name"
             />
 
     </TableRow>
@@ -72,11 +58,26 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="库存下限:"
+            android:text="出库数量:"
             />
 
         <TextView 
-            android:id="@+id/min"
+            android:id="@+id/quantity"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="出库时间:"
+            />
+
+        <TextView 
+            android:id="@+id/time"
             />
 
     </TableRow>

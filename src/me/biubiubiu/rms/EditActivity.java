@@ -35,7 +35,8 @@ public class EditActivity extends ItemBaseActivity  {
     @Override
     protected void onCreate(Bundle savedBundleInstance) {
         super.onCreate(savedBundleInstance);
-        setContentView(R.layout.update_import_fragment);
+        int layout = ViewUtils.getLayoutRes("update_" + mEndPoint + "_fragment");
+        setContentView(layout);
         loadById(mEndPoint, mId);
     }
 

@@ -32,31 +32,36 @@ public class Form extends TableLayout {
 
     private TextView mTimeView;
     private String mEndPoint;
+    private boolean mInitData;
 
     public Form(Context context, AttributeSet attr) {
         super(context, attr);
 		TypedArray typedArray = context.obtainStyledAttributes(attr, R.styleable.Form);
 		mEndPoint = typedArray.getString(R.styleable.Form_endPoint);
-        System.out.println("++++++++++++++++++++mEndPoint:" + mEndPoint + "++++++++++++++++++++");
+		mInitData = typedArray.getBoolean(R.styleable.Form_initData, true);
 		typedArray.recycle();
     }
 
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
-        autoInit();
+        if (mInitData) {
+            initData();
+        }
     }
 
-    private void autoInit() {
+    private void initData() {
         final Calendar today = Calendar.getInstance();
-        mTimeView= (TextView)findViewById(R.id.time);
-        mTimeView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Dialog dialog = new DateDialog(getContext(), (TextView)view);
-                dialog.show();
-            }
-        });
+        if (findViewById(R.id.time) != null) {
+            mTimeView= (TextView)findViewById(R.id.time);
+            mTimeView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Dialog dialog = new DateDialog(getContext(), (TextView)view);
+                    dialog.show();
+                }
+            });
+        }
 
         //Init snum.
         TextView snumView = (TextView)findViewById(R.id.snum);

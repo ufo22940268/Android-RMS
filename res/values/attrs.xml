@@ -2,6 +2,7 @@
 <resources>
 	<declare-styleable name="Form">
 		<attr name="endPoint" format="string" />
+		<attr name="initData" format="boolean" />
 	</declare-styleable>
 </resources>
 <!-- vim:fenc=utf-8
