@@ -92,4 +92,22 @@ public class ViewUtils {
             throw new RuntimeException("Resouce name not founded.");
         }
     }
+
+    public static Map<String, String> collectForm(ViewGroup parent) {
+        Map<String, String> map = new HashMap<String, String>();
+        for (int i = 0; i < parent.getChildCount(); i ++) {
+            ViewGroup row = (ViewGroup)parent.getChildAt(i);
+            if (row.getChildCount() >= 2) {
+                View field = row.getChildAt(1);
+                if (field instanceof TextView) {
+                    String value = ((TextView)field).getText().toString();
+                    map.put(ViewUtils.getKey(field), value);
+                } else if (field instanceof Spinner) {
+                    //TODO 
+                }
+            }
+        }
+
+        return map;
+    }
 }

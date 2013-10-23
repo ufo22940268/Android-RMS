@@ -143,6 +143,8 @@ public class MainActivity extends ActionBarActivity {
 
         if (position == 0) {
             fragment = new RepoManageFragment();
+        } else if (position == 1) {
+            fragment = new OrderManageFragment();
         } else  {
             fragment = new PlanetFragment();
         }

@@ -37,7 +37,7 @@ public class EditActivity extends ItemBaseActivity  {
         super.onCreate(savedBundleInstance);
         int layout = ViewUtils.getLayoutRes("update_" + mEndPoint + "_fragment");
         setContentView(layout);
-        loadById(mEndPoint, mId);
+        setActionBarTitle("编辑" + mEndPoints.get(mEndPoint));
     }
 
     @Override

@@ -10,6 +10,10 @@
         <activity android:name="MainActivity"   
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name="ImportActivity"   
@@ -80,15 +84,38 @@
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <activity android:name="AddActivity"   
+            android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:windowSoftInputMode="stateHidden" 
+            android:label="@string/app_name">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="OperatorActivity"   
+            android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:windowSoftInputMode="stateHidden" 
+            android:label="@string/app_name">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="CustomerActivity"   
+            android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:windowSoftInputMode="stateHidden" 
+            android:label="@string/app_name">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="OrderActivity"   
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">

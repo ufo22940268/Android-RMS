@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:editTextFormExample="http://schemas.android.com/apk/res-auto"
+    xmlns:form="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+
+    <me.biubiubiu.rms.ui.Form
+        android:id="@+id/form"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1"
+        android:divider="@drawable/divider"
+        form:endPoint="provider"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="订单号"
+                style="@style/form_label"
+                />
+
+            <TextView
+                android:id="@+id/snum"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="客户名称"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/customer_name"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="联系人"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/contact"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+        
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="快递公司"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/provider"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="发货时间"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/deliver_time"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="产品编码"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/product_snum"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="单价"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/unit_price"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="数量"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/quantity"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="总价"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/total_price"
+                style="@style/form_field"/>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="订单状态"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/status"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="送货地址"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/address"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="备注"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/comment"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+    </me.biubiubiu.rms.ui.Form>
+
+</ScrollView>

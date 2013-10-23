@@ -80,20 +80,6 @@ public class Form extends TableLayout {
     }
 
     public Map<String, String> collect() {
-        Map<String, String> map = new HashMap<String, String>();
-        for (int i = 0; i < getChildCount(); i ++) {
-            ViewGroup row = (ViewGroup)getChildAt(i);
-            if (row.getChildCount() >= 2) {
-                View field = row.getChildAt(1);
-                if (field instanceof TextView) {
-                    String value = ((TextView)field).getText().toString();
-                    map.put(ViewUtils.getKey(field), value);
-                } else if (field instanceof Spinner) {
-                    //TODO 
-                }
-            }
-        }
-
-        return map;
+        return ViewUtils.collectForm(this);
     }
 }

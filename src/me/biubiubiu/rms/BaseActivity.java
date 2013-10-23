@@ -40,6 +40,7 @@ import org.json.*;
 import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
+import me.biubiubiu.rms.model.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
 
@@ -49,12 +50,14 @@ public class BaseActivity extends ActionBarActivity {
 
     protected Resources mRes;
     protected HttpHandler mHttp;
+    protected EndPoints mEndPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRes = getResources();
         mHttp = new HttpHandler(this);
+        mEndPoints = new EndPoints();
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
@@ -73,6 +76,10 @@ public class BaseActivity extends ActionBarActivity {
     protected void addContainerFragment(Fragment frag) {
         getSupportFragmentManager()
             .beginTransaction().add(R.id.container, frag).commit();
+    }
+
+    protected void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
 }
 

@@ -22,21 +22,17 @@ import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
 
-public class RepoManageFragment extends BaseFragment implements AdapterView.OnItemClickListener {
+public class OrderManageFragment extends BaseFragment implements AdapterView.OnItemClickListener {
 
     private BlockAdapter mAdapter;
 
     static public final String[][] TITLES = {
-        {"产品入库", "Warehousing Managemengt"},
-        {"产品出库", "Warehousing Managemengt"},
-        {"产品出入库查询", "Infomation notice"},
-        {"产品信息查询", "Products Management"},
-        {"供应商管理", "Supplier Management"},
-        {"操作员信息管理", "Operator Management"},
-        {"审核中心", "Auth Management"},
+        {"客户管理", "Warehousing Managemengt"},
+        {"销售订单", "Warehousing Managemengt"},
+        {"销售开销", "Infomation notice"},
     };
 
-    public RepoManageFragment(){
+    public OrderManageFragment(){
     }
 
     @Override
@@ -63,7 +59,7 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
     public void onItemClick(AdapterView parent, View view, int pos, long id) {
         switch (pos) {
             case 0:
-                Intent intent = new Intent(getActivity(), ImportActivity.class);
+                Intent intent = new Intent(getActivity(), CustomerActivity.class);
                 intent.putExtra("title", TITLES[pos][0]);
                 startActivity(intent);
                 break;
@@ -75,24 +71,6 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
 
             case 2:
                 intent = new Intent(getActivity(), SearchActivity.class);
-                intent.putExtra("title", TITLES[pos][0]);
-                startActivity(intent);
-                break;
-
-            case 3:
-                intent = new Intent(getActivity(), ProductActivity.class);
-                intent.putExtra("title", TITLES[pos][0]);
-                startActivity(intent);
-                break;
-
-            case 4:
-                intent = new Intent(getActivity(), ProviderActivity.class);
-                intent.putExtra("title", TITLES[pos][0]);
-                startActivity(intent);
-                break;
-
-            case 5:
-                intent = new Intent(getActivity(), OperatorActivity.class);
                 intent.putExtra("title", TITLES[pos][0]);
                 startActivity(intent);
                 break;

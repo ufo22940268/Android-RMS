@@ -61,6 +61,7 @@ public class HttpHandler {
     }
 
     public void get(String endPoint, final Map<String, String> entity, final ResponseHandler handler) {
+        Log.d(TAG, "--------------------get--------------------");
         AsyncHttpClient client = new AsyncHttpClient();
         client.setBasicAuth("asdf", "asdf");
         String url = getUrl(endPoint);
@@ -79,6 +80,7 @@ public class HttpHandler {
     }
 
     public void add(String endPoint, final Map<String, String> entity, final ResponseHandler handler) {
+        Log.d(TAG, "--------------------add--------------------");
         AsyncHttpClient client = new AsyncHttpClient();
         client.setBasicAuth("asdf", "asdf");
         RequestParams params = new RequestParams();
@@ -88,10 +90,14 @@ public class HttpHandler {
         if (DEBUG) {
             Log.d(TAG, "++++++++++++++++++++url:" + url);
         }
+
+        //debug
+        Log.d(TAG, "params:" +  params.toString());
         client.post(url, params, new MyAsyncHttpResponseHandler(handler, 0));
     }
 
     public void delete(String endPoint, final Map<String, String> entity, final ResponseHandler handler) {
+        Log.d(TAG, "--------------------delete--------------------");
         AsyncHttpClient client = new AsyncHttpClient();
         client.setBasicAuth("asdf", "asdf");
         String etag = entity.get("etag");
@@ -104,6 +110,7 @@ public class HttpHandler {
     }
 
     public void update(String endPoint, final Map<String, String> oldItem, final Map<String, String> entity, final ResponseHandler handler) {
+        Log.d(TAG, "--------------------update--------------------");
         AsyncHttpClient client = new AsyncHttpClient();
         client.setBasicAuth("asdf", "asdf");
         String etag = oldItem.get("etag");
@@ -113,9 +120,11 @@ public class HttpHandler {
         url = url + "/" + oldItem.get("_id");
         RequestParams params = new RequestParams();
         addEntityToParams(entity, params);
-
         showLoading();
+        
 
+        //debug
+        Log.d(TAG, "params:" +  params.toString());
         client.post(url, params, new MyAsyncHttpResponseHandler(handler, 0));
     }
 

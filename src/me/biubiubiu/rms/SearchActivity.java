@@ -57,6 +57,7 @@ public class SearchActivity extends BaseActivity {
         pager.setAdapter(mAdapter);
         indicator.setOnPageChangeListener(mAdapter);
         indicator.setViewPager(pager);
+        setActionBarTitle(getIntent().getStringExtra("title"));
     }
 
     //Content fragment. Used to display ticket, summary and nearby restarant.

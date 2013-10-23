@@ -65,10 +65,10 @@ public class PageListFragment extends BaseFragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.refresh) {
-        if (mPageList != null) {
-            mPageList.load();
-        }
-        return true;
+            if (mPageList != null) {
+                mPageList.load();
+            }
+            return true;
         } else {
             return super.onOptionsItemSelected(item);
         }

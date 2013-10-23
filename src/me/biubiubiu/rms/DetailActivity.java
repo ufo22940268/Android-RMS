@@ -38,7 +38,7 @@ public class DetailActivity extends ItemBaseActivity  {
         int layout = extra.getInt("layout");
 
         setContentView(layout);
-        loadById(mEndPoint, mId);
+        setActionBarTitle(mEndPoints.get(mEndPoint) + "详情");
     }
 
     @Override

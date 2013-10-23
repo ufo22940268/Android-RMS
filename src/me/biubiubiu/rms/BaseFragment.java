@@ -62,4 +62,11 @@ public class BaseFragment extends Fragment {
 
         return super.onOptionsItemSelected(item);
     }
+
+    protected void finish() {
+        Activity act = getActivity();
+        if (act != null) {
+            act.finish();
+        }
+    }
 }

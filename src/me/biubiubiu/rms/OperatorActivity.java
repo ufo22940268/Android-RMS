@@ -30,7 +30,7 @@ import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
 
-public class ProviderActivity extends BaseActivity {
+public class OperatorActivity extends BaseActivity {
 
     private PageList mPageList;
 
@@ -38,7 +38,7 @@ public class ProviderActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container);
-        PageListFragment frag = new PageListFragment("provider", R.layout.list_item_provider);
+        PageListFragment frag = new PageListFragment("order", R.layout.list_item_order);
         addContainerFragment(frag);
         setActionBarTitle(getIntent().getStringExtra("title"));
     }
@@ -55,8 +55,8 @@ public class ProviderActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())  {
             case R.id.add:
-                Intent intent = new Intent(this, AddActivity.class);
-                intent.putExtra("end_point", "provider");
+                Intent intent = new Intent(this, AddOperatorActivity.class);
+                intent.putExtra("end_point", "order");
                 startActivity(intent);
                 break;
             

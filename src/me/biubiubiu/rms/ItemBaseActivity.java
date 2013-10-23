@@ -60,6 +60,12 @@ public class ItemBaseActivity extends BaseActivity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadById(mEndPoint, mId);
+    }
+
     protected void loadById(String endPoint, String _id) {
         new HttpHandler(this).get(endPoint, 1,  new ResponseHandler() {
             @Override
@@ -132,13 +138,6 @@ public class ItemBaseActivity extends BaseActivity {
             return null;
         }
 
-        Map<String, String> map = new HashMap<String, String>();
-        for (int id : mLoadedMap.keySet()) {
-            String value = ViewUtils.getFormValue(findViewById(id));
-            if (value != null) {
-                map.put(mLoadedMap.get(id), value);
-            }
-        }
-        return map;
+        return ViewUtils.collectForm((ViewGroup)findViewById(R.id.form));
     }
 }
