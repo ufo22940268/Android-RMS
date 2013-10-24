@@ -1,6 +1,6 @@
 .PHONY : main
 main: 
-	mvn -Dmaven.test.skip=true android:undeploy install android:redeploy android:run
+	mvn -q -Dmaven.test.skip=true android:undeploy install android:redeploy android:run
 
 .PHONY : test
 test:

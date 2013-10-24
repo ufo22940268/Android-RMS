@@ -121,10 +121,13 @@ public class HttpHandler {
         RequestParams params = new RequestParams();
         addEntityToParams(entity, params);
         showLoading();
-        
 
-        //debug
-        Log.d(TAG, "params:" +  params.toString());
+        if (DEBUG) {
+            final String fullUrl = AsyncHttpClient.getUrlWithQueryString(url, params);
+            Log.d(TAG, "++++++++++++++++++++full url:" + fullUrl);
+            Log.d(TAG, "params:" +  params.toString());
+        }
+        
         client.post(url, params, new MyAsyncHttpResponseHandler(handler, 0));
     }
 
@@ -192,9 +195,6 @@ public class HttpHandler {
 
     public static String getUrl(String end) {
         String url = BASE_URL + end;
-        if (DEBUG) {
-            Log.d(TAG, "++++++++++++++++++++url:" + url);
-        }
         return url;
     }
 

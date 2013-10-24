@@ -40,7 +40,7 @@ public class AddActivity extends BaseActivity  {
         mEndPoint = extra.getString("end_point");
         setContentView(R.layout.container);
         int layout = ViewUtils.getLayoutRes("update_" + mEndPoint + "_fragment");
-        AddFragment frag = new AddFragment(layout);
+        AddFragment frag = new AddFragment(layout, false);
         addContainerFragment(frag);
         
         String title = mEndPoints.getTitle(mEndPoint);

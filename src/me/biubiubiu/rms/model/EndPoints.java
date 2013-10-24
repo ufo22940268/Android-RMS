@@ -35,6 +35,10 @@ public class EndPoints {
         mEndPoints.put("product", "产品");    
         mEndPoints.put("order", "订单");    
     }
+
+    public Map<String, String> getPermissions() {
+        return mEndPoints;
+    }
  
     public Map<String, String> getTitleMap() {
         return mEndPoints;   

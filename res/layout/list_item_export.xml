@@ -17,6 +17,12 @@
         <TextView 
             android:id="@+id/name"
             android:textColor="#f00"
+            android:layout_weight="1"
+            />
+
+        <CheckBox
+            android:id="@+id/check_box"
+            android:visibility="gone"
             />
 
     </TableRow>

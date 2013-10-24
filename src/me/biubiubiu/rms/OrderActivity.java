@@ -54,7 +54,7 @@ public class OrderActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())  {
             case R.id.add:
-                Intent intent = new Intent(this, AddOperatorActivity.class);
+                Intent intent = new Intent(this, AddActivity.class);
                 intent.putExtra("end_point", "order");
                 startActivity(intent);
                 break;

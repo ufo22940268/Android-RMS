@@ -4,6 +4,10 @@
 		<attr name="endPoint" format="string" />
 		<attr name="initData" format="boolean" />
 	</declare-styleable>
+
+	<declare-styleable name="PageList">
+		<attr name="check_mode" format="boolean" />
+	</declare-styleable>
 </resources>
 <!-- vim:fenc=utf-8
   -->

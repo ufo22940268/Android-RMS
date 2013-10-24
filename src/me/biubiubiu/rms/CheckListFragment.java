@@ -1,3 +1,9 @@
+/*
+ * CheckListFragment.java
+ * Copyright (C) 2013 garlic <garlic@meishixing>
+ *
+ * Distributed under terms of the MIT license.
+ */
 package me.biubiubiu.rms;
 
 import android.util.*;
@@ -19,7 +25,7 @@ import android.support.v4.app.Fragment;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.util.*;
 
-public class PageListFragment extends BaseFragment {
+public class CheckListFragment extends BaseFragment {
 
     private ListView mListView;
     private ArrayAdapter mAdapter;
@@ -29,42 +35,20 @@ public class PageListFragment extends BaseFragment {
     private String mWhere;
     private Class mCustomDetail;
 
-    public PageListFragment() {
-    }
 
-    public PageListFragment(String endPoint, int itemLayout) {
+    public CheckListFragment(String endPoint, int itemLayout) {
         mEndPoint = endPoint;
         mItemLayout = itemLayout;
-    }
-
-    public PageListFragment(String endPoint, int itemLayout, Class detailAct) {
-        this(endPoint, itemLayout, null, detailAct);
-    }
-
-    public PageListFragment(String endPoint, int itemLayout, String where) {
-        mEndPoint = endPoint;
-        mItemLayout = itemLayout;
-        mWhere = where;
-    }
-
-    public PageListFragment(String endPoint, int itemLayout, String where, Class detailAct) {
-        mEndPoint = endPoint;
-        mItemLayout = itemLayout;
-        mWhere = where;
-        mCustomDetail = detailAct;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.page_list_fragment, container, false);
+        ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.check_list_fragment, container, false);
         mPageList = (PageList)parent.findViewById(R.id.page_list);
-        mPageList.condition(mEndPoint, mItemLayout, mWhere, mCustomDetail);
+        mPageList.condition(mEndPoint, mItemLayout, null);
+        mPageList.disableClick();
         mListView = mPageList.getListView();
         return parent;
-    }
-
-    private ListView getListView() {
-        return mListView;
     }
 
     @Override
@@ -88,5 +72,6 @@ public class PageListFragment extends BaseFragment {
             return super.onOptionsItemSelected(item);
         }
     }
+
 }
 

@@ -38,7 +38,7 @@ public class OperatorActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container);
-        PageListFragment frag = new PageListFragment("order", R.layout.list_item_order);
+        PageListFragment frag = new PageListFragment("operator", R.layout.list_item_operator, OperatorDetailActivity.class);
         addContainerFragment(frag);
         setActionBarTitle(getIntent().getStringExtra("title"));
     }
@@ -55,8 +55,8 @@ public class OperatorActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId())  {
             case R.id.add:
-                Intent intent = new Intent(this, AddOperatorActivity.class);
-                intent.putExtra("end_point", "order");
+                Intent intent = new Intent(this, AddActivity.class);
+                intent.putExtra("end_point", "operator");
                 startActivity(intent);
                 break;
             

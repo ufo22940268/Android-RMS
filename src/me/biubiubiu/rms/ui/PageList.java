@@ -10,6 +10,7 @@ import android.util.*;
 import android.widget.*;
 import android.view.*;
 import android.content.*;
+import android.content.res.*;
 import android.app.*;
 import android.os.*;
 import android.database.*;
@@ -28,6 +29,7 @@ import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
+import me.biubiubiu.rms.R;
 
 public class PageList extends FrameLayout implements AdapterView.OnItemLongClickListener, View.OnClickListener, AdapterView.OnItemClickListener {
 
@@ -38,17 +40,42 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
     private int mPage = 1;
     private TextView mPageView;
     private String mWhere;
+    private Class mCustomDetail;
+    private boolean mDisableClick;
+    private boolean mShowCheckBox;
+    private boolean mCheckMode;
 
     public PageList(Context context, AttributeSet attr) {
         super(context, attr);
-        mAdapter = new MyAdapter();
+		TypedArray typedArray = context.obtainStyledAttributes(attr, R.styleable.PageList);
+		mCheckMode = typedArray.getBoolean(R.styleable.PageList_check_mode, false);
+		typedArray.recycle();
+
+        if (mCheckMode) {
+            mAdapter = new MyCheckAdapter();
+        } else {
+            mAdapter = new MyAdapter();
+        }
     }
 
     public void condition(String endPoint, int itemLayout, String where) {
+        condition(endPoint, itemLayout, where, null);
+    }
+
+    public void condition(String endPoint, int itemLayout, String where, Class customDetail) {
         mEndPoint   = endPoint;
         mItemLayout = itemLayout;
         mWhere = where;
+        mCustomDetail = customDetail;
         load();
+    }
+
+    public void disableClick() {
+        mDisableClick = true;
+    }
+
+    public void showCheckBox() {
+         mShowCheckBox= true;
     }
 
     public void load() {
@@ -79,7 +106,11 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
     @Override
     public void onItemClick(AdapterView parent, View view, final int pos, long id) {
         Map<String, String> item = mAdapter.getEntry(pos);
-        Intent intent = new Intent(getContext(), DetailActivity.class);
+        Class detailAct = DetailActivity.class;
+        if (mCustomDetail != null) {
+            detailAct = mCustomDetail;
+        }
+        Intent intent = new Intent(getContext(), detailAct);
         intent.putExtra("end_point", mEndPoint);
         intent.putExtra("_id", item.get("_id"));
 
@@ -113,8 +144,11 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
         mListView = (ListView)findViewById(R.id.list);
         mListView.setAdapter(mAdapter);
 
-        mListView.setOnItemLongClickListener(this);
-        mListView.setOnItemClickListener(this);
+        if (!mDisableClick) {
+            mListView.setOnItemLongClickListener(this);
+            mListView.setOnItemClickListener(this);
+        }
+
         findViewById(R.id.prev).setOnClickListener(this);
         findViewById(R.id.next).setOnClickListener(this);
         mPageView = (TextView)findViewById(R.id.page);
@@ -191,6 +225,32 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
                 }
             }
 
+            return view;
+        }
+    }
+
+    public class MyCheckAdapter extends MyAdapter {
+
+        private Map<Integer, Boolean> checkMap = new HashMap<Integer, Boolean>();
+
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            View view = super.getView(position, convertView, parent);
+            CheckBox cb = (CheckBox)view.findViewById(R.id.check_box);
+            cb.setVisibility(View.VISIBLE);
+            cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    checkMap.put(position, isChecked);
+                }
+            });
+
+            Boolean b = checkMap.get(position);
+            if (b == null || b == false) {
+                cb.setChecked(false);
+            } else {
+                cb.setChecked(true);
+            }
+            
             return view;
         }
     }
