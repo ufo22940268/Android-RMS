@@ -58,7 +58,8 @@ public class PageListFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.page_list_fragment, container, false);
         mPageList = (PageList)parent.findViewById(R.id.page_list);
-        mPageList.condition(mEndPoint, mItemLayout, mWhere, mCustomDetail);
+        PageListAdapter adapter = new PageListAdapter(getActivity(), mItemLayout);
+        mPageList.condition(mEndPoint, mWhere, mCustomDetail);
         mListView = mPageList.getListView();
         return parent;
     }

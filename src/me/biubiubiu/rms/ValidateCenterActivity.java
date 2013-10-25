@@ -69,15 +69,15 @@ public class ValidateCenterActivity extends BaseActivity  {
     private class ContentAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
 
         private int mPagePos;
-        private CheckListFragment frag0;
-        private CheckListFragment frag1;
-        private CheckListFragment frag2;
+        private ValidateFragment frag0;
+        private ValidateFragment frag1;
+        private ValidateFragment frag2;
 
         public ContentAdapter(FragmentManager fm) {
             super(fm);
-            frag0 =  new CheckListFragment("import", R.layout.list_item_import);
-            frag1 =  new CheckListFragment("export", R.layout.list_item_export);
-            frag2 =  new CheckListFragment("product", R.layout.list_item_product);
+            frag0 =  new ValidateFragment("import", R.layout.list_item_import);
+            frag1 =  new ValidateFragment("export", R.layout.list_item_export);
+            frag2 =  new ValidateFragment("product", R.layout.list_item_product);
         }
 
         @Override

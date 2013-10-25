@@ -35,7 +35,7 @@ public class CheckListFragment extends BaseFragment {
     };
 
     private ListView mListView;
-    private ArrayAdapter mAdapter;
+    public CheckListAdapter mAdapter;
     private PageList mPageList;
     private String mEndPoint;
     private int mItemLayout;
@@ -52,8 +52,11 @@ public class CheckListFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.check_list_fragment, container, false);
         mPageList = (PageList)parent.findViewById(R.id.page_list);
-        mPageList.condition(mEndPoint, mItemLayout, null);
+        mPageList.condition(mEndPoint, null);
         mPageList.disableClick();
+        mAdapter = new CheckListAdapter(getActivity(), mItemLayout);
+        mPageList.setAdapter(mAdapter);
+        mPageList.load();
         mListView = mPageList.getListView();
         return parent;
     }
@@ -71,18 +74,26 @@ public class CheckListFragment extends BaseFragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.more:
-                View anchor = item.getAnchorView(); 
-                ListPopupWindow popup = new ListPopupWindow(getActivity());
-                popupsetAnchorView(anchor);
 
-                ArrayAdapter  adapter = new ArrayAdapter(getActivity(),
-                        android.R.layout.simple_list_item_1,
-                        MORE_TITLES;
-                popup.setAdapter(adapter);
-                show();
+            case R.id.check_all:
+                mAdapter.checkAll();
+                break;
+
+            case R.id.uncheck_all:
+                mAdapter.uncheckAll();
+                break;
+
+            case R.id.refresh:
+                if (mPageList != null) {
+                    mPageList.load();
+                }
                 break;
         }
+        return super.onOptionsItemSelected(item);
+    }
+
+    protected List<Map<String, String>> getDataList() {
+        return mPageList.mDataList;
     }
 
     //@Override

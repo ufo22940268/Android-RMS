@@ -22,6 +22,8 @@ import android.text.TextUtils;
 import java.util.*;
 import com.loopj.android.http.*;
 import org.json.*;
+import me.biubiubiu.rms.R;
+import com.kanak.emptylayout.EmptyLayout;
 
 public class HttpHandler {
 
@@ -75,8 +77,23 @@ public class HttpHandler {
             Log.d(TAG, "++++++++++++++++++++full url:" + fullUrl);
         }
 
-        showLoading();
+        showEmptyLayout();
         client.get(url, params, new MyAsyncHttpResponseHandler(handler, 0));
+    }
+
+    public void post(String endPoint, RequestParams params) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        String url = getUrl(endPoint);
+        if (DEBUG) {
+            final String fullUrl = AsyncHttpClient.getUrlWithQueryString(url, params);
+            Log.d(TAG, "++++++++++++++++++++full url:" + fullUrl);
+        }
+
+        showLoading();
+        client.post(url, params, new MyAsyncHttpResponseHandler(new ResponseHandler() {
+            public void onSuccess(String result) {
+            }
+        }, 0));
     }
 
     public void add(String endPoint, final Map<String, String> entity, final ResponseHandler handler) {
@@ -171,6 +188,7 @@ public class HttpHandler {
             Toast.makeText(mContext,
                 "出错了，请重试", Toast.LENGTH_LONG).show();
             dismissLoading();
+            //dismissEmptyLayout();
         }
     };
 
@@ -216,4 +234,13 @@ public class HttpHandler {
         }
     }
 
+    
+    public void showEmptyLayout() {
+        View view = ((Activity)mContext).findViewById(R.id.list);
+        if (view != null) {
+            ListView listView = (ListView)view;
+            EmptyLayout mEmptyLayout = new EmptyLayout(mContext, listView);
+            mEmptyLayout.showLoading();
+        }
+    }
 }

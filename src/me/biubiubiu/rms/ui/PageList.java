@@ -33,10 +33,10 @@ import me.biubiubiu.rms.R;
 
 public class PageList extends FrameLayout implements AdapterView.OnItemLongClickListener, View.OnClickListener, AdapterView.OnItemClickListener {
 
+    public List<Map<String, String>> mDataList = new ArrayList<Map<String, String>>();
     private String mEndPoint;
-    private int mItemLayout;
     private ListView mListView;
-    private MyAdapter mAdapter;
+    private PageListAdapter mAdapter;
     private int mPage = 1;
     private TextView mPageView;
     private String mWhere;
@@ -50,24 +50,22 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
 		TypedArray typedArray = context.obtainStyledAttributes(attr, R.styleable.PageList);
 		mCheckMode = typedArray.getBoolean(R.styleable.PageList_check_mode, false);
 		typedArray.recycle();
-
-        if (mCheckMode) {
-            mAdapter = new MyCheckAdapter();
-        } else {
-            mAdapter = new MyAdapter();
-        }
     }
 
-    public void condition(String endPoint, int itemLayout, String where) {
-        condition(endPoint, itemLayout, where, null);
+    //TODO Change the completed page list to using the new interface. That we need to load data by hand.
+    public void setAdapter(PageListAdapter adapter) {
+        mAdapter = adapter;
+        getListView().setAdapter(mAdapter);
     }
 
-    public void condition(String endPoint, int itemLayout, String where, Class customDetail) {
+    public void condition(String endPoint, String where) {
+        condition(endPoint, where, null);
+    }
+
+    public void condition(String endPoint, String where, Class customDetail) {
         mEndPoint   = endPoint;
-        mItemLayout = itemLayout;
         mWhere = where;
         mCustomDetail = customDetail;
-        load();
     }
 
     public void disableClick() {
@@ -79,11 +77,15 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
     }
 
     public void load() {
+        if (mAdapter == null) {
+            throw new RuntimeException("You haven't set adapter yet!");
+        }
+
         new HttpHandler(getContext()).getSearch(mEndPoint, mPage, mWhere,  new ResponseHandler() {
             @Override
             public void onSuccess(String result) {
-                List<Map<String, String>> list = Parser.items(result);
-                if (list.size() > 0) {
+                mDataList = Parser.items(result);
+                if (mDataList.size() > 0) {
                     mAdapter.setList(Parser.items(result));
                     mAdapter.notifyDataSetChanged();
                     updatePage();
@@ -176,83 +178,6 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
 
     private void updatePage() {
         mPageView.setText("页码:" + mPage);
-    }
-
-    public class MyAdapter extends BaseAdapter {
-
-        private List<Map<String, String>> mList;
-
-        private void setList(List<Map<String, String>> list) {
-            mList = list;
-        }
-
-        public int getCount() {
-            if (mList == null) {
-                return 0;
-            } else {
-                return mList.size();
-            }
-        }
-
-        public void remove(int pos) {
-            mList.remove(pos);
-        }
-
-        private Map<String, String> getEntry(int pos) {
-            return mList.get(pos);
-        }
-
-        public Object getItem(int position) {
-            return null;
-        }
-
-        public long getItemId(int position) {
-            return position;
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View view = convertView;
-            if (view == null) {
-                view = LayoutInflater.from(getContext()).inflate(mItemLayout, parent, false);
-            }
-
-            Map<String, String> map = mList.get(position);
-            List<TextView> views = ViewUtils.getTypeViews((ViewGroup)view, TextView.class);
-            for (TextView tv : views) {
-                String key = ViewUtils.getKey(tv);
-                if (map.containsKey(key)) {
-                    tv.setText(map.get(key));
-                }
-            }
-
-            return view;
-        }
-    }
-
-    public class MyCheckAdapter extends MyAdapter {
-
-        private Map<Integer, Boolean> checkMap = new HashMap<Integer, Boolean>();
-
-        public View getView(final int position, View convertView, ViewGroup parent) {
-            View view = super.getView(position, convertView, parent);
-            CheckBox cb = (CheckBox)view.findViewById(R.id.check_box);
-            cb.setVisibility(View.VISIBLE);
-            cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    checkMap.put(position, isChecked);
-                }
-            });
-
-            Boolean b = checkMap.get(position);
-            if (b == null || b == false) {
-                cb.setChecked(false);
-            } else {
-                cb.setChecked(true);
-            }
-            
-            return view;
-        }
     }
 }
 

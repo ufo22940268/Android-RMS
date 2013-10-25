@@ -72,7 +72,7 @@ public class ImportActivity extends BaseActivity {
             if (position == 0) {
                 return new ImportFragment();
             } else if (position == 1) {
-                return new PageListFragment("import", R.layout.list_item_import);
+                 return new PageListFragment("import", R.layout.list_item_import);
             } else if (position == 2) {
                 return new PrintFragment();
             }
