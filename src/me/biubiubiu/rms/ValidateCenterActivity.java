@@ -59,6 +59,7 @@ public class ValidateCenterActivity extends BaseActivity  {
         if (mAdapter == null) {
             mAdapter = new ContentAdapter(getSupportFragmentManager());
         }
+
         pager.setAdapter(mAdapter);
         indicator.setOnPageChangeListener(mAdapter);
         indicator.setViewPager(pager);

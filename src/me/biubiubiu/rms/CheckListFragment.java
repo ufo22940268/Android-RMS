@@ -27,6 +27,13 @@ import me.biubiubiu.rms.util.*;
 
 public class CheckListFragment extends BaseFragment {
 
+    static public final String[] MORE_TITLES = {
+        "全选",
+        "全部取消",
+        "反选",
+        "完成审核",
+    };
+
     private ListView mListView;
     private ArrayAdapter mAdapter;
     private PageList mPageList;
@@ -58,20 +65,37 @@ public class CheckListFragment extends BaseFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.refresh, menu);
+        inflater.inflate(R.menu.check_list, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.refresh) {
-            if (mPageList != null) {
-                mPageList.load();
-            }
-            return true;
-        } else {
-            return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.more:
+                View anchor = item.getAnchorView(); 
+                ListPopupWindow popup = new ListPopupWindow(getActivity());
+                popupsetAnchorView(anchor);
+
+                ArrayAdapter  adapter = new ArrayAdapter(getActivity(),
+                        android.R.layout.simple_list_item_1,
+                        MORE_TITLES;
+                popup.setAdapter(adapter);
+                show();
+                break;
         }
     }
+
+    //@Override
+    //public boolean onOptionsItemSelected(MenuItem item) {
+        //if (item.getItemId() == R.id.refresh) {
+            //if (mPageList != null) {
+                //mPageList.load();
+            //}
+            //return true;
+        //} else {
+            //return super.onOptionsItemSelected(item);
+        //}
+    //}
 
 }
 
