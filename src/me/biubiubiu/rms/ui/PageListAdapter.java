@@ -32,9 +32,9 @@ import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
 import me.biubiubiu.rms.R;
 
-public class PageListAdapter extends BaseAdapter {
+public class PageListAdapter extends BaseAdapter implements CleanableAdapter {
 
-    private List<Map<String, String>> mList;
+    private List<Map<String, String>> mList = new ArrayList<Map<String, String>>();
     private int mItemLayout;
     private Context mContext;
 
@@ -53,6 +53,11 @@ public class PageListAdapter extends BaseAdapter {
         } else {
             return mList.size();
         }
+    }
+
+    public void clean() {
+        mList = new ArrayList<Map<String, String>>();
+        notifyDataSetChanged();
     }
 
     public void remove(int pos) {

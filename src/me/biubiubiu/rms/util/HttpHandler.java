@@ -22,7 +22,7 @@ import android.text.TextUtils;
 import java.util.*;
 import com.loopj.android.http.*;
 import org.json.*;
-import me.biubiubiu.rms.R;
+import me.biubiubiu.rms.*;
 import com.kanak.emptylayout.EmptyLayout;
 
 public class HttpHandler {
@@ -77,7 +77,6 @@ public class HttpHandler {
             Log.d(TAG, "++++++++++++++++++++full url:" + fullUrl);
         }
 
-        showEmptyLayout();
         client.get(url, params, new MyAsyncHttpResponseHandler(handler, 0));
     }
 
@@ -188,7 +187,6 @@ public class HttpHandler {
             Toast.makeText(mContext,
                 "出错了，请重试", Toast.LENGTH_LONG).show();
             dismissLoading();
-            //dismissEmptyLayout();
         }
     };
 
@@ -231,16 +229,6 @@ public class HttpHandler {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    
-    public void showEmptyLayout() {
-        View view = ((Activity)mContext).findViewById(R.id.list);
-        if (view != null) {
-            ListView listView = (ListView)view;
-            EmptyLayout mEmptyLayout = new EmptyLayout(mContext, listView);
-            mEmptyLayout.showLoading();
         }
     }
 }

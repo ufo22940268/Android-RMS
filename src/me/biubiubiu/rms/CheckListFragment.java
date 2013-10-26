@@ -50,15 +50,21 @@ public class CheckListFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.check_list_fragment, container, false);
-        mPageList = (PageList)parent.findViewById(R.id.page_list);
-        mPageList.condition(mEndPoint, null);
+        mPageList = new PageList(getActivity(), mEndPoint);
         mPageList.disableClick();
-        mAdapter = new CheckListAdapter(getActivity(), mItemLayout);
-        mPageList.setAdapter(mAdapter);
-        mPageList.load();
+        if (mAdapter == null) {
+            mAdapter = new CheckListAdapter(getActivity(), mItemLayout);
+            mPageList.setAdapter(mAdapter);
+        } else {
+            mPageList.setAdapter(mAdapter);
+        }
         mListView = mPageList.getListView();
-        return parent;
+        load();
+        return mPageList;
+    }
+
+    public void load() {
+        mPageList.load();
     }
 
     @Override
@@ -95,18 +101,5 @@ public class CheckListFragment extends BaseFragment {
     protected List<Map<String, String>> getDataList() {
         return mPageList.mDataList;
     }
-
-    //@Override
-    //public boolean onOptionsItemSelected(MenuItem item) {
-        //if (item.getItemId() == R.id.refresh) {
-            //if (mPageList != null) {
-                //mPageList.load();
-            //}
-            //return true;
-        //} else {
-            //return super.onOptionsItemSelected(item);
-        //}
-    //}
-
 }
 

@@ -30,6 +30,7 @@ import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
 import me.biubiubiu.rms.R;
+import com.kanak.emptylayout.EmptyLayout;
 
 public class PageList extends FrameLayout implements AdapterView.OnItemLongClickListener, View.OnClickListener, AdapterView.OnItemClickListener {
 
@@ -43,13 +44,15 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
     private Class mCustomDetail;
     private boolean mDisableClick;
     private boolean mShowCheckBox;
-    private boolean mCheckMode;
+    private EmptyLayout mEmptyLayout;
 
-    public PageList(Context context, AttributeSet attr) {
-        super(context, attr);
-		TypedArray typedArray = context.obtainStyledAttributes(attr, R.styleable.PageList);
-		mCheckMode = typedArray.getBoolean(R.styleable.PageList_check_mode, false);
-		typedArray.recycle();
+    public PageList(Context context, String endPoint) {
+        super(context);
+        mEndPoint = endPoint;
+        LayoutInflater.from(getContext()).inflate(R.layout.page_list, this);
+        mListView = (ListView)findViewById(R.id.list);
+        mPageView = (TextView)findViewById(R.id.page);
+        mEmptyLayout = new EmptyLayout(getContext(), mListView);
     }
 
     //TODO Change the completed page list to using the new interface. That we need to load data by hand.
@@ -58,12 +61,11 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
         getListView().setAdapter(mAdapter);
     }
 
-    public void condition(String endPoint, String where) {
-        condition(endPoint, where, null);
+    public void condition(String where) {
+        condition(where, null);
     }
 
-    public void condition(String endPoint, String where, Class customDetail) {
-        mEndPoint   = endPoint;
+    public void condition(String where, Class customDetail) {
         mWhere = where;
         mCustomDetail = customDetail;
     }
@@ -81,6 +83,8 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
             throw new RuntimeException("You haven't set adapter yet!");
         }
 
+        clean();
+        mEmptyLayout.showLoading();
         new HttpHandler(getContext()).getSearch(mEndPoint, mPage, mWhere,  new ResponseHandler() {
             @Override
             public void onSuccess(String result) {
@@ -96,6 +100,11 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
                         Toast.makeText(getContext(),
                             "已经最后一页了", Toast.LENGTH_LONG).show();
                     }
+                }
+
+                if (mDataList.size() == 0  && mPage == 1) {
+                    clean();
+                    mEmptyLayout.showEmpty();
                 }
             }
         });
@@ -142,8 +151,6 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
-        LayoutInflater.from(getContext()).inflate(R.layout.page_list, this);
-        mListView = (ListView)findViewById(R.id.list);
         mListView.setAdapter(mAdapter);
 
         if (!mDisableClick) {
@@ -153,7 +160,6 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
 
         findViewById(R.id.prev).setOnClickListener(this);
         findViewById(R.id.next).setOnClickListener(this);
-        mPageView = (TextView)findViewById(R.id.page);
     }
 
     @Override
@@ -178,6 +184,15 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
 
     private void updatePage() {
         mPageView.setText("页码:" + mPage);
+    }
+
+    public void clean() {
+        CleanableAdapter adapter = (CleanableAdapter)mListView.getAdapter();
+        if (adapter == null) {
+            throw new RuntimeException("You need set adapter first.");
+        }
+
+        adapter.clean();
     }
 }
 

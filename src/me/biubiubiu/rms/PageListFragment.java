@@ -22,7 +22,7 @@ import me.biubiubiu.rms.util.*;
 public class PageListFragment extends BaseFragment {
 
     private ListView mListView;
-    private ArrayAdapter mAdapter;
+    public PageListAdapter mAdapter;
     private PageList mPageList;
     private String mEndPoint;
     private int mItemLayout;
@@ -56,12 +56,18 @@ public class PageListFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.page_list_fragment, container, false);
-        mPageList = (PageList)parent.findViewById(R.id.page_list);
+        mPageList = new PageList(getActivity(), mEndPoint);
         PageListAdapter adapter = new PageListAdapter(getActivity(), mItemLayout);
-        mPageList.condition(mEndPoint, mWhere, mCustomDetail);
+        mPageList.condition(mWhere, mCustomDetail);
+        if (mAdapter == null) {
+            mAdapter = new PageListAdapter(getActivity(), mItemLayout);
+            mPageList.setAdapter(mAdapter);
+        } else {
+            mPageList.setAdapter(mAdapter);
+        }
         mListView = mPageList.getListView();
-        return parent;
+        mPageList.load();
+        return mPageList;
     }
 
     private ListView getListView() {

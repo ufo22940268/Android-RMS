@@ -43,14 +43,14 @@ import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.model.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
-
-
+import com.kanak.emptylayout.EmptyLayout;
 
 public class BaseActivity extends ActionBarActivity {
 
     protected Resources mRes;
     protected HttpHandler mHttp;
     protected EndPoints mEndPoints;
+    private EmptyLayout mEmptyLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +81,7 @@ public class BaseActivity extends ActionBarActivity {
     protected void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
     }
+
 }
 
 
