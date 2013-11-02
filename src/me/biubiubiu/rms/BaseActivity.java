@@ -51,6 +51,8 @@ public class BaseActivity extends ActionBarActivity {
     protected HttpHandler mHttp;
     protected EndPoints mEndPoints;
     private EmptyLayout mEmptyLayout;
+    protected PermissionManager mPermissionManager;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +60,11 @@ public class BaseActivity extends ActionBarActivity {
         mRes = getResources();
         mHttp = new HttpHandler(this);
         mEndPoints = new EndPoints();
+        mPermissionManager = PermissionManager.newInstance(this);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override

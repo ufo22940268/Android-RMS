@@ -8,6 +8,11 @@
 
     <style name="form_field">
     </style>
+
+    <style name="Theme.Light.NoTitleBar.PageIndicatorDefaults.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>
 <!-- vim:fenc=utf-8
   -->

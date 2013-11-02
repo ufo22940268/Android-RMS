@@ -27,7 +27,7 @@ public class BaseFragment extends Fragment {
 
     protected Resources mRes;
     protected HttpHandler mHttp;
-
+    protected PermissionManager mPermissionManager;
 
     public BaseFragment(){
     }
@@ -37,6 +37,7 @@ public class BaseFragment extends Fragment {
         super.onCreate(savedInstance);
         mRes = getActivity().getResources();
         mHttp = new HttpHandler(getActivity());
+        mPermissionManager = PermissionManager.newInstance(getActivity());
         setHasOptionsMenu(true);
     }
 

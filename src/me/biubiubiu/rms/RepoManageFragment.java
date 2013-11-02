@@ -63,38 +63,50 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
     public void onItemClick(AdapterView parent, View view, int pos, long id) {
         switch (pos) {
             case 0:
-                Intent intent = new Intent(getActivity(), ImportActivity.class);
-                intent.putExtra("title", TITLES[pos][0]);
-                startActivity(intent);
+                if (mPermissionManager.checkPermission("import", 0)) {
+                    Intent intent = new Intent(getActivity(), ImportActivity.class);
+                    intent.putExtra("title", TITLES[pos][0]);
+                    startActivity(intent);
+                }
                 break;
             case 1:
-                intent = new Intent(getActivity(), ExportActivity.class);
-                intent.putExtra("title", TITLES[pos][0]);
-                startActivity(intent);
+                if (mPermissionManager.checkPermission("import", 0)) {
+                    Intent intent = new Intent(getActivity(), ExportActivity.class);
+                    intent.putExtra("title", TITLES[pos][0]);
+                    startActivity(intent);
+                }
                 break;
 
             case 2:
-                intent = new Intent(getActivity(), SearchActivity.class);
-                intent.putExtra("title", TITLES[pos][0]);
-                startActivity(intent);
+                if (mPermissionManager.checkPermission("search", 0)) {
+                    Intent intent = new Intent(getActivity(), SearchActivity.class);
+                    intent.putExtra("title", TITLES[pos][0]);
+                    startActivity(intent);
+                }
                 break;
 
             case 3:
-                intent = new Intent(getActivity(), ProductActivity.class);
-                intent.putExtra("title", TITLES[pos][0]);
-                startActivity(intent);
+                if (mPermissionManager.checkPermission("product", 0)) {
+                    Intent intent = new Intent(getActivity(), ProductActivity.class);
+                    intent.putExtra("title", TITLES[pos][0]);
+                    startActivity(intent);
+                }
                 break;
 
             case 4:
-                intent = new Intent(getActivity(), ProviderActivity.class);
-                intent.putExtra("title", TITLES[pos][0]);
-                startActivity(intent);
+                if (mPermissionManager.checkPermission("provider", 0)) {
+                    Intent intent = new Intent(getActivity(), ProviderActivity.class);
+                    intent.putExtra("title", TITLES[pos][0]);
+                    startActivity(intent);
+                }
                 break;
 
             case 5:
-                intent = new Intent(getActivity(), OperatorActivity.class);
-                intent.putExtra("title", TITLES[pos][0]);
-                startActivity(intent);
+                if (mPermissionManager.checkPermission("operator", 0)) {
+                    Intent intent = new Intent(getActivity(), OperatorActivity.class);
+                    intent.putExtra("title", TITLES[pos][0]);
+                    startActivity(intent);
+                }
                 break;
         }
     }

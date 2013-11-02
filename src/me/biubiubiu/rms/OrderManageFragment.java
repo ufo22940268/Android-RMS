@@ -64,7 +64,7 @@ public class OrderManageFragment extends BaseFragment implements AdapterView.OnI
                 startActivity(intent);
                 break;
             case 1:
-                intent = new Intent(getActivity(), ExportActivity.class);
+                intent = new Intent(getActivity(), OrderActivity.class);
                 intent.putExtra("title", TITLES[pos][0]);
                 startActivity(intent);
                 break;

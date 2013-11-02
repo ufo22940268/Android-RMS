@@ -95,6 +95,20 @@ public class HttpHandler {
         }, 0));
     }
 
+    public void login(String name, String password, final ResponseHandler handler) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        String url = getUrl("login");
+        RequestParams params = new RequestParams();
+        params.put("name", name);
+        params.put("password", password);
+        if (DEBUG) {
+            final String fullUrl = AsyncHttpClient.getUrlWithQueryString(url, params);
+            Log.d(TAG, "++++++++++++++++++++full url:" + fullUrl);
+        }
+
+        client.post(url, params, new MyAsyncHttpResponseHandler(handler, 0));
+    }
+
     public void add(String endPoint, final Map<String, String> entity, final ResponseHandler handler) {
         Log.d(TAG, "--------------------add--------------------");
         AsyncHttpClient client = new AsyncHttpClient();

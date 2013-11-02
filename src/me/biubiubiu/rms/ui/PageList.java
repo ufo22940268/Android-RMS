@@ -53,6 +53,8 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
         mListView = (ListView)findViewById(R.id.list);
         mPageView = (TextView)findViewById(R.id.page);
         mEmptyLayout = new EmptyLayout(getContext(), mListView);
+
+        initView();
     }
 
     //TODO Change the completed page list to using the new interface. That we need to load data by hand.
@@ -148,11 +150,7 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
         return true;
     }
 
-    @Override
-    public void onFinishInflate() {
-        super.onFinishInflate();
-        mListView.setAdapter(mAdapter);
-
+    private void initView() {
         if (!mDisableClick) {
             mListView.setOnItemLongClickListener(this);
             mListView.setOnItemClickListener(this);
@@ -161,7 +159,7 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
         findViewById(R.id.prev).setOnClickListener(this);
         findViewById(R.id.next).setOnClickListener(this);
     }
-
+    
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
