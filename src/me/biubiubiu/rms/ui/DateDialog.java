@@ -19,13 +19,14 @@ import android.opengl.*;
 import android.graphics.*;
 import android.view.animation.*;
 import android.text.TextUtils;
+import android.widget.LinearLayout.LayoutParams;
 
 import java.util.*;
 import java.text.*;
 
 import me.biubiubiu.rms.R;
 
-public class DateDialog extends Dialog {
+public class DateDialog extends Dialog implements View.OnClickListener {
     private int mYear;
     private int mMonth;
     private int mDay;
@@ -51,8 +52,20 @@ public class DateDialog extends Dialog {
         dateView.setCalendarViewShown(false);
         parent.addView(dateView);
         parent.addView(new TimePicker(getContext()));
+        Button btn = new Button(getContext());
+        btn.setText("返回");
+        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        params.gravity = Gravity.CENTER;
+        btn.setLayoutParams(params);
+        parent.addView(btn);
+        btn.setOnClickListener(this);
 
         setContentView(parent);
+    }
+
+    @Override
+    public void onClick(View view) {
+       dismiss(); 
     }
 
     private DatePicker.OnDateChangedListener mDateSetListener =
