@@ -149,6 +149,8 @@ public class MainActivity extends ActionBarActivity {
             fragment = new RepoManageFragment();
         } else if (position == 1) {
             fragment = new OrderManageFragment();
+        } else if (position == 4) {
+            fragment = new VideoManageFragment();
         } else  {
             fragment = new PlanetFragment();
         }

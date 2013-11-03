@@ -31,7 +31,7 @@ import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
 import com.loopj.android.http.*;
 
-public class OrderActivity extends BaseActivity {
+public class OpenOrderActivity extends BaseActivity {
 
     private PageList mPageList;
     private OrderCheckFragment mCheckFrag;
@@ -40,7 +40,7 @@ public class OrderActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container);
-        mCheckFrag = new OrderCheckFragment("order", R.layout.list_item_order);
+        mCheckFrag = new OrderCheckFragment("open_order", R.layout.list_item_order);
         addContainerFragment(mCheckFrag);
         setActionBarTitle(getIntent().getStringExtra("title"));
     }

@@ -24,15 +24,20 @@ import java.text.*;
 
 import org.json.*;
 
+import android.support.v4.app.Fragment;
+import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
+import com.loopj.android.http.*;
 
-public class Form extends TableLayout {
+
+public class Form extends TableLayout implements View.OnClickListener {
 
     private TextView mTimeView;
     private String mEndPoint;
     private boolean mInitData;
+    private HttpHandler mHttp;
 
     public Form(Context context, AttributeSet attr) {
         super(context, attr);
@@ -40,6 +45,7 @@ public class Form extends TableLayout {
 		mEndPoint = typedArray.getString(R.styleable.Form_endPoint);
 		mInitData = typedArray.getBoolean(R.styleable.Form_initData, true);
 		typedArray.recycle();
+        mHttp = new HttpHandler(context);
     }
 
     @Override
@@ -61,11 +67,53 @@ public class Form extends TableLayout {
                     dialog.show();
                 }
             });
+
+            registerClick(R.id.operator);
         }
 
         //Init snum.
         TextView snumView = (TextView)findViewById(R.id.snum);
         snumView.setText(generateSn(mEndPoint.toUpperCase()));
+    }
+
+    private void registerClick(int res) {
+        View view = findViewById(res);
+        if (view != null) {
+            view.setOnClickListener(this);
+        }
+    }
+
+    private void selectOperator(final View view) {
+        mHttp.get_all_operator(new ResponseHandler() {
+            public void onSuccess(String result) {
+                List<Map<String, String>> dataList = Parser.items(result);
+                final List<String> names = new ArrayList<String>();
+                for (Map<String, String> item: dataList) {
+                    names.add(item.get("name"));
+                }
+
+                if (names.size() == 0) {
+                    return;
+                }
+
+                new AlertDialog.Builder(getContext())
+            .setTitle("选择操作员")
+            .setItems(names.toArray(new String[]{}), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    ((TextView)view).setText(names.get(which));
+                }
+            }).show();
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.operator:
+                selectOperator(view);
+                break;
+        }
     }
 
     public String getEndPoint() {

@@ -67,6 +67,13 @@ public class BaseActivity extends ActionBarActivity {
         }
     }
 
+    public void startActivity(Intent intent, String end, int pos) {
+        if (mPermissionManager.checkPermission(end, pos)) {
+            Toast.makeText(this,
+                    "没有权限", Toast.LENGTH_LONG).show();
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -88,5 +95,3 @@ public class BaseActivity extends ActionBarActivity {
     }
 
 }
-
-

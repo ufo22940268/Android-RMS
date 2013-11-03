@@ -80,6 +80,15 @@ public class HttpHandler {
         client.get(url, params, new MyAsyncHttpResponseHandler(handler, 0));
     }
 
+    public void get_all_operator(final ResponseHandler handler) {
+        Log.d(TAG, "--------------------get--------------------");
+        String url = getUrl("operator");
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.setBasicAuth("asdf", "asdf");
+        showLoading();
+        client.get(url, new MyAsyncHttpResponseHandler(handler, 0));
+    }
+
     public void post(String endPoint, RequestParams params) {
         AsyncHttpClient client = new AsyncHttpClient();
         String url = getUrl(endPoint);
@@ -123,6 +132,7 @@ public class HttpHandler {
 
         //debug
         Log.d(TAG, "params:" +  params.toString());
+        showLoading();
         client.post(url, params, new MyAsyncHttpResponseHandler(handler, 0));
     }
 
@@ -189,6 +199,10 @@ public class HttpHandler {
                 Log.d(TAG, "++++++++++++++++++++response:" + response);
             }
 
+            if (hasError(response)) {
+                return;
+            }
+
             mMyHandler.onSuccess(response);
             dismissLoading();
         }
@@ -203,6 +217,27 @@ public class HttpHandler {
             dismissLoading();
         }
     };
+
+    public boolean hasError(String resp) {
+        try {
+            if (resp.contains("\"status\": \"ERR\"")) {
+                if (resp.contains("must exist in collection 'product'")) {
+                    Toast.makeText(mContext,
+                        "产品编码不存在", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(mContext,
+                        "错误", Toast.LENGTH_LONG).show();
+                }
+
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+    
 
     public static class ResponseHandler {
 

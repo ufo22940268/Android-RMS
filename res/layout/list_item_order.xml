@@ -12,11 +12,11 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="产品编码"
+            android:text="产品名称"
             />
 
         <TextView 
-            android:id="@+id/product_snum"
+            android:id="@+id/product_name"
             android:textColor="#f00"
             android:layout_weight="1"
             />
@@ -35,26 +35,11 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="客户编号"
+            android:text="产品编码"
             />
 
         <TextView 
-            android:id="@+id/snum"
-            />
-
-    </TableRow>
-
-    <TableRow
-        >
-
-        <TextView 
-            android:id="@+id/label"
-            android:textStyle="bold"
-            android:text="联系人"
-            />
-
-        <TextView 
-            android:id="@+id/contact"
+            android:id="@+id/product_snum"
             />
 
     </TableRow>
@@ -65,11 +50,11 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="联系电话"
+            android:text="总金额"
             />
 
         <TextView 
-            android:id="@+id/tel"
+            android:id="@+id/total_price"
             />
 
     </TableRow>
@@ -80,11 +65,26 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="手机"
+            android:text="审核状态"
             />
 
         <TextView 
-            android:id="@+id/mobile"
+            android:id="@+id/validated"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="订单状态"
+            />
+
+        <TextView 
+            android:id="@+id/status"
             />
 
     </TableRow>

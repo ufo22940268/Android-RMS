@@ -1,5 +1,5 @@
 /*
- * ValidateFragment.java
+ * OrderCheckFragment.java
  * Copyright (C) 2013 garlic <garlic@meishixing>
  *
  * Distributed under terms of the MIT license.
@@ -27,21 +27,25 @@ import me.biubiubiu.rms.*;
 import me.biubiubiu.rms.util.*;
 import com.loopj.android.http.*;
 
-public class ValidateFragment extends CheckListFragment {
+public class OrderCheckFragment extends CheckListFragment {
 
-    public ValidateFragment(String endPoint, int itemLayout) {
+    public OrderCheckFragment(String endPoint, int itemLayout) {
         super(endPoint, itemLayout);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.validate_check_list, menu);
+        //if (mEndPoint == "order") {
+        inflater.inflate(R.menu.order_check_list, menu);
+        //} else if (mEndPoint == "open_order") {
+            //inflater.inflate(R.menu.order_check_list, menu);
+        //}
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.save:
+            case R.id.validate:
                 CheckListAdapter adapter = (CheckListAdapter)mAdapter;
                 Integer[] poses = adapter.getCheckedPositions();
                 if (poses.length == 0) {
@@ -57,9 +61,16 @@ public class ValidateFragment extends CheckListFragment {
 
                 validate(ids);
                 break;
+
+            case R.id.add:
+                Intent intent = new Intent(getActivity(), AddActivity.class);
+                intent.putExtra("end_point", "order");
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     private void validate(String[] ids) {
         JSONArray ja = new JSONArray();
@@ -68,6 +79,6 @@ public class ValidateFragment extends CheckListFragment {
         }
         RequestParams params = new RequestParams(); 
         params.put("ids", ja.toString());
-        mHttp.post("validate_import", params);
+        mHttp.post("validate_order", params);
     }
 }

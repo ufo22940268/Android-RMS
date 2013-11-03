@@ -9,6 +9,12 @@
     <style name="form_field">
     </style>
 
+    <style name="button_spinner">
+        <item name="android:hint">点击选择</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="Theme.Light.NoTitleBar.PageIndicatorDefaults.NoActionBar">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>

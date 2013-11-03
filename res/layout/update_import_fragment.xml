@@ -107,8 +107,9 @@
                 style="@style/form_label"
                 />
 
-            <Spinner
+            <Button
                 android:id="@+id/operator"
+                style="@style/button_spinner"
                 />
 
         </TableRow>

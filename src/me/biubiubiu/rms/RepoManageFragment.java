@@ -70,7 +70,7 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
                 }
                 break;
             case 1:
-                if (mPermissionManager.checkPermission("import", 0)) {
+                if (mPermissionManager.checkPermission("export", 0)) {
                     Intent intent = new Intent(getActivity(), ExportActivity.class);
                     intent.putExtra("title", TITLES[pos][0]);
                     startActivity(intent);
@@ -104,6 +104,14 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
             case 5:
                 if (mPermissionManager.checkPermission("operator", 0)) {
                     Intent intent = new Intent(getActivity(), OperatorActivity.class);
+                    intent.putExtra("title", TITLES[pos][0]);
+                    startActivity(intent);
+                }
+                break;
+
+            case 6:
+                if (mPermissionManager.checkPermission("operator", 0)) {
+                    Intent intent = new Intent(getActivity(), ValidateCenterActivity.class);
                     intent.putExtra("title", TITLES[pos][0]);
                     startActivity(intent);
                 }

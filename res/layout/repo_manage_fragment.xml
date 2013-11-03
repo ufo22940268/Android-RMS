@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:numColumns="2"
     android:gravity="center"
+    android:background="#e7ebef"
     >
 
 </GridView>

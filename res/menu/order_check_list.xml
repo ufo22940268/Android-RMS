@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item android:id="@+id/more"
+        yourapp:showAsAction="always"
+        android:icon="@drawable/ic_action_overflow"
+        >
+        <menu>
+
+            <item android:id="@+id/add"
+                android:title="新增订单"
+                />
+
+            <item android:id="@+id/validate"
+                android:title="通过审核"
+                />
+
+            <item android:id="@+id/refresh"
+                android:title="刷新"
+                />
+
+            <item android:id="@+id/check_all"
+                android:title="选择全部"
+                />
+            <item android:id="@+id/uncheck_all"
+                android:title="取消选择全部"
+                />
+        </menu>
+    </item>
+
+</menu>

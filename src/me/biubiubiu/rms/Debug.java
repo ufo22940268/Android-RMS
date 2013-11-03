@@ -29,7 +29,7 @@ import me.biubiubiu.rms.ui.*;
 
 public class Debug {
 
-    public static boolean DEBUG_INIT_PERMISSION;
+    public static boolean DEBUG_INIT_PERMISSION = true;
 
     public static String LOGIN_REPONSE = ""
         + "    {"
@@ -46,7 +46,7 @@ public class Debug {
         + "            \"product_permission\": \"1111\","
         + "            \"open_order_permission\": \"1111\","
         + "            \"import_permission\": \"1111\","
-        + "            \"export_permission\": \"1111\","
+        + "            \"export_permission\": \"0111\","
         + "            \"recorder_permission\": \"11\","
         + "            \"video_permission\": \"1\","
         + "            \"contact_permission\": \"1111\","
@@ -59,5 +59,3 @@ public class Debug {
         manager.loads(LOGIN_REPONSE);
     }
 }
-
-

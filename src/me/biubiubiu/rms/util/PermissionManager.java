@@ -73,6 +73,14 @@ public class PermissionManager {
     }
 
     private String buildKey(String key) {
+        //Correct end key.
+        //Which end point has different name with the permission name returned
+        //from login.
+
+        if (key.equals("search")) {
+            key = "query";
+        }
+
         return key + "_permission";
     }
 

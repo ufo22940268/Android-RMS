@@ -42,7 +42,6 @@ import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
 
-
 public class ItemBaseActivity extends BaseActivity {
 
     protected Map<String, String> mItemMap;

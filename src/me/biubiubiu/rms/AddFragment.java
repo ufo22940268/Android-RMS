@@ -3,6 +3,7 @@ package me.biubiubiu.rms;
 import android.util.*;
 import android.widget.*;
 import android.view.*;
+import android.view.inputmethod.*;
 import android.content.*;
 import android.app.*;
 import android.os.*;
@@ -61,6 +62,11 @@ public class AddFragment extends BaseFragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.save) {
+
+            InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
+                          Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(mForm.getWindowToken(), 0);
+
             Map<String, String> data = mForm.collect();
             if (validateAll()) {
                 mHttp.add(mForm.getEndPoint(), data, new ResponseHandler() {
@@ -81,6 +87,10 @@ public class AddFragment extends BaseFragment {
     }
 
     private boolean validateAll() {
+        ////Check permission.
+        //String end = mForm.getEndPoint();
+
+        //Validate fields.
         ViewGroup root = mForm;
         try {
             return ((FormEditText)root.findViewById(R.id.product_snum)).testValidity() && ((FormEditText)root.findViewById(R.id.quantity)).testValidity();

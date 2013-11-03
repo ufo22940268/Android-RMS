@@ -90,24 +90,24 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
         new HttpHandler(getContext()).getSearch(mEndPoint, mPage, mWhere,  new ResponseHandler() {
             @Override
             public void onSuccess(String result) {
-                mDataList = Parser.items(result);
-                if (mDataList.size() > 0) {
-                    mAdapter.setList(Parser.items(result));
-                    mAdapter.notifyDataSetChanged();
-                    updatePage();
+                List<Map<String, String>> dataList = Parser.items(result);
+                if (dataList.size() > 0) {
+                    mAdapter.setList(dataList);
+                    mDataList = dataList;
                 } else {
                     // No more pages.
                     if (mPage > 1) {
                         mPage -= 1;
                         Toast.makeText(getContext(),
                             "已经最后一页了", Toast.LENGTH_LONG).show();
+
+                        //Set original data list.
+                        mAdapter.setList(mDataList);
                     }
                 }
 
-                if (mDataList.size() == 0  && mPage == 1) {
-                    clean();
-                    mEmptyLayout.showEmpty();
-                }
+                mAdapter.notifyDataSetChanged();
+                updatePage();
             }
         });
     }
@@ -182,6 +182,10 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
 
     private void updatePage() {
         mPageView.setText("页码:" + mPage);
+
+        if (mDataList.size() == 0) {
+            mEmptyLayout.showEmpty();
+        }
     }
 
     public void clean() {
