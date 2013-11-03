@@ -40,6 +40,10 @@ public class CheckListAdapter extends PageListAdapter {
         super(context, layout);
     }
 
+    public CheckListAdapter(Context context, int layout, Map<String, Map<String, String>> projection) {
+        super(context, layout, projection);
+    }
+
     public View getView(final int position, View convertView, ViewGroup parent) {
         View view = super.getView(position, convertView, parent);
         CheckBox cb = (CheckBox)view.findViewById(R.id.check_box);

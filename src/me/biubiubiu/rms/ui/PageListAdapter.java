@@ -37,10 +37,17 @@ public class PageListAdapter extends BaseAdapter implements CleanableAdapter {
     private List<Map<String, String>> mList = new ArrayList<Map<String, String>>();
     private int mItemLayout;
     private Context mContext;
+    private Map<String, Map<String, String>> mProjection;
 
     public PageListAdapter(Context context, int layout) {
         mItemLayout = layout;
         mContext = context;
+    }
+
+    public PageListAdapter(Context context, int layout, Map<String, Map<String, String>> projection) {
+        mItemLayout = layout;
+        mContext = context;
+        mProjection = projection;
     }
 
     public void setList(List<Map<String, String>> list) {
@@ -87,7 +94,17 @@ public class PageListAdapter extends BaseAdapter implements CleanableAdapter {
         for (TextView tv : views) {
             String key = ViewUtils.getKey(tv);
             if (map.containsKey(key)) {
-                tv.setText(map.get(key));
+                String value = map.get(key);
+                if (mProjection.get(key) == null) {
+                    tv.setText(value);
+                } else {
+                    String rValue = mProjection.get(key).get(value);
+                    if (rValue != null) {
+                        tv.setText(rValue);
+                    } else {
+                        tv.setText(value);
+                    }
+                }
             }
         }
 

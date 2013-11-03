@@ -12,7 +12,7 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="产品名称"
+            android:text="产品名称: "
             />
 
         <TextView 
@@ -35,7 +35,7 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="产品编码"
+            android:text="产品编码: "
             />
 
         <TextView 
@@ -50,7 +50,7 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="总金额"
+            android:text="总金额: "
             />
 
         <TextView 
@@ -65,7 +65,7 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="审核状态"
+            android:text="审核状态: "
             />
 
         <TextView 
@@ -80,7 +80,7 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="订单状态"
+            android:text="订单状态: "
             />
 
         <TextView 

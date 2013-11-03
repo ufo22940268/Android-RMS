@@ -43,6 +43,28 @@ public class OrderCheckFragment extends CheckListFragment {
     }
 
     @Override
+    public Map<String, Map<String, String>> getProjection() {
+        Map<String, Map<String, String>> map = new HashMap<String, Map<String, String>>();
+
+        Map<String, String> m = new HashMap<String, String>();
+        m.put("1", "通过");
+        m.put("0", "未通过");
+        map.put("validated", m);
+
+        m = new HashMap<String, String>();
+        m.put("default", "默认");
+        m.put("wait_for_buyer", "等待买家付款");
+        m.put("buyer_paid", "买家已付款");
+        m.put("seller_delivered", "卖家已发货");
+        m.put("repo_delivered", "仓库已发货");
+        m.put("refund", "已退款");
+        m.put("buyer_returned", "卖家已退货");
+        map.put("status", m);
+
+        return map;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.validate:

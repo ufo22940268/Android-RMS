@@ -197,5 +197,3 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
         adapter.clean();
     }
 }
-
-

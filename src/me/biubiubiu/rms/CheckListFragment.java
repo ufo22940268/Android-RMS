@@ -53,7 +53,7 @@ public class CheckListFragment extends BaseFragment {
         mPageList = new PageList(getActivity(), mEndPoint);
         mPageList.disableClick();
         if (mAdapter == null) {
-            mAdapter = new CheckListAdapter(getActivity(), mItemLayout);
+            mAdapter = new CheckListAdapter(getActivity(), mItemLayout, getProjection());
             mPageList.setAdapter(mAdapter);
         } else {
             mPageList.setAdapter(mAdapter);
@@ -61,6 +61,10 @@ public class CheckListFragment extends BaseFragment {
         mListView = mPageList.getListView();
         load();
         return mPageList;
+    }
+
+    public Map<String, Map<String, String>> getProjection() {
+        return null;
     }
 
     public void load() {
