@@ -20,6 +20,7 @@ import android.support.v4.app.Fragment;
 import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.util.*;
+import me.biubiubiu.rms.model.*;
 import com.andreabaccega.widget.FormEditText;
 
 public class AddFragment extends BaseFragment {
@@ -107,5 +108,15 @@ public class AddFragment extends BaseFragment {
         //}
 
         //return  true;
+    }
+
+    @Override
+    public void onActivityResult (int requestCode, int resultCode, Intent data) {
+        System.out.println("++++++++++++++++++++" + "onActivityResult" + "++++++++++++++++++++");
+        if (requestCode == Constants.REQUEST_SCAN) {
+            System.out.println("++++++++++++++++++++" + data.getExtras().getString("SCAN_RESULT") + "++++++++++++++++++++");
+            String barcode = data.getExtras().getString("SCAN_RESULT");
+            mForm.setProductSnum(barcode);
+        }
     }
 }

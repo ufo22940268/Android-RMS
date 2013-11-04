@@ -94,4 +94,10 @@ public class BaseActivity extends ActionBarActivity {
         getSupportActionBar().setTitle(title);
     }
 
+    public void setProductSnum(String s) {
+        View view = findViewById(R.id.product_snum);
+        if (view != null) {
+            ((TextView)view).setText(s);
+        }
+    }
 }
