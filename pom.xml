@@ -112,6 +112,13 @@
             <type>apklib</type>
         </dependency>
 
+        <dependency>
+            <groupId>me.biubiubiu.rms</groupId>
+            <artifactId>barcode</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <type>apklib</type>
+        </dependency>
+
     </dependencies>
 
     <build>

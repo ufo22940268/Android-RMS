@@ -27,6 +27,7 @@ import org.json.*;
 import android.support.v4.app.Fragment;
 import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
+import me.biubiubiu.rms.model.*;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
@@ -51,6 +52,8 @@ public class Form extends TableLayout implements View.OnClickListener {
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
+        initViews();
+
         if (mInitData) {
             initData();
         }
@@ -74,6 +77,14 @@ public class Form extends TableLayout implements View.OnClickListener {
         //Init snum.
         TextView snumView = (TextView)findViewById(R.id.snum);
         snumView.setText(generateSn(mEndPoint.toUpperCase()));
+    }
+
+    private void initViews() {
+        initProductSnum();
+    }
+
+    private void initProductSnum() {
+        findViewById(R.id.scan).setOnClickListener(this);
     }
 
     private void registerClick(int res) {
@@ -113,6 +124,10 @@ public class Form extends TableLayout implements View.OnClickListener {
             case R.id.operator:
                 selectOperator(view);
                 break;
+            case R.id.scan:
+                Intent intent = new Intent("com.google.zxing.client.android.SCAN"); 
+                ((Activity)getContext()).startActivityForResult(intent, Constants.REQUEST_SCAN);
+                break;
         }
     }
 
@@ -129,5 +144,12 @@ public class Form extends TableLayout implements View.OnClickListener {
 
     public Map<String, String> collect() {
         return ViewUtils.collectForm(this);
+    }
+
+    public void setProductSnum(String s) {
+        View view = findViewById(R.id.product_snum);
+        if (view != null) {
+            ((TextView)view).setText(s);
+        }
     }
 }
