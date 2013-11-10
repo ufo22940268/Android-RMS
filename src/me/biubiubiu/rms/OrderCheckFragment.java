@@ -35,11 +35,7 @@ public class OrderCheckFragment extends CheckListFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        //if (mEndPoint == "order") {
         inflater.inflate(R.menu.order_check_list, menu);
-        //} else if (mEndPoint == "open_order") {
-            //inflater.inflate(R.menu.order_check_list, menu);
-        //}
     }
 
     @Override
@@ -82,6 +78,7 @@ public class OrderCheckFragment extends CheckListFragment {
                 }
 
                 validate(ids);
+                refresh();
                 break;
 
             case R.id.add:

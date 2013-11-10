@@ -46,7 +46,7 @@ public class Debug {
         + "            \"product_permission\": \"1111\","
         + "            \"open_order_permission\": \"1111\","
         + "            \"import_permission\": \"1111\","
-        + "            \"export_permission\": \"0111\","
+        + "            \"export_permission\": \"1111\","
         + "            \"recorder_permission\": \"11\","
         + "            \"video_permission\": \"1\","
         + "            \"contact_permission\": \"1111\","

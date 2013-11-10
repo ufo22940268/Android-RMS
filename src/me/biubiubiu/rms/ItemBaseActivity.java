@@ -56,7 +56,7 @@ public class ItemBaseActivity extends BaseActivity {
         Bundle extra = intent.getExtras();
         mEndPoint = extra.getString("end_point");
         mId = extra.getString("_id");
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

@@ -32,6 +32,12 @@ public class OrderManageFragment extends BaseFragment implements AdapterView.OnI
         {"销售开销", "Infomation notice"},
     };
 
+    static public final int[] IMAGE_RES = {
+        R.drawable.menu_customer,
+        R.drawable.menu_order,
+        R.drawable.menu_open_order,
+    };
+
     public OrderManageFragment(){
     }
 
@@ -43,7 +49,7 @@ public class OrderManageFragment extends BaseFragment implements AdapterView.OnI
 
         GridView grid = (GridView)inflater.inflate(
                 R.layout.repo_manage_fragment, container, false);
-        mAdapter = new BlockAdapter(getActivity(), TITLES);
+        mAdapter = new BlockAdapter(getActivity(), TITLES, IMAGE_RES);
         grid.setAdapter(mAdapter);
         grid.setOnItemClickListener(this);
 

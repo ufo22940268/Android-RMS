@@ -63,7 +63,11 @@ public class BaseActivity extends ActionBarActivity {
         mPermissionManager = PermissionManager.newInstance(this);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
+            try {
+                actionBar.setDisplayHomeAsUpEnabled(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

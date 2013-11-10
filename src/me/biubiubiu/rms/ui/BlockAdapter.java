@@ -28,10 +28,12 @@ public class BlockAdapter extends BaseAdapter {
     
     private String[][] mTitles;
     private Context mContext;
+    private int[] mImages;
 
-    public BlockAdapter(Context context, String[][] titles) {
+    public BlockAdapter(Context context, String[][] titles, int[] images) {
         mTitles = titles;
         mContext = context;
+        mImages = images;
     }
 
     public int getCount() {
@@ -47,13 +49,15 @@ public class BlockAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        return getBlock(mTitles[position][0], mTitles[position][1]);
+        return getBlock(mTitles[position][0], mTitles[position][1], mImages[position]);
     }
 
-    private View getBlock(String major, String minor) {
+    private View getBlock(String major, String minor, int image) {
         View item = LayoutInflater.from(
                 mContext).inflate(R.layout.row_item_repo_manage, null, false);
-        ((TextView)item.findViewById(R.id.major)).setText(major);
+        TextView majorView =  (TextView)item.findViewById(R.id.major);
+        majorView.setText(major);
+        majorView.setCompoundDrawablesWithIntrinsicBounds(0, image, 0, 0);
         ((TextView)item.findViewById(R.id.minor)).setText(minor);
         return item;
     }

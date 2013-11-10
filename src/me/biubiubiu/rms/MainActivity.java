@@ -20,6 +20,8 @@ import android.support.v4.app.*;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
+import android.content.DialogInterface;
+import android.app.AlertDialog;
 
 /**
  * This example illustrates a common usage of the DrawerLayout widget
@@ -143,12 +145,15 @@ public class MainActivity extends ActionBarActivity {
 
     private void selectItem(int position) {
         // update the main content by replacing fragments
-        Fragment fragment;
+        Fragment fragment = null;
 
         if (position == 0) {
             fragment = new RepoManageFragment();
         } else if (position == 1) {
             fragment = new OrderManageFragment();
+        } else if (position == 3) {
+            launchEyeCloud();
+            return;
         } else if (position == 4) {
             fragment = new VideoManageFragment();
         } else  {
@@ -165,6 +170,24 @@ public class MainActivity extends ActionBarActivity {
         mDrawerList.setItemChecked(position, true);
         setTitle(mPlanetTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
+    }
+
+    private void launchEyeCloud() {
+        new AlertDialog.Builder(this)
+            .setMessage("你尚未安装vMEyeCloud, 是否前往play商店下载?")
+            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+
+                    /* User clicked OK so do some stuff */
+                }
+            })
+        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+                /* User clicked Cancel so do some stuff */
+            }
+        })
+        .show();
     }
 
     @Override

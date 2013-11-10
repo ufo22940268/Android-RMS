@@ -30,7 +30,7 @@ public class HttpHandler {
     static public final boolean DEBUG = true;
     static public final String TAG = "HttpHandler";
     //static public final String BASE_URL = "http://192.168.1.101:5000/";
-    static public final String BASE_URL = "http://192.241.196.189:5000/";
+    static public final String BASE_URL = "http://192.241.196.189/";
     private Context mContext;
     private ProgressDialog mLoadingDialog;
 

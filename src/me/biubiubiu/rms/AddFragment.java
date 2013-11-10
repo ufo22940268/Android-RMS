@@ -93,7 +93,7 @@ public class AddFragment extends BaseFragment {
         //Validate fields.
         ViewGroup root = mForm;
         try {
-            return ((FormEditText)root.findViewById(R.id.product_snum)).testValidity() && ((FormEditText)root.findViewById(R.id.quantity)).testValidity();
+            return ((FormEditText)root.findViewById(R.id.product_snum)).testValidity();
         } catch (Exception e) {
             e.printStackTrace();
             return true;

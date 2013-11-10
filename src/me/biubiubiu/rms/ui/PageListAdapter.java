@@ -95,7 +95,7 @@ public class PageListAdapter extends BaseAdapter implements CleanableAdapter {
             String key = ViewUtils.getKey(tv);
             if (map.containsKey(key)) {
                 String value = map.get(key);
-                if (mProjection.get(key) == null) {
+                if (mProjection == null || mProjection.get(key) == null) {
                     tv.setText(value);
                 } else {
                     String rValue = mProjection.get(key).get(value);

@@ -25,7 +25,7 @@ import android.support.v4.app.Fragment;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.util.*;
 
-public class CheckListFragment extends BaseFragment {
+public class CheckListFragment extends BaseFragment implements AdapterView.OnItemClickListener {
 
     static public final String[] MORE_TITLES = {
         "全选",
@@ -42,7 +42,6 @@ public class CheckListFragment extends BaseFragment {
     private String mWhere;
     private Class mCustomDetail;
 
-
     public CheckListFragment(String endPoint, int itemLayout) {
         mEndPoint = endPoint;
         mItemLayout = itemLayout;
@@ -51,7 +50,6 @@ public class CheckListFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mPageList = new PageList(getActivity(), mEndPoint);
-        mPageList.disableClick();
         if (mAdapter == null) {
             mAdapter = new CheckListAdapter(getActivity(), mItemLayout, getProjection());
             mPageList.setAdapter(mAdapter);
@@ -59,16 +57,12 @@ public class CheckListFragment extends BaseFragment {
             mPageList.setAdapter(mAdapter);
         }
         mListView = mPageList.getListView();
-        load();
+        mPageList.load();
         return mPageList;
     }
 
     public Map<String, Map<String, String>> getProjection() {
         return null;
-    }
-
-    public void load() {
-        mPageList.load();
     }
 
     @Override
@@ -89,16 +83,19 @@ public class CheckListFragment extends BaseFragment {
                 break;
 
             case R.id.refresh:
-                if (mPageList != null) {
-                    mPageList.load();
-                }
+                refresh();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void refresh() {
+        if (mPageList != null) {
+            mPageList.load();
+        }
     }
 
     protected List<Map<String, String>> getDataList() {
         return mPageList.mDataList;
     }
 }
-

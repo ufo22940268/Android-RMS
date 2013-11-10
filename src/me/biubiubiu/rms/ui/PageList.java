@@ -123,12 +123,11 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
         if (mCustomDetail != null) {
             detailAct = mCustomDetail;
         }
+
         Intent intent = new Intent(getContext(), detailAct);
         intent.putExtra("end_point", mEndPoint);
         intent.putExtra("_id", item.get("_id"));
-
         intent.putExtra("layout", ViewUtils.getLayoutRes(mEndPoint + "_detail"));
-        
         ((Activity)getContext()).startActivity(intent);
     }
 

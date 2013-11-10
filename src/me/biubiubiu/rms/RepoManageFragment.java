@@ -36,6 +36,16 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
         {"审核中心", "Auth Management"},
     };
 
+    static public final int[] IMAGE_RES = {
+        R.drawable.menu_import,
+        R.drawable.menu_export,
+        R.drawable.menu_query,
+        R.drawable.menu_product,
+        R.drawable.menu_provider,
+        R.drawable.menu_operator,
+        R.drawable.menu_validate_center,
+    };
+
     public RepoManageFragment(){
     }
 
@@ -47,7 +57,7 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
 
         GridView grid = (GridView)inflater.inflate(
                 R.layout.repo_manage_fragment, container, false);
-        mAdapter = new BlockAdapter(getActivity(), TITLES);
+        mAdapter = new BlockAdapter(getActivity(), TITLES, IMAGE_RES);
         grid.setAdapter(mAdapter);
         grid.setOnItemClickListener(this);
 
