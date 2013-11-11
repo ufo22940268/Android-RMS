@@ -70,8 +70,9 @@
                 style="@style/form_label"
                 />
 
-            <Spinner
+            <me.biubiubiu.rms.ui.EntityView
                 android:id="@+id/type"
+                android:hint="点击选择类型"
                 />
 
         </TableRow>

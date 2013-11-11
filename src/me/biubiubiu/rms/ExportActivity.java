@@ -29,6 +29,7 @@ import com.andreabaccega.widget.FormEditText;
 import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
+import me.biubiubiu.rms.model.*;
 
 public class ExportActivity extends BaseActivity {
 
@@ -101,6 +102,17 @@ public class ExportActivity extends BaseActivity {
 
         @Override
         public void onPageScrollStateChanged(int state) {
+        }
+    }
+
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+        if (requestCode == Constants.REQUEST_SCAN) {
+            try {
+                String barcode = data.getExtras().getString("SCAN_RESULT");
+                setProductSnum(barcode);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

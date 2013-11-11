@@ -62,7 +62,11 @@ public class LoginActivity extends BaseActivity {
         mHttp.login(name, pwd, new ResponseHandler() {
             @Override
             public void onSuccess(String result) {
-                mPermissionManager.loads(result);
+                if (Debug.DEBUG_INIT_PERMISSION) {
+                    Debug.mockPermission(LoginActivity.this);
+                } else {
+                    mPermissionManager.loads(result);
+                }
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
         });

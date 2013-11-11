@@ -115,6 +115,7 @@ public class HttpHandler {
             Log.d(TAG, "++++++++++++++++++++full url:" + fullUrl);
         }
 
+        showLoading();
         client.post(url, params, new MyAsyncHttpResponseHandler(handler, 0));
     }
 

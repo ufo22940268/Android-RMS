@@ -146,7 +146,7 @@
                 style="@style/form_label"
                 />
 
-            <Spinner
+            <TextView
                 android:id="@+id/enabled"
                 />
 

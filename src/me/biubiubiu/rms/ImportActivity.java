@@ -108,8 +108,12 @@ public class ImportActivity extends BaseActivity {
     @Override
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         if (requestCode == Constants.REQUEST_SCAN) {
-            String barcode = data.getExtras().getString("SCAN_RESULT");
-            setProductSnum(barcode);
+            try {
+                String barcode = data.getExtras().getString("SCAN_RESULT");
+                setProductSnum(barcode);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

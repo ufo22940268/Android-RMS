@@ -35,6 +35,10 @@ import com.loopj.android.http.*;
 
 public class Form extends TableLayout implements View.OnClickListener {
 
+    static public final int[] TYPE_RES = {
+        R.id.type,
+    };
+
     private TextView mTimeView;
     private String mEndPoint;
     private boolean mInitData;
@@ -74,9 +78,27 @@ public class Form extends TableLayout implements View.OnClickListener {
             registerClick(R.id.operator);
         }
 
+        for (int res : TYPE_RES) {
+            registerTypeListener(res);
+        }
+
         //Init snum.
         TextView snumView = (TextView)findViewById(R.id.snum);
         snumView.setText(generateSn(mEndPoint.toUpperCase()));
+    }
+
+    private void registerTypeListener(int res) {
+        View v = findViewById(res);
+        if (v != null && v instanceof EntityView) {
+            final TypeDialog dialog = new TypeDialog(getContext(), mEndPoint, (EntityView)v);
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.show();
+                }
+            });
+            
+        }
     }
 
     private void initViews() {
