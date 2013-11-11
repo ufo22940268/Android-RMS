@@ -22,6 +22,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
+import android.content.ComponentName;
+import android.content.pm.*;
+import java.util.*;
 
 /**
  * This example illustrates a common usage of the DrawerLayout widget
@@ -173,8 +176,30 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void launchEyeCloud() {
+        if (isPackageExisted("com.vMEyeCloud")) {
+            ComponentName cn = new ComponentName("com.vMEyeCloud", "com.vMEyeCloud.AcLogin");
+            Intent intent = new Intent();
+            intent.setComponent(cn);
+            startActivity(intent);
+        } else {
+            showEyeCloudDialog();
+        }
+    }
+
+    public boolean isPackageExisted(String targetPackage){
+        List<ApplicationInfo> packages;
+        PackageManager pm;
+        pm = getPackageManager();        
+        packages = pm.getInstalledApplications(0);
+        for (ApplicationInfo packageInfo : packages) {
+            if(packageInfo.packageName.equals(targetPackage)) return true;
+        }        
+        return false;
+    }
+
+    private void showEyeCloudDialog() {
         new AlertDialog.Builder(this)
-            .setMessage("你尚未安装vMEyeCloud, 是否前往play商店下载?")
+            .setMessage("你尚未安装vMEyeCloud")
             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
 

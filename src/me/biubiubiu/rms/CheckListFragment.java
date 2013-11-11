@@ -25,7 +25,7 @@ import android.support.v4.app.Fragment;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.util.*;
 
-public class CheckListFragment extends BaseFragment implements AdapterView.OnItemClickListener {
+public class CheckListFragment extends BaseFragment {
 
     static public final String[] MORE_TITLES = {
         "全选",
