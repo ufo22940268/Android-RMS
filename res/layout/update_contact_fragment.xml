@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:editTextFormExample="http://schemas.android.com/apk/res-auto"
+    xmlns:form="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip"
+    >
+
+
+    <me.biubiubiu.rms.ui.Form
+        android:id="@+id/form"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1"
+        android:divider="@drawable/divider"
+        form:endPoint="import"    
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="编码"
+                android:layout_marginRight="6dip"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/snum"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="名称"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/name"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="联系人"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/name"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="联系电话"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/tel"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="传真"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/fax"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="手机"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/mobile"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="联系地址"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/address"
+                android:layout_marginLeft="6dip"
+                style="@style/form_field"
+                editTextFormExample:testType="alpha"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:text="邮编"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/postcode"
+                android:layout_marginLeft="6dip"
+                />
+
+        </TableRow>
+
+    </me.biubiubiu.rms.ui.Form>
+
+</ScrollView>

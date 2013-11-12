@@ -12,11 +12,11 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="被叫号码:"
+            android:text="联系人名称:"
             />
 
         <TextView 
-            android:id="@+id/DialNum"
+            android:id="@+id/name"
             android:textColor="#f00"
             />
 
@@ -28,26 +28,11 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="主叫号码:"
+            android:text="联系人编号:"
             />
 
         <TextView 
-            android:id="@+id/CallerID"
-            />
-
-    </TableRow>
-
-    <TableRow
-        >
-
-        <TextView 
-            android:id="@+id/label"
-            android:textStyle="bold"
-            android:text="姓名/工号:"
-            />
-
-        <TextView 
-            android:id="@+id/NameNo"
+            android:id="@+id/snum"
             />
 
     </TableRow>
@@ -58,11 +43,11 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="长度:"
+            android:text="联系人:"
             />
 
         <TextView 
-            android:id="@+id/RecLen"
+            android:id="@+id/mane"
             />
 
     </TableRow>
@@ -73,11 +58,26 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="时间:"
+            android:text="联系电话:"
             />
 
         <TextView 
-            android:id="@+id/RecDate"
+            android:id="@+id/tel"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="手机:"
+            />
+
+        <TextView 
+            android:id="@+id/mobile"
             />
 
     </TableRow>
