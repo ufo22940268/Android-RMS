@@ -76,7 +76,12 @@ public class TypeDialogTest {
     public void testAddType() throws Exception  {
         EntityView ev = new EntityView(mAct);
         TypeDialog td = new TypeDialog(mAct, "import", ev);
+
         td.addType("new_type");
+        List<String> l = new ArrayList<String>();
+        l.add("new_type");
+        assertThat(td.readItems()).isEqualTo(l);
+
         td.show();
         ShadowAlertDialog dialog = shadowOf(ShadowAlertDialog.getLatestAlertDialog());
         
@@ -84,6 +89,3 @@ public class TypeDialogTest {
         assertThat(ev.getValue()).isEqualTo("new_type");
     }
 }
-
-
-

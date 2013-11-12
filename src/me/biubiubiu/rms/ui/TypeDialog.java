@@ -20,6 +20,7 @@ import android.opengl.*;
 import android.graphics.*;
 import android.view.animation.*;
 import android.text.TextUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
@@ -32,6 +33,7 @@ public class TypeDialog {
     private AlertDialog mDialog;
     private EntityView mEntityView;
     private Context mContext;
+    private final List<String> items = new ArrayList<String>();
 
     public TypeDialog(Context context, String end, EntityView ev) {
         mContext = context;
@@ -39,40 +41,36 @@ public class TypeDialog {
         
         mEndPoint = end;
         mEntityView = ev;
-
-
-        final List<String> items = new ArrayList<String>();
-        items.add("自定义");
-        mBuilder.setItems(items.toArray(new String[]{}), new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                if (which == items.size() - 1) {
-                    if (mDialog != null) {
-                        mDialog.dismiss();
-                    }
-                    showCustomDialog();
-                } else {
-                    String v = items.get(which);
-                    setValue(v, v);
-                }
-            }
-        });
     }
 
     private SharedPreferences getPref() {
-        return getSharedPreferences(mEndPoint, 0);
+        return mContext.getSharedPreferences("type_dialog", 0);
     }
 
+    public List<String> readItems() {
+        List<String> items = new ArrayList<String>();
+        String p = readPref();
+        if (!TextUtils.isEmpty(p)) {
+            return Arrays.asList(p.split(","));
+        }
+        return items;
+    }
 
     private String readPref() {
-        return getPref().getString();
+        return getPref().getString(mEndPoint, "");
     }
 
-    private void addPref() {
+    private void addPref(String newItem) {
+        List<String> nl = new ArrayList<String>();
         String raw = readPref();
-        String[] oa = raw.spilit(raw, ",");
-        String[] na = new String[oa.length + 1];
-        System.arraycopy(oa, 0, na, 0, oa.length);
-        return getPref().getString();
+        if (!TextUtils.isEmpty(raw)) {
+            String[] oa = raw.split(",");
+            nl.addAll(Arrays.asList(oa));
+        }
+        nl.add(newItem);
+        SharedPreferences.Editor editor = getPref().edit();
+        editor.putString(mEndPoint, StringUtils.join(nl, ","));
+        editor.commit();
     }
 
     public void addType(String type) {
@@ -107,6 +105,21 @@ public class TypeDialog {
     }
 
     public void show() {
+        items.addAll(readItems());
+        items.add("自定义");
+        mBuilder.setItems(items.toArray(new String[]{}), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == items.size() - 1) {
+                    if (mDialog != null) {
+                        mDialog.dismiss();
+                    }
+                    showCustomDialog();
+                } else {
+                    String v = items.get(which);
+                    setValue(v, v);
+                }
+            }
+        });
         mDialog = mBuilder.show();
     }
 }
