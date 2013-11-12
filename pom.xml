@@ -10,11 +10,13 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fest-assert.version>1.0.4</fest-assert.version>
+        <mockito.version>1.9.5</mockito.version>
         <junit.version>4.10</junit.version>
-        <robolectric.version>2.2</robolectric.version>
+        <robolectric.version>2.1.1</robolectric.version>
         <android.version>4.1.1.4</android.version>
         <android-support.version>r11</android-support.version>
         <!--<android.device>emulator-5556</android.device>-->
+        <fest-android.version>1.0.4</fest-android.version>
     </properties>
 
     <dependencies>
@@ -76,6 +78,20 @@
             <version>${robolectric.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup</groupId>
+            <artifactId>fest-android</artifactId>
+            <version>${fest-android.version}</version>
+            <scope>test</scope>
+        </dependency>
+
 
         <dependency>
             <groupId>msx.android.preferences</groupId>
@@ -130,12 +146,12 @@
     <build>
         <finalName>${project.artifactId}</finalName>
         <sourceDirectory>src</sourceDirectory>
-        <testSourceDirectory>tests</testSourceDirectory>
+        <!--<testSourceDirectory>tests</testSourceDirectory>-->
         <plugins>
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.0</version>
                 <configuration>
                     <sdk>
                         <platform>17</platform>

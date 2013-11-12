@@ -51,6 +51,7 @@ import java.util.*;
 
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
+import org.robolectric.annotation.Config;
 
 
 @RunWith(RobolectricTestRunner.class)
@@ -87,5 +88,20 @@ public class TypeDialogTest {
         
         dialog.clickOnItem(0);
         assertThat(ev.getValue()).isEqualTo("new_type");
+
+        dialog.dismiss();
+        td = new TypeDialog(mAct, "import", ev);
+        td.show();
+        dialog = shadowOf(ShadowAlertDialog.getLatestAlertDialog());
+
+        assertThat(dialog.getItems()[0]).isEqualTo("new_type");
+        assertThat(dialog.getItems()[1]).isEqualTo("自定义");
+        assertThat(dialog.getItems().length).isEqualTo(2);
+    }
+
+    @Test @Config(reportSdk = 10)
+    public void testImport() throws Exception  {
+        Activity importAct = Robolectric.buildActivity(ImportActivity.class).create().get();
+        importAct.findViewById(R.id.type).performClick();
     }
 }

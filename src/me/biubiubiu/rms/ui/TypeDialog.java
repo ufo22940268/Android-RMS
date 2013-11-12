@@ -87,7 +87,8 @@ public class TypeDialog {
             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
                     String v = field.getText().toString();
-                    //mEntityView.setText(v);
+                    addType(v);
+                    mEntityView.setText(v);
                 }
             })
         .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {

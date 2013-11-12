@@ -68,7 +68,7 @@ public class HttpHandler {
         client.setBasicAuth("asdf", "asdf");
         String url = getUrl(endPoint);
         RequestParams params = new RequestParams();
-        params.put("max_results", "2");
+        params.put("max_results", "20");
         putParams(params, entity);
         params.put("sort", "[(\"_id\", -1)]");
 

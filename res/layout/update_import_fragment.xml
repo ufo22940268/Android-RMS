@@ -108,9 +108,9 @@
                 style="@style/form_label"
                 />
 
-            <Button
+            <me.biubiubiu.rms.ui.EntityView
                 android:id="@+id/operator"
-                style="@style/button_spinner"
+                android:hint="点击选择操作人员"
                 />
 
         </TableRow>
@@ -150,7 +150,7 @@
                 android:id="@+id/product_snum"
                 android:hint="手动输入"
                 style="@style/form_field"
-                editTextFormExample:testType="alpha"/>
+                editTextFormExample:testType="alphaNumeric"/>
 
             <Button
                 android:id="@+id/scan"

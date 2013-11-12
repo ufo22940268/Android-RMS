@@ -31,6 +31,7 @@ import me.biubiubiu.rms.model.*;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
+import org.apache.commons.lang3.time.DateFormatUtils; 
 
 
 public class Form extends TableLayout implements View.OnClickListener {
@@ -76,6 +77,9 @@ public class Form extends TableLayout implements View.OnClickListener {
             });
 
             registerClick(R.id.operator);
+
+            String fd = DateFormatUtils.format(today, "yyyy-MM-dd HH:mm");
+            mTimeView.setText(fd);
         }
 
         for (int res : TYPE_RES) {
@@ -88,12 +92,13 @@ public class Form extends TableLayout implements View.OnClickListener {
     }
 
     private void registerTypeListener(int res) {
-        View v = findViewById(res);
+        final View v = findViewById(res);
+        final String end = mEndPoint;
         if (v != null && v instanceof EntityView) {
-            final TypeDialog dialog = new TypeDialog(getContext(), mEndPoint, (EntityView)v);
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    TypeDialog dialog = new TypeDialog(getContext(), end, (EntityView)v);
                     dialog.show();
                 }
             });
