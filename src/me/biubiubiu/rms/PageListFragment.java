@@ -23,8 +23,8 @@ public class PageListFragment extends BaseFragment {
 
     private ListView mListView;
     public PageListAdapter mAdapter;
-    private PageList mPageList;
-    private String mEndPoint;
+    protected PageList mPageList;
+    public String mEndPoint;
     private int mItemLayout;
     private String mWhere;
     private Class mCustomDetail;
@@ -54,6 +54,10 @@ public class PageListFragment extends BaseFragment {
         mCustomDetail = detailAct;
     }
 
+    public PageListAdapter getAdapter() {
+        return mAdapter;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mPageList = new PageList(getActivity(), mEndPoint);
@@ -70,7 +74,7 @@ public class PageListFragment extends BaseFragment {
         return mPageList;
     }
 
-    private ListView getListView() {
+    public ListView getListView() {
         return mListView;
     }
 

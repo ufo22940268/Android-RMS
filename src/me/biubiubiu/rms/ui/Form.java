@@ -111,7 +111,10 @@ public class Form extends TableLayout implements View.OnClickListener {
     }
 
     private void initProductSnum() {
-        findViewById(R.id.scan).setOnClickListener(this);
+        View view = findViewById(R.id.scan);
+        if (view != null) {
+            view.setOnClickListener(this);
+        }
     }
 
     private void registerClick(int res) {

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dip"
+    android:stretchColumns="1">
+    <!--android:background="?attr/activatedBackgroundIndicator"-->
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="被叫号码"
+            />
+
+        <TextView 
+            android:id="@+id/DialNum"
+            android:textColor="#f00"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="主叫号码"
+            />
+
+        <TextView 
+            android:id="@+id/CallerID"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="姓名/工号"
+            />
+
+        <TextView 
+            android:id="@+id/NameNo"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="长度"
+            />
+
+        <TextView 
+            android:id="@+id/RecLen"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="时间"
+            />
+
+        <TextView 
+            android:id="@+id/RecDate"
+            />
+
+    </TableRow>
+
+</TableLayout>
