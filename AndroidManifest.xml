@@ -36,10 +36,10 @@
         <activity android:name="MainActivity"   
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -209,6 +209,37 @@
             <intent-filter>
                 <action android:name="com.google.zxing.client.android.SCAN"/>
                 <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name="AudioRecordActivity"   
+            android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:windowSoftInputMode="stateHidden" 
+            android:label="@string/app_name">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="AudioRecordDetailActivity"   
+            android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:windowSoftInputMode="stateHidden" 
+            android:label="@string/app_name">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="ContactActivity"   
+            android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:windowSoftInputMode="stateHidden" 
+            android:label="@string/app_name">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 

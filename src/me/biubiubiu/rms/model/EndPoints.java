@@ -34,6 +34,8 @@ public class EndPoints {
         mEndPoints.put("operator", "操作员");    
         mEndPoints.put("product", "产品");    
         mEndPoints.put("order", "订单");    
+        mEndPoints.put("record", "录音");    
+        mEndPoints.put("contact", "联系人");    
     }
 
     public Map<String, String> getPermissions() {

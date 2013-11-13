@@ -154,6 +154,8 @@ public class MainActivity extends ActionBarActivity {
             fragment = new RepoManageFragment();
         } else if (position == 1) {
             fragment = new OrderManageFragment();
+        } else if (position == 2) {
+            fragment = new AudioManageFragment();
         } else if (position == 3) {
             launchEyeCloud();
             return;
