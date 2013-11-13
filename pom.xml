@@ -12,7 +12,7 @@
         <fest-assert.version>1.0.4</fest-assert.version>
         <mockito.version>1.9.5</mockito.version>
         <junit.version>4.10</junit.version>
-        <robolectric.version>2.1.1</robolectric.version>
+        <robolectric.version>2.2</robolectric.version>
         <android.version>4.1.1.4</android.version>
         <android-support.version>r11</android-support.version>
         <!--<android.device>emulator-5556</android.device>-->

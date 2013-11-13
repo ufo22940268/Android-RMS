@@ -40,6 +40,13 @@ public class DateDialog extends Dialog implements View.OnClickListener {
 
         mDateView = view;
 
+        Calendar cal = Calendar.getInstance();
+        mYear   = cal.get(Calendar.YEAR);
+        mMonth  = cal.get(Calendar.MONTH);
+        mDay    = cal.get(Calendar.DAY_OF_MONTH);
+        mHour   = cal.get(Calendar.HOUR_OF_DAY);
+        mMinute = cal.get(Calendar.MINUTE);
+
         LayoutInflater inflater = LayoutInflater.from(context);
         ViewGroup parent = (ViewGroup)inflater.inflate(R.layout.date_and_time, null);
 
@@ -53,7 +60,7 @@ public class DateDialog extends Dialog implements View.OnClickListener {
         parent.addView(dateView);
         parent.addView(new TimePicker(getContext()));
         Button btn = new Button(getContext());
-        btn.setText("返回");
+        btn.setText("确定");
         LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.gravity = Gravity.CENTER;
         btn.setLayoutParams(params);
@@ -65,6 +72,7 @@ public class DateDialog extends Dialog implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+       updateDisplay();
        dismiss(); 
     }
 
@@ -76,7 +84,6 @@ public class DateDialog extends Dialog implements View.OnClickListener {
                 mYear = year;
                 mMonth = monthOfYear;
                 mDay = dayOfMonth;
-                updateDisplay();
             }
         };
 
@@ -86,7 +93,6 @@ public class DateDialog extends Dialog implements View.OnClickListener {
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 mHour = hourOfDay;
                 mMinute = minute;
-                updateDisplay();
             }
         };
 
