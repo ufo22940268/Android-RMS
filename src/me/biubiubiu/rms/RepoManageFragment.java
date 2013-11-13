@@ -30,7 +30,7 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
         {"产品入库", "Warehousing Managemengt"},
         {"产品出库", "Warehousing Managemengt"},
         {"产品出入库查询", "Infomation notice"},
-        {"产品信息查询", "Products Management"},
+        {"产品信息管理", "Products Management"},
         {"供应商管理", "Supplier Management"},
         {"操作员信息管理", "Operator Management"},
         {"审核中心", "Auth Management"},

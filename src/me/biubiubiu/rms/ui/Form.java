@@ -86,6 +86,10 @@ public class Form extends TableLayout implements View.OnClickListener {
             registerTypeListener(res);
         }
 
+        //TODO Refactor to make it satify to register
+        //all kinds of MapDialog.
+        registerMapListener(R.id.status);
+
         //Init snum.
         TextView snumView = (TextView)findViewById(R.id.snum);
         snumView.setText(generateSn(mEndPoint.toUpperCase()));
@@ -99,6 +103,21 @@ public class Form extends TableLayout implements View.OnClickListener {
                 @Override
                 public void onClick(View view) {
                     TypeDialog dialog = new TypeDialog(getContext(), end, (EntityView)v);
+                    dialog.show();
+                }
+            });
+            
+        }
+    }
+
+    private void registerMapListener(int res) {
+        final View v = findViewById(res);
+        final String end = mEndPoint;
+        if (v != null && v instanceof EntityView) {
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    OrderStatusDialog dialog = new OrderStatusDialog(getContext(), end, (EntityView)v);
                     dialog.show();
                 }
             });

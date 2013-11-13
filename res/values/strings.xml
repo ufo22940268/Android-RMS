@@ -19,7 +19,7 @@
     <string-array name="planets_array">
         <item>仓库管理</item>
         <item>订单管理</item>
-        <item>录音直听</item>
+        <item>录音查听</item>
         <item>视频监控</item>
         <item>安防报警</item>
     </string-array>

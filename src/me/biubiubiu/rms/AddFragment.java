@@ -28,6 +28,7 @@ public class AddFragment extends BaseFragment {
     private Form mForm;
     private int mLayout;
     private boolean mInTab;
+    private String mEndPoint;
 
     public AddFragment(int layout){
         mLayout = layout;
@@ -47,6 +48,7 @@ public class AddFragment extends BaseFragment {
 
         ViewGroup parent = (ViewGroup)inflater.inflate(mLayout, container, false);
         mForm = (Form)parent.findViewById(R.id.form);
+        mEndPoint = mForm.getEndPoint();
         return parent;
     }
 
@@ -77,6 +79,11 @@ public class AddFragment extends BaseFragment {
                             "添加成功", Toast.LENGTH_LONG).show();
                         if (!mInTab) {
                             finish();
+                        }
+
+                        Activity act = getActivity();
+                        if (act != null) {
+                            act.sendBroadcast(new Intent(mEndPoint));
                         }
                     }
                 });

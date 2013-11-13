@@ -28,6 +28,7 @@ public class BaseFragment extends Fragment {
     protected Resources mRes;
     protected HttpHandler mHttp;
     protected PermissionManager mPermissionManager;
+    protected ReceiverManager mReceiverManager;
 
     public BaseFragment(){
     }
@@ -35,6 +36,7 @@ public class BaseFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
+        mReceiverManager = new ReceiverManager(getActivity());
         mRes = getActivity().getResources();
         mHttp = new HttpHandler(getActivity());
         mPermissionManager = PermissionManager.newInstance(getActivity());

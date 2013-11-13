@@ -108,9 +108,9 @@
                 style="@style/form_label"
                 />
 
-            <Button
+            <TextView
                 android:id="@+id/operator"
-                style="@style/button_spinner"
+                android:hint="点击选择操作人员"
                 />
 
 
@@ -151,7 +151,7 @@
                 android:id="@+id/product_snum"
                 android:hint="手动输入或者点击扫描"
                 style="@style/form_field"
-                editTextFormExample:testType="alpha"/>
+                editTextFormExample:testType="nocheck"/>
 
             <Button
                 android:id="@+id/scan"

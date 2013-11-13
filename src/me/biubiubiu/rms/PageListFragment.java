@@ -18,6 +18,7 @@ import org.json.*;
 import android.support.v4.app.Fragment;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.util.*;
+import me.biubiubiu.rms.util.ReceiverManager.OnReceiveListener;
 
 public class PageListFragment extends BaseFragment {
 
@@ -71,6 +72,15 @@ public class PageListFragment extends BaseFragment {
         }
         mListView = mPageList.getListView();
         mPageList.load();
+
+        mReceiverManager.registerReceiver(mEndPoint);
+        mReceiverManager.setOnReceiveListener(new OnReceiveListener() {
+            @Override
+            public void onReceive(Intent intent) {
+                mPageList.load();
+            }
+        });
+
         return mPageList;
     }
 
