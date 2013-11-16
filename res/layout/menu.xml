@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#0f0"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <com.jeremyfeinstein.slidingmenu.lib.SlidingMenu
+        xmlns:sliding="http://schemas.android.com/apk/com.jeremyfeinstein.slidingmenu"
+        android:id="@+id/slidingmenulayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        sliding:touchModeAbove="fullscreen"
+        sliding:fadeEnabled="true"
+        sliding:selectorEnabled="true"/>
+    />
+
+</LinearLayout>
+<!-- vim:fenc=utf-8
+  -->
+

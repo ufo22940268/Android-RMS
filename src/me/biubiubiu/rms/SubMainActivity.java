@@ -32,21 +32,33 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MainActivity extends BaseActivity {
+public class SubMainActivity extends BaseActivity {
 
     private Fragment mMainFrag;
+    private Fragment mRepoFrag;
+    private Fragment mAudioFrag;
+    private Fragment mVideoFrag;
+    private Fragment mOrderFrag;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (Debug.DEBUG_INIT_PERMISSION) {
-            Debug.mockPermission(this);
+        setContentView(R.layout.container);
+        mRepoFrag  = new RepoManageFragment();
+        mAudioFrag = new AudioManageFragment();
+        mVideoFrag = new VideoManageFragment();
+        mOrderFrag = new OrderManageFragment();
+        String content = getIntent().getStringExtra("content");
+        if (content.equals("repo")) {
+            add(mRepoFrag);
+        } else if (content.equals("order")) {
+            add(mOrderFrag);
+        } else if (content.equals("audio")) {
+            add(mAudioFrag);
+        } else if (content.equals("video")) {
+            add(mVideoFrag);
         }
 
-        setContentView(R.layout.container);
-        mMainFrag  = new MainManageFragment();
-        add(mMainFrag);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
