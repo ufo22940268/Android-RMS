@@ -43,10 +43,11 @@
         >
 
         <Button
-            android:id="@+id/clear"
+            android:id="@+id/restore_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="取消"
+            android:password="true"
+            android:text="找回密码"
             android:onClick="clear"
             />
         

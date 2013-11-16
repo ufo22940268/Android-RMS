@@ -78,8 +78,8 @@ public class Form extends TableLayout implements View.OnClickListener {
 
             registerClick(R.id.operator);
 
-            String fd = DateFormatUtils.format(today, "yyyy-MM-dd HH:mm");
-            mTimeView.setText(fd);
+            //String fd = DateFormatUtils.format(today, "yyyy-MM-dd HH:mm");
+            //mTimeView.setText(fd);
         }
 
         for (int res : TYPE_RES) {
