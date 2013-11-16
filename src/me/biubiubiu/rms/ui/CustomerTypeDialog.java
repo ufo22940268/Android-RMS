@@ -1,5 +1,5 @@
 /*
- * CustomDialog.java
+ * OrderStatusDialog.java
  * Copyright (C) 2013 garlic <garlic@localhost>
  *
  * Distributed under terms of the MIT license.
@@ -20,30 +20,21 @@ import android.opengl.*;
 import android.graphics.*;
 import android.view.animation.*;
 import android.text.TextUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
-public class EntityView extends TextView {
+import me.biubiubiu.rms.R;
 
-    private String mValue;
+public class CustomerTypeDialog extends MapDialog {
 
-    public EntityView(Context context) {
-        super(context);
-    }
-
-    public EntityView(Context context, AttributeSet attr) {
-        super(context, attr);
-    }
-
-    public void setLabel(String s) {
-        setText(s);
-    }
-
-    public void setValue(String v) {
-        mValue = v;
-    }
-
-    public String getValue() {
-        return mValue;
-    }
+    public CustomerTypeDialog(Context context, String end, EntityView ev) {
+        super(context, end, ev);
+        mMap = new HashMap<String, String>();
+        //mMap.put("等待买家付款", "wait_for_buyer"  );
+        //mMap.put("买家已付款", "buyer_paid"      );
+        //mMap.put("卖家已发货", "seller_delivered");
+	}
 }
+
+

@@ -69,7 +69,7 @@ public class AudioManageFragment extends BaseFragment implements AdapterView.OnI
                 break;
 
             case 1:
-                intent = new Intent(getActivity(), AudioRecordActivity.class);
+                intent = new Intent(getActivity(), ContactActivity.class);
                 intent.putExtra("title", TITLES[pos][0]);
                 startActivity(intent);
                 break;

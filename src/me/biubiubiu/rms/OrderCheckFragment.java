@@ -35,7 +35,11 @@ public class OrderCheckFragment extends CheckListFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.order_check_list, menu);
+        if (mEndPoint.equals("order")) {
+            inflater.inflate(R.menu.order_check_list, menu);
+        } else if (mEndPoint.equals("open_order")) {
+            inflater.inflate(R.menu.open_order_check_list, menu);
+        }
     }
 
     @Override
@@ -86,6 +90,13 @@ public class OrderCheckFragment extends CheckListFragment {
                 intent.putExtra("end_point", "order");
                 startActivity(intent);
                 break;
+
+            case R.id.search:
+                intent = new Intent(getActivity(), SearchOrderActivity.class);
+                intent.putExtra("end_point", mEndPoint);
+                startActivity(intent);
+                break;
+            
         }
         return super.onOptionsItemSelected(item);
     }

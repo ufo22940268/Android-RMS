@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item android:id="@+id/more"
+        yourapp:showAsAction="always"
+        android:icon="@drawable/ic_action_overflow"
+        >
+        <menu>
+
+            <item android:id="@+id/search"
+                android:title="搜索"
+                />
+        </menu>
+    </item>
+
+</menu>

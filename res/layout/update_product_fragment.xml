@@ -26,7 +26,7 @@
 
             <TextView 
                 android:id="@+id/label"
-                android:text="产品编号"
+                android:text="产品编码"
                 style="@style/form_label"
                 />
 
@@ -122,7 +122,7 @@
             >
 
             <TextView 
-                android:text="单位"
+                android:text="计量单位"
                 style="@style/form_label"
                 />
 
@@ -185,45 +185,6 @@
 
             <com.andreabaccega.widget.FormEditText
                 android:id="@+id/product_name"
-                style="@style/form_field"
-                />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dip"
-            android:paddingBottom="10dip"
-            >
-
-            <TextView 
-                android:text="颜色"
-                style="@style/form_label"
-                />
-
-            <com.andreabaccega.widget.FormEditText
-                android:id="@+id/color"
-                android:hint="请输入颜色"
-                style="@style/form_field"/>
-
-        </TableRow>
-
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dip"
-            android:paddingBottom="10dip"
-            >
-
-            <TextView 
-                android:text="属性"
-                style="@style/form_label"
-                />
-
-            <com.andreabaccega.widget.FormEditText
-                android:id="@+id/property"
                 style="@style/form_field"
                 />
 

@@ -24,6 +24,7 @@ import org.json.*;
 import android.support.v4.app.Fragment;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.util.*;
+import me.biubiubiu.rms.util.ReceiverManager.OnReceiveListener;
 
 public class CheckListFragment extends BaseFragment {
 
@@ -37,7 +38,7 @@ public class CheckListFragment extends BaseFragment {
     private ListView mListView;
     public CheckListAdapter mAdapter;
     private PageList mPageList;
-    private String mEndPoint;
+    public String mEndPoint;
     private int mItemLayout;
     private String mWhere;
     private Class mCustomDetail;
@@ -58,6 +59,13 @@ public class CheckListFragment extends BaseFragment {
         }
         mListView = mPageList.getListView();
         mPageList.load();
+        mReceiverManager.registerReceiver(mEndPoint);
+        mReceiverManager.setOnReceiveListener(new OnReceiveListener() {
+            @Override
+            public void onReceive(Intent intent) {
+                mPageList.load();
+            }
+        });
         return mPageList;
     }
 

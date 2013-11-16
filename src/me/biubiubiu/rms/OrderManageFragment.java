@@ -29,7 +29,7 @@ public class OrderManageFragment extends BaseFragment implements AdapterView.OnI
     static public final String[][] TITLES = {
         {"客户管理", "Warehousing Managemengt"},
         {"销售订单", "Warehousing Managemengt"},
-        {"销售开销", "Infomation notice"},
+        {"销售开单", "Infomation notice"},
     };
 
     static public final int[] IMAGE_RES = {
@@ -76,7 +76,7 @@ public class OrderManageFragment extends BaseFragment implements AdapterView.OnI
                 break;
 
             case 2:
-                intent = new Intent(getActivity(), OrderActivity.class);
+                intent = new Intent(getActivity(), OpenOrderActivity.class);
                 intent.putExtra("title", TITLES[pos][0]);
                 startActivity(intent);
                 break;

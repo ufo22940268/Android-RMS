@@ -1,5 +1,5 @@
 /*
- * TypeDialog.java
+ * CustomDialog.java
  * Copyright (C) 2013 garlic <garlic@localhost>
  *
  * Distributed under terms of the MIT license.
@@ -26,7 +26,7 @@ import java.util.*;
 
 import me.biubiubiu.rms.R;
 
-public class TypeDialog {
+public class CustomDialog {
 
     private String mEndPoint;
     private Builder mBuilder;
@@ -35,7 +35,7 @@ public class TypeDialog {
     private Context mContext;
     private final List<String> items = new ArrayList<String>();
 
-    public TypeDialog(Context context, String end, EntityView ev) {
+    public CustomDialog(Context context, String end, EntityView ev) {
         mContext = context;
         mBuilder = new Builder(context);
         

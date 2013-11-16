@@ -22,6 +22,7 @@ import android.view.animation.*;
 import java.util.*;
 import org.json.*;
 import me.biubiubiu.rms.R;
+import me.biubiubiu.rms.ui.*;
 
 
 public class ViewUtils {
@@ -99,7 +100,9 @@ public class ViewUtils {
             ViewGroup row = (ViewGroup)parent.getChildAt(i);
             if (row.getChildCount() >= 2) {
                 View field = row.getChildAt(1);
-                if (field instanceof TextView) {
+                if (field instanceof EntityView) {
+                    map.put(ViewUtils.getKey(field), ((EntityView)field).getValue());
+                } else if (field instanceof TextView) {
                     String value = ((TextView)field).getText().toString();
                     map.put(ViewUtils.getKey(field), value);
                 } else if (field instanceof Spinner) {

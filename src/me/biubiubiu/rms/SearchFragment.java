@@ -20,7 +20,9 @@ import android.support.v4.app.Fragment;
 import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.util.*;
+import me.biubiubiu.rms.model.*;
 import com.andreabaccega.widget.FormEditText;
+import org.apache.commons.lang3.time.DateFormatUtils; 
 
 public class SearchFragment extends BaseFragment implements View.OnClickListener {
 
@@ -41,7 +43,45 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         ViewGroup parent = (ViewGroup)inflater.inflate(layout, container, false);
         mForm = (Form)parent.findViewById(R.id.form);
         parent.findViewById(R.id.do_search).setOnClickListener(this);
+
+        initData();
+
         return parent;
+    }
+
+    private void initData() {
+        initTimeView(R.id.from);
+        initTimeView(R.id.to);
+        initScanView();
+    }
+
+    private void initScanView() {
+        View view = mForm.findViewById(R.id.product_snum);
+        if (view != null) {
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent("com.google.zxing.client.android.SCAN"); 
+                    ((Activity)getActivity()).startActivityForResult(intent, Constants.REQUEST_SCAN);
+                }
+
+            });
+        }
+    }
+
+    private void initTimeView(int id) {
+        View view = mForm.findViewById(id);
+        if (view != null) {
+            final TextView tv = (TextView)view;
+            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Dialog dialog = new DateDialog(getActivity(), tv);
+                    dialog.show();
+                }
+
+            });
+        }
     }
 
     @Override

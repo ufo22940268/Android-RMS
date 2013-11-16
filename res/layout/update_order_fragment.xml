@@ -202,10 +202,11 @@
                 style="@style/form_label"
                 />
 
-            <com.andreabaccega.widget.FormEditText
+            <me.biubiubiu.rms.ui.EntityView
                 android:id="@+id/status"
-                style="@style/form_field"
+                android:hint="点击选择类型"
                 />
+
 
         </TableRow>
 

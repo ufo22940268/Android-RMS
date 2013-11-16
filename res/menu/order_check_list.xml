@@ -28,6 +28,10 @@
             <item android:id="@+id/uncheck_all"
                 android:title="取消选择全部"
                 />
+
+            <item android:id="@+id/search"
+                android:title="搜索"
+                />
         </menu>
     </item>
 

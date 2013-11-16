@@ -11,6 +11,7 @@ import android.net.*;
 import android.opengl.*;
 import android.graphics.*;
 import android.view.animation.*;
+import android.text.*;
 
 import java.util.*;
 import org.json.*;
@@ -30,41 +31,20 @@ import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
 
-public class CustomerActivity extends BaseActivity {
+public class SearchCustomerActivity extends BaseActivity {
 
-    private PageList mPageList;
-
+    private int mPagePos;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.container);
-        PageListFragment frag = new PageListFragment("customer", R.layout.list_item_customer);
-        addContainerFragment(frag);
-        setActionBarTitle(getIntent().getStringExtra("title"));
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.provider, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().add(R.id.container, new SearchFragment("customer")).commit();
 
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())  {
-            case R.id.add:
-                Intent intent = new Intent(this, AddActivity.class);
-                intent.putExtra("end_point", "customer");
-                startActivity(intent);
-                break;
-            case R.id.search:
-                intent = new Intent(this, SearchCustomerActivity.class);
-                startActivity(intent);
-                break;
-        }
-        return super.onOptionsItemSelected(item);
+        setActionBarTitle("客户搜索");
     }
 }
-

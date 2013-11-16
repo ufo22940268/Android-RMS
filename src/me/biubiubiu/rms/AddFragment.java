@@ -28,6 +28,7 @@ public class AddFragment extends BaseFragment {
     private Form mForm;
     private int mLayout;
     private boolean mInTab;
+    private String mEndPoint;
 
     public AddFragment(int layout){
         mLayout = layout;
@@ -47,6 +48,7 @@ public class AddFragment extends BaseFragment {
 
         ViewGroup parent = (ViewGroup)inflater.inflate(mLayout, container, false);
         mForm = (Form)parent.findViewById(R.id.form);
+        mEndPoint = mForm.getEndPoint();
         return parent;
     }
 
@@ -78,6 +80,11 @@ public class AddFragment extends BaseFragment {
                         if (!mInTab) {
                             finish();
                         }
+
+                        Activity act = getActivity();
+                        if (act != null) {
+                            act.sendBroadcast(new Intent(mEndPoint));
+                        }
                     }
                 });
             }
@@ -92,22 +99,23 @@ public class AddFragment extends BaseFragment {
         //String end = mForm.getEndPoint();
 
         //Validate fields.
-        ViewGroup root = mForm;
-        try {
-            return ((FormEditText)root.findViewById(R.id.product_snum)).testValidity();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return true;
-        }
         //ViewGroup root = mForm;
-        //List<FormEditText> views = ViewUtils.getTypeViews(root, FormEditText.class);
-        //for (FormEditText view : views) {
-            //if (!view.testValidity()) {
-                //return false;
-            //}
+        //try {
+            //return ((FormEditText)root.findViewById(R.id.product_snum)).testValidity();
+        //} catch (Exception e) {
+            //e.printStackTrace();
+            //return true;
         //}
+        ViewGroup root = mForm;
+        List<FormEditText> views = ViewUtils.getTypeViews(root, FormEditText.class);
+        for (FormEditText view : views) {
+            if (!view.testValidity()) {
+                view.requestFocus();
+                return false;
+            }
+        }
 
-        //return  true;
+        return  true;
     }
 
     @Override
