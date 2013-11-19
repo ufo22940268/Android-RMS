@@ -8,6 +8,10 @@
 	<declare-styleable name="PageList">
 		<attr name="check_mode" format="boolean" />
 	</declare-styleable>
+
+	<declare-styleable name="EntityView">
+		<attr name="type" format="string" />
+	</declare-styleable>
 </resources>
 <!-- vim:fenc=utf-8
   -->

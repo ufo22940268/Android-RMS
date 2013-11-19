@@ -36,10 +36,6 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 
 public class Form extends TableLayout implements View.OnClickListener {
 
-    static public final int[] TYPE_RES = {
-        R.id.type,
-    };
-
     private TextView mTimeView;
     private String mEndPoint;
     private boolean mInitData;
@@ -77,18 +73,20 @@ public class Form extends TableLayout implements View.OnClickListener {
             });
 
             registerClick(R.id.operator);
-
-            //String fd = DateFormatUtils.format(today, "yyyy-MM-dd HH:mm");
-            //mTimeView.setText(fd);
         }
 
-        for (int res : TYPE_RES) {
-            registerTypeListener(res);
+        ViewGroup form = (ViewGroup)findViewById(R.id.form);
+        for (int i = 0; i < form.getChildCount(); i ++) {
+            ViewGroup row = (ViewGroup)form.getChildAt(i);
+            if (row.getChildCount() >= 2) {
+                registerTypeListener(row.getChildAt(1));
+            }
         }
 
-        //TODO Refactor to make it satify to register
-        //all kinds of MapDialog.
-        registerMapListener(R.id.status);
+
+        ////TODO Refactor to make it satify to register
+        ////all kinds of MapDialog.
+        //registerMapListener(R.id.status);
 
         //Init snum.
         View v = findViewById(R.id.snum);
@@ -97,19 +95,22 @@ public class Form extends TableLayout implements View.OnClickListener {
             snumView.setText(generateSn(mEndPoint.toUpperCase()));
         }
     }
+    
 
-    private void registerTypeListener(int res) {
-        final View v = findViewById(res);
+    private void registerTypeListener(final View v) {
         final String end = mEndPoint;
+        
         if (v != null && v instanceof EntityView) {
-            v.setOnClickListener(new View.OnClickListener() {
+            final EntityView ev = (EntityView)v;
+            ev.setOnClickListener(new View.OnClickListener() {
+                final DialogCreator dc = new DialogCreator(getContext(), end, ev);
+                final String type = ev.getType();
                 @Override
                 public void onClick(View view) {
-                    CustomDialog dialog = new CustomDialog(getContext(), end, (EntityView)v);
+                    EntryDialog dialog = dc.createDialog(type);
                     dialog.show();
                 }
             });
-            
         }
     }
 

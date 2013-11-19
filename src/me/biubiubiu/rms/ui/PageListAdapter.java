@@ -37,6 +37,9 @@ public class PageListAdapter extends BaseAdapter implements CleanableAdapter {
     private List<Map<String, String>> mList = new ArrayList<Map<String, String>>();
     private int mItemLayout;
     private Context mContext;
+
+    //The key of this projection is the entity key, and value map
+    //is the dict display name and actual value.
     private Map<String, Map<String, String>> mProjection;
 
     public PageListAdapter(Context context, int layout) {

@@ -2,9 +2,11 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
     xmlns:editTextFormExample="http://schemas.android.com/apk/res-auto"
     xmlns:form="http://schemas.android.com/apk/res-auto"
+    xmlns:entityView="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     >
+    <!--xmlns:entityView="http://schemas.android.com/apk/res-auto"-->
 
 
     <me.biubiubiu.rms.ui.Form
@@ -146,8 +148,10 @@
                 style="@style/form_label"
                 />
 
-            <TextView
+            <me.biubiubiu.rms.ui.EntityView
                 android:id="@+id/enabled"
+                android:hint="点击选择类型"
+                entityView:type="yes_or_no"
                 />
 
         </TableRow>

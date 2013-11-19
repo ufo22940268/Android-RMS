@@ -38,7 +38,14 @@
                     android:id="@+id/snum"
                     style="@style/form_field"
                     />
-
+                
+                <Button
+                    android:id="@+id/scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="扫描"
+                    />
+                
             </TableRow>
 
             <TableRow

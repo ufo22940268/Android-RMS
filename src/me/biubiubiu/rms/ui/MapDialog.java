@@ -26,7 +26,7 @@ import java.util.*;
 
 import me.biubiubiu.rms.R;
 
-public abstract class MapDialog {
+public abstract class MapDialog implements EntryDialog {
 
     private String mEndPoint;
     private Builder mBuilder;

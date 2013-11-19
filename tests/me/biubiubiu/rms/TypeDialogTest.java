@@ -1,5 +1,5 @@
 /*
- * TypeDialogTest.java
+ * CustomDialogTest.java
  * Copyright (C) 2013 garlic <garlic@localhost>
  *
  * Distributed under terms of the MIT license.
@@ -66,7 +66,7 @@ public class TypeDialogTest {
     @Test
     public void testCustomDialog() throws Exception  {
         EntityView ev = new EntityView(mAct);
-        new TypeDialog(mAct, "import", ev).show();
+        new CustomDialog(mAct, "import", ev).show();
         ShadowAlertDialog dialog = shadowOf(ShadowAlertDialog.getLatestAlertDialog());
 
         CharSequence[] items = dialog.getItems();
@@ -76,7 +76,7 @@ public class TypeDialogTest {
     @Test
     public void testAddType() throws Exception  {
         EntityView ev = new EntityView(mAct);
-        TypeDialog td = new TypeDialog(mAct, "import", ev);
+        CustomDialog td = new CustomDialog(mAct, "import", ev);
 
         td.addType("new_type");
         List<String> l = new ArrayList<String>();
@@ -90,18 +90,12 @@ public class TypeDialogTest {
         assertThat(ev.getValue()).isEqualTo("new_type");
 
         dialog.dismiss();
-        td = new TypeDialog(mAct, "import", ev);
+        td = new CustomDialog(mAct, "import", ev);
         td.show();
         dialog = shadowOf(ShadowAlertDialog.getLatestAlertDialog());
 
         assertThat(dialog.getItems()[0]).isEqualTo("new_type");
         assertThat(dialog.getItems()[1]).isEqualTo("自定义");
         assertThat(dialog.getItems().length).isEqualTo(2);
-    }
-
-    @Test @Config(reportSdk = 10)
-    public void testImport() throws Exception  {
-        Activity importAct = Robolectric.buildActivity(ImportActivity.class).create().get();
-        importAct.findViewById(R.id.type).performClick();
     }
 }

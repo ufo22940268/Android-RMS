@@ -20,12 +20,16 @@ import android.opengl.*;
 import android.graphics.*;
 import android.view.animation.*;
 import android.text.TextUtils;
+import me.biubiubiu.rms.R;
+import android.content.res.TypedArray;
 
 import java.util.*;
 
 public class EntityView extends TextView {
 
-    private String mValue;
+    public String mValue;
+
+    private String mType;
 
     public EntityView(Context context) {
         super(context);
@@ -33,6 +37,13 @@ public class EntityView extends TextView {
 
     public EntityView(Context context, AttributeSet attr) {
         super(context, attr);
+		TypedArray typedArray = context.obtainStyledAttributes(attr, R.styleable.EntityView);
+		mType = typedArray.getString(R.styleable.EntityView_type);
+		typedArray.recycle();
+    }
+
+    public String getType() {
+        return mType;
     }
 
     public void setLabel(String s) {

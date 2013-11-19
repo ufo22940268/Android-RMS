@@ -26,7 +26,7 @@ import java.util.*;
 
 import me.biubiubiu.rms.R;
 
-public class CustomDialog {
+public class CustomDialog implements EntryDialog {
 
     private String mEndPoint;
     private Builder mBuilder;

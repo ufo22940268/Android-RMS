@@ -99,6 +99,25 @@ public class MainManageFragment extends BaseFragment implements AdapterView.OnIt
                 intent.putExtra("content", "video");
                 startActivity(intent);
                 break;
+                
+            case 5:
+                new AlertDialog.Builder(getActivity())
+                    .setMessage("功能未开通")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+
+                                /* User clicked OK so do some stuff */
+                            }
+                        })
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+
+                                /* User clicked Cancel so do some stuff */
+                            }
+                        })
+                    .show();
+
+                break;
         }
     }
 
@@ -129,8 +148,10 @@ public class MainManageFragment extends BaseFragment implements AdapterView.OnIt
             .setMessage("你尚未安装vMEyeCloud")
             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int whichButton) {
-
-                    /* User clicked OK so do some stuff */
+                    Uri uri = Uri.parse("http://192.241.196.189:8000/vMEyeCloud.apk");
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                     /* User clicked OK so do some stuff */
                 }
             })
         .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {

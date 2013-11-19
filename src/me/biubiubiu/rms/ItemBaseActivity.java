@@ -131,12 +131,4 @@ public class ItemBaseActivity extends BaseActivity {
         }
         return null;
     }
-
-    public Map<String, String> collectItem() {
-        if (!isLoaded()) {
-            return null;
-        }
-
-        return ViewUtils.collectForm((ViewGroup)findViewById(R.id.form));
-    }
 }
