@@ -73,5 +73,4 @@ public class ModelTest {
         v.setLabelFromRemote("1");
         assertThat(v.getLabel()).isEqualTo("是");
     }
-
 }

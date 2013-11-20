@@ -82,7 +82,11 @@ public class ItemBaseActivity extends BaseActivity {
                         View view = findViewById(id);
                         if (view != null && view instanceof TextView) {
                             //TODO Extract as a method and put it into ViewUtils.
-                            ((TextView)view).setText(value);
+                            if (view instanceof MapEntityView) {
+                                ((MapEntityView)view).setLabelFromRemote(value);
+                            } else {
+                                ((TextView)view).setText(value);
+                            }
                         }
                     }
                 }

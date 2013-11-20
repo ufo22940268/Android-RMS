@@ -11,11 +11,26 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
+            android:text="出库单号:"
+            />
+
+        <TextView 
+            android:id="@+id/snum"
+            />
+
+    </TableRow>
+
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
             android:text="产品名称:"
             />
 
         <TextView 
-            android:id="@+id/name"
+            android:id="@+id/product_name"
             android:textColor="#f00"
             android:layout_weight="1"
             />
@@ -48,41 +63,11 @@
         <TextView 
             android:id="@+id/label"
             android:textStyle="bold"
-            android:text="产品规格:"
+            android:text="出库数量:"
             />
 
         <TextView 
-            android:id="@+id/specification"
-            />
-
-    </TableRow>
-
-    <TableRow
-        >
-
-        <TextView 
-            android:id="@+id/label"
-            android:textStyle="bold"
-            android:text="库存上限:"
-            />
-
-        <TextView 
-            android:id="@+id/max"
-            />
-
-    </TableRow>
-
-    <TableRow
-        >
-
-        <TextView 
-            android:id="@+id/label"
-            android:textStyle="bold"
-            android:text="库存下限:"
-            />
-
-        <TextView 
-            android:id="@+id/min"
+            android:id="@+id/quantity"
             />
 
     </TableRow>

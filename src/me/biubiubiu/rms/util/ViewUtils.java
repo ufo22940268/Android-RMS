@@ -23,6 +23,7 @@ import java.util.*;
 import org.json.*;
 import me.biubiubiu.rms.R;
 import me.biubiubiu.rms.ui.*;
+import com.andreabaccega.widget.FormEditText;
 
 
 public class ViewUtils {
@@ -112,5 +113,20 @@ public class ViewUtils {
         }
 
         return map;
+    }
+
+    /*
+     * Setup value retrieve from server.
+     */
+    public static void setRemoteValue(View v, String remoteValue) {
+        if (v instanceof MapEntityView) {
+            MapEntityView mtv = (MapEntityView)v;
+            mtv.setLabelFromRemote(remoteValue);
+        } else if (v instanceof TextView) {
+            TextView tv = (TextView)v;
+            tv.setText(remoteValue);
+        } else {
+            throw new RuntimeException("This view is not supported.");
+        }
     }
 }

@@ -148,9 +148,8 @@
                 style="@style/form_label"
                 />
 
-            <me.biubiubiu.rms.ui.EntityView
+            <me.biubiubiu.rms.ui.YesOrNoEntityView
                 android:id="@+id/enabled"
-                android:hint="点击选择类型"
                 entityView:type="yes_or_no"
                 />
 

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="6dip"
+    xmlns:entityView="http://schemas.android.com/apk/res-auto"
     android:stretchColumns="1">
     <!--android:background="?attr/activatedBackgroundIndicator"-->
 
@@ -76,8 +77,9 @@
             android:text="是否停用"
             />
 
-        <TextView 
-            android:id="@+id/enable"
+        <me.biubiubiu.rms.ui.YesOrNoEntityView
+            android:id="@+id/enabled"
+            entityView:type="yes_or_no"
             />
 
     </TableRow>

@@ -99,13 +99,13 @@ public class PageListAdapter extends BaseAdapter implements CleanableAdapter {
             if (map.containsKey(key)) {
                 String value = map.get(key);
                 if (mProjection == null || mProjection.get(key) == null) {
-                    tv.setText(value);
+                    ViewUtils.setRemoteValue(tv, value);
                 } else {
                     String rValue = mProjection.get(key).get(value);
                     if (rValue != null) {
-                        tv.setText(rValue);
+                        ViewUtils.setRemoteValue(tv, rValue);
                     } else {
-                        tv.setText(value);
+                        ViewUtils.setRemoteValue(tv, value);
                     }
                 }
             }
