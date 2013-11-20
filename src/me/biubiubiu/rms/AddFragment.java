@@ -95,17 +95,6 @@ public class AddFragment extends BaseFragment {
     }
 
     private boolean validateAll() {
-        ////Check permission.
-        //String end = mForm.getEndPoint();
-
-        //Validate fields.
-        //ViewGroup root = mForm;
-        //try {
-            //return ((FormEditText)root.findViewById(R.id.product_snum)).testValidity();
-        //} catch (Exception e) {
-            //e.printStackTrace();
-            //return true;
-        //}
         ViewGroup root = mForm;
         List<FormEditText> views = ViewUtils.getTypeViews(root, FormEditText.class);
         for (FormEditText view : views) {
@@ -125,6 +114,36 @@ public class AddFragment extends BaseFragment {
             System.out.println("++++++++++++++++++++" + data.getExtras().getString("SCAN_RESULT") + "++++++++++++++++++++");
             String barcode = data.getExtras().getString("SCAN_RESULT");
             mForm.setProductSnum(barcode);
+            loadProduct(barcode);
         }
+    }
+
+    protected void loadProduct(String snum) {
+        new HttpHandler(getActivity()).getSearch("product", 1, "snum==" + snum,  new ResponseHandler() {
+            @Override
+            public void onSuccess(String result) {
+                if (isFinished()) {
+                    return;
+                }
+
+                List<Map<String, String>> list = Parser.items(result);
+                if (list != null && list.size() > 0) {
+                    Map<String, String> item = list.get(0);
+
+                    Map<String, String> remoteLocalMap = new HashMap<String, String>();
+                    remoteLocalMap.put("color", "color");
+                    remoteLocalMap.put("property", "property");
+
+                    for (String key: remoteLocalMap.keySet()) {
+                        String value = remoteLocalMap.get(key);
+                        int id = ViewUtils.getIdRes(key);
+                        View v = mForm.findViewById(id);
+                        if (v != null && v instanceof TextView) {
+                            ((TextView)v).setText(value);
+                        }
+                    }
+                }
+            }
+        });
     }
 }

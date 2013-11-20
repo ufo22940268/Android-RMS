@@ -32,6 +32,8 @@ public class AudioRecordDetailActivity extends DetailActivity  {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.audio, menu);
         return true;
     }
 }

@@ -31,43 +31,49 @@ import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
 
-public class LoginActivity extends BaseActivity {
+public class GetPasswordActivity extends BaseActivity {
 
     private EditText mNameView;
-    private EditText mPwdView; 
+    private EditText mMobileView; 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.get_password);
         mNameView = (EditText)findViewById(R.id.name);
-        mPwdView = (EditText)findViewById(R.id.password);
+        mMobileView = (EditText)findViewById(R.id.mobile);
     }
 
-    public void getPassword(View view) {
-        Intent intent = new Intent(this, GetPasswordActivity.class);
+    public void login(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
     public void submit(View view) {
         String name = mNameView.getText().toString();
-        String pwd = mPwdView.getText().toString();
+        String mobile = mMobileView.getText().toString();
 
-        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(pwd)) {
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(mobile)) {
             Toast.makeText(this,
-                "请输入用户名和密码", Toast.LENGTH_LONG).show();
+                "请输入用户名和手机号", Toast.LENGTH_LONG).show();
             return;
         }
 
-        mHttp.login(name, pwd, new ResponseHandler() {
+        mHttp.getPassword(name, mobile, new ResponseHandler() {
             @Override
             public void onSuccess(String result) {
-                if (Debug.DEBUG_INIT_PERMISSION) {
-                    Debug.mockPermission(LoginActivity.this);
-                } else {
-                    mPermissionManager.loads(result);
+                try {
+                    JSONObject jo = new JSONObject(result);
+                    String pwd = jo.optJSONObject("_item").optString("password");
+                    new AlertDialog.Builder(GetPasswordActivity.this)
+                            .setMessage("你的密码是" + pwd)
+                            .show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    new AlertDialog.Builder(GetPasswordActivity.this)
+                            .setMessage("用户名或者手机号不正确")
+                            .show();
                 }
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
         });
     }

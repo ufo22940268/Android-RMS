@@ -104,6 +104,21 @@ public class HttpHandler {
         }, 0));
     }
 
+    public void getPassword(String name, String mobile, final ResponseHandler handler) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        String url = getUrl("get_password");
+        RequestParams params = new RequestParams();
+        params.put("name", name);
+        params.put("mobile", mobile);
+        if (DEBUG) {
+            final String fullUrl = AsyncHttpClient.getUrlWithQueryString(url, params);
+            Log.d(TAG, "++++++++++++++++++++full url:" + fullUrl);
+        }
+
+        showLoading();
+        client.get(url, params, new MyAsyncHttpResponseHandler(handler, 0));
+    }
+
     public void login(String name, String password, final ResponseHandler handler) {
         AsyncHttpClient client = new AsyncHttpClient();
         String url = getUrl("login");

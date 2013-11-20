@@ -22,19 +22,23 @@ import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
 
-public class AudioManageFragment extends BaseFragment implements AdapterView.OnItemClickListener {
+public class ContactManageFragment extends BaseFragment implements AdapterView.OnItemClickListener {
 
     private BlockAdapter mAdapter;
 
     static public final String[][] TITLES = {
-        {"录音查听", "Warehousing Managemengt"},
+        {"供应商管理", "Warehousing Managemengt"},
+        {"客户管理", "Warehousing Managemengt"},
+        {"联系人", "Warehousing Managemengt"},
     };
 
     static public final int[] IMAGE_RES = {
-        R.drawable.menu_view_record,
+        R.drawable.menu_provider,
+        R.drawable.menu_customer,
+        R.drawable.menu_contact,
     };
 
-    public AudioManageFragment(){
+    public ContactManageFragment(){
     }
 
     @Override
@@ -61,7 +65,19 @@ public class AudioManageFragment extends BaseFragment implements AdapterView.OnI
     public void onItemClick(AdapterView parent, View view, int pos, long id) {
         switch (pos) {
             case 0:
-                Intent intent = new Intent(getActivity(), AudioRecordActivity.class);
+                Intent intent = new Intent(getActivity(), ProviderActivity.class);
+                intent.putExtra("title", TITLES[pos][0]);
+                startActivity(intent);
+                break;
+
+            case 1:
+                intent = new Intent(getActivity(), CustomerActivity.class);
+                intent.putExtra("title", TITLES[pos][0]);
+                startActivity(intent);
+                break;
+
+            case 2:
+                intent = new Intent(getActivity(), ContactActivity.class);
                 intent.putExtra("title", TITLES[pos][0]);
                 startActivity(intent);
                 break;

@@ -58,6 +58,12 @@ public class ContactActivity extends BaseActivity {
                 intent.putExtra("end_point", "contact");
                 startActivity(intent);
                 break;
+
+            case R.id.search:
+                intent = new Intent(this, SearchContactActivity.class);
+                startActivity(intent);
+                break;
+            
             
         }
         return super.onOptionsItemSelected(item);

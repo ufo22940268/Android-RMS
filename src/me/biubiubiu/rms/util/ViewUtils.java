@@ -95,6 +95,16 @@ public class ViewUtils {
         }
     }
 
+    public static int getIdRes(String name) {
+        R.id ft = new R.id();    
+        try {
+            return (Integer)ft.getClass().getField(name).get(ft);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Resouce name not founded.");
+        }
+    }
+
     public static Map<String, String> collectForm(ViewGroup parent) {
         Map<String, String> map = new HashMap<String, String>();
         for (int i = 0; i < parent.getChildCount(); i ++) {

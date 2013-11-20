@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <me.biubiubiu.rms.ui.Form
+        android:id="@+id/form"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:stretchColumns="1"
+        android:divider="@drawable/divider"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView
+                android:id="@+id/label"
+                android:text="名称"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/company"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView
+                android:text="联系人"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/name"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView
+                android:text="类别"
+                style="@style/form_label"
+                />
+
+            <com.andreabaccega.widget.FormEditText
+                android:id="@+id/type"
+                style="@style/form_field"
+                />
+
+        </TableRow>
+
+    </me.biubiubiu.rms.ui.Form>
+
+    <Button
+        android:id="@+id/do_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dip"
+        android:text="显示搜索结果"
+        />
+
+</LinearLayout>

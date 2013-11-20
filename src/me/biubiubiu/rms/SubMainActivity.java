@@ -36,6 +36,7 @@ public class SubMainActivity extends BaseActivity {
 
     private Fragment mMainFrag;
     private Fragment mRepoFrag;
+    private Fragment mContactFrag;
     private Fragment mAudioFrag;
     private Fragment mVideoFrag;
     private Fragment mOrderFrag;
@@ -46,6 +47,7 @@ public class SubMainActivity extends BaseActivity {
         setContentView(R.layout.container);
         mRepoFrag  = new RepoManageFragment();
         mAudioFrag = new AudioManageFragment();
+        mContactFrag = new ContactManageFragment();
         mVideoFrag = new VideoManageFragment();
         mOrderFrag = new OrderManageFragment();
         String content = getIntent().getStringExtra("content");
@@ -57,6 +59,8 @@ public class SubMainActivity extends BaseActivity {
             add(mAudioFrag);
         } else if (content.equals("video")) {
             add(mVideoFrag);
+        } else {
+            add(mContactFrag);
         }
 
         ActionBar actionBar = getSupportActionBar();

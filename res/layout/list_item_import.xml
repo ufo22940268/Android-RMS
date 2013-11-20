@@ -73,4 +73,19 @@
 
     </TableRow>
 
+    <TableRow
+        >
+
+        <TextView 
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:text="入库时间:"
+            />
+
+        <TextView 
+            android:id="@+id/time"
+            />
+
+    </TableRow>
+
 </TableLayout>

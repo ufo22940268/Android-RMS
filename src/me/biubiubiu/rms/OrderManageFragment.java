@@ -27,13 +27,11 @@ public class OrderManageFragment extends BaseFragment implements AdapterView.OnI
     private BlockAdapter mAdapter;
 
     static public final String[][] TITLES = {
-        {"客户管理", "Warehousing Managemengt"},
         {"销售订单", "Warehousing Managemengt"},
         {"销售开单", "Infomation notice"},
     };
 
     static public final int[] IMAGE_RES = {
-        R.drawable.menu_customer,
         R.drawable.menu_order,
         R.drawable.menu_open_order,
     };
@@ -65,17 +63,12 @@ public class OrderManageFragment extends BaseFragment implements AdapterView.OnI
     public void onItemClick(AdapterView parent, View view, int pos, long id) {
         switch (pos) {
             case 0:
-                Intent intent = new Intent(getActivity(), CustomerActivity.class);
-                intent.putExtra("title", TITLES[pos][0]);
-                startActivity(intent);
-                break;
-            case 1:
-                intent = new Intent(getActivity(), OrderActivity.class);
+                Intent intent = new Intent(getActivity(), OrderActivity.class);
                 intent.putExtra("title", TITLES[pos][0]);
                 startActivity(intent);
                 break;
 
-            case 2:
+            case 1:
                 intent = new Intent(getActivity(), OpenOrderActivity.class);
                 intent.putExtra("title", TITLES[pos][0]);
                 startActivity(intent);

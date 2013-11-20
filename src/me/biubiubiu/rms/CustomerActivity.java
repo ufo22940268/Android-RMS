@@ -59,6 +59,7 @@ public class CustomerActivity extends BaseActivity {
                 intent.putExtra("end_point", "customer");
                 startActivity(intent);
                 break;
+
             case R.id.search:
                 intent = new Intent(this, SearchCustomerActivity.class);
                 startActivity(intent);

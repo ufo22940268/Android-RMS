@@ -31,6 +31,7 @@ public class MainManageFragment extends BaseFragment implements AdapterView.OnIt
     static public final String[][] TITLES = {
         {"仓库管理", "Warehousing Managemengt"},
         {"订单管理", "Warehousing Managemengt"},
+        {"联系人", "Warehousing Managemengt"},
         {"录音查询", "Warehousing Managemengt"},
         {"视频监控", "Warehousing Managemengt"},
         {"安防报警", "Warehousing Managemengt"},
@@ -40,6 +41,7 @@ public class MainManageFragment extends BaseFragment implements AdapterView.OnIt
     static public final int[] IMAGE_RES = {
         R.drawable.main_repo,
         R.drawable.main_order,
+        R.drawable.main_contact,
         R.drawable.main_audio,
         R.drawable.main_monitor,
         R.drawable.main_alert,
@@ -86,21 +88,28 @@ public class MainManageFragment extends BaseFragment implements AdapterView.OnIt
 
             case 2:
                 intent = new Intent(getActivity(), SubMainActivity.class);
+                intent.putExtra("content", "contact");
+                startActivity(intent);
+                break;
+
+
+            case 3:
+                intent = new Intent(getActivity(), SubMainActivity.class);
                 intent.putExtra("content", "audio");
                 startActivity(intent);
                 break;
 
-            case 3:
+            case 4:
                 launchEyeCloud();
                 break;
 
-            case 4:
+            case 5:
                 intent = new Intent(getActivity(), SubMainActivity.class);
                 intent.putExtra("content", "video");
                 startActivity(intent);
                 break;
                 
-            case 5:
+            case 6:
                 new AlertDialog.Builder(getActivity())
                     .setMessage("功能未开通")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

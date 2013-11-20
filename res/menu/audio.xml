@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/play"
+        yourapp:showAsAction="always"
+        android:title="播放"/>
+</menu>

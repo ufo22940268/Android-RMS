@@ -72,4 +72,8 @@ public class BaseFragment extends Fragment {
             act.finish();
         }
     }
+
+    protected boolean isFinished() {
+        return getActivity() == null;
+    }
 }
