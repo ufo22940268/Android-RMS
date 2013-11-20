@@ -29,7 +29,7 @@ import java.util.*;
 
 public class MapEntityView extends EntityView {
 
-    private EntityMap mMap;
+    protected EntityMap mMap;
 
     public MapEntityView(Context context, AttributeSet attr) {
         super(context, attr);
@@ -40,8 +40,16 @@ public class MapEntityView extends EntityView {
             throw new RuntimeException("Do you initial map?");
         }
 
-        mValue = mMap.getValue(t); 
-        setText(t);
+        setValueAndText(t);
+    }
+
+    /*
+     *Store the value to view and get label from map
+     *and display this view with the received label.
+     */
+    private void setValueAndText(String v) {
+        setValue(v);
+        setLabel(mMap.getLabel(v));
     }
 }
 

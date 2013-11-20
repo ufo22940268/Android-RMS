@@ -28,8 +28,10 @@ import java.util.*;
 
 
 public class YesOrNoMap extends EntityMap {
+
 	public YesOrNoMap() {
-		
+        put("是", "1");		
+        put("否", "0");		
 	}
 }
 

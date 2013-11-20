@@ -50,6 +50,10 @@ public class EntityView extends TextView {
         setText(s);
     }
 
+    public String getLabel() {
+        return getText().toString();
+    }
+
     public void setValue(String v) {
         mValue = v;
     }

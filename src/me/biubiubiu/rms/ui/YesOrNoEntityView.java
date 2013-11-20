@@ -29,8 +29,6 @@ import java.util.*;
 
 public class YesOrNoEntityView extends MapEntityView {
 
-    private EntityMap mMap;
-
     public YesOrNoEntityView(Context context, AttributeSet attr) {
         super(context, attr);
         mMap = new YesOrNoMap();

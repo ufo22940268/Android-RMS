@@ -284,5 +284,14 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="ItemBaseActivity"   
+            android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:windowSoftInputMode="stateHidden" 
+            android:label="@string/app_name">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>

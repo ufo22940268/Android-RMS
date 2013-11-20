@@ -4,7 +4,7 @@ main:
 
 .PHONY : test
 test:
-	mvn test -q 
+	mvn test
 
 .PHONY : kill
 kill:
