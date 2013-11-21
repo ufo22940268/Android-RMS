@@ -65,7 +65,7 @@ public class OldMainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.old_activity_main);
 
         if (Debug.DEBUG_INIT_PERMISSION) {
             Debug.mockPermission(this);
