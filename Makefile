@@ -1,6 +1,17 @@
 .PHONY : main
 main: 
-	mvn -Dmaven.test.skip=true install android:redeploy android:run
+	-mvn -Dmaven.test.skip=true install android:redeploy android:run
+	-zenity --notification --window-icon=/home/garlic/Pictures/finish.jpg --text "compile finished" &> /dev/null &
+
+.PHONY : notify
+notify:
+	#echo 'message:compile finish' | zenity --notification --listen
+	zenity --notification --window-icon=/home/garlic/Pictures/finish.jpg --text "compile finished" &> /dev/null &
+
+
+all: main notify
+	echo "finish"
+
 
 .PHONY : test
 test:
