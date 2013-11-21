@@ -105,7 +105,7 @@ public class MainManageFragment extends BaseFragment implements AdapterView.OnIt
 
             case 5:
                 intent = new Intent(getActivity(), SubMainActivity.class);
-                intent.putExtra("content", "video");
+                intent.putExtra("content", "alert");
                 startActivity(intent);
                 break;
                 

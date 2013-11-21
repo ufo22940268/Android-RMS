@@ -22,7 +22,7 @@ import me.biubiubiu.rms.ui.*;
 import me.biubiubiu.rms.*;
 import com.loopj.android.http.*;
 
-public class VideoManageFragment extends BaseFragment {
+public class AlertManageFragment extends BaseFragment {
 
     private ListView mListView;
 

@@ -160,7 +160,7 @@ public class OldMainActivity extends ActionBarActivity {
             launchEyeCloud();
             return;
         } else if (position == 4) {
-            fragment = new VideoManageFragment();
+            //fragment = new VideoManageFragment();
         } else  {
             fragment = new PlanetFragment();
         }

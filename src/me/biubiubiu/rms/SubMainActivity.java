@@ -38,7 +38,7 @@ public class SubMainActivity extends BaseActivity {
     private Fragment mRepoFrag;
     private Fragment mContactFrag;
     private Fragment mAudioFrag;
-    private Fragment mVideoFrag;
+    private Fragment mAlertFrag;
     private Fragment mOrderFrag;
 
     @Override
@@ -48,7 +48,7 @@ public class SubMainActivity extends BaseActivity {
         mRepoFrag  = new RepoManageFragment();
         mAudioFrag = new AudioManageFragment();
         mContactFrag = new ContactManageFragment();
-        mVideoFrag = new VideoManageFragment();
+        mAlertFrag = new AlertManageFragment();
         mOrderFrag = new OrderManageFragment();
         String content = getIntent().getStringExtra("content");
         if (content.equals("repo")) {
@@ -57,8 +57,8 @@ public class SubMainActivity extends BaseActivity {
             add(mOrderFrag);
         } else if (content.equals("audio")) {
             add(mAudioFrag);
-        } else if (content.equals("video")) {
-            add(mVideoFrag);
+        } else if (content.equals("alert")) {
+            add(mAlertFrag);
         } else {
             add(mContactFrag);
         }
