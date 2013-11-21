@@ -110,6 +110,27 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    public void logout(View view) {
+        new AlertDialog.Builder(this)
+            .setMessage("确认退出吗?")
+            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+
+                    /* User clicked OK so do some stuff */
+                    finish();
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+            })
+        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+                /* User clicked Cancel so do some stuff */
+            }
+        })
+        .show();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
          // The action bar home/up action should open or close the drawer.
