@@ -16,6 +16,23 @@
 
 <resources>
     <string name="app_name">仓库管理系统</string>
+    <string-array name="menus">
+        <item>blank</item>
+        <item>首页</item>
+        <item>仓库管理</item>
+        <item>订单管理</item>
+        <item>联系人管理</item>
+        <item>录音查询</item>
+        <item>安防报警</item>
+        <item>视频监控</item>
+        <item>ip拨号</item>
+        <item>操作员设置</item>
+    </string-array>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="share">share</string>
     <string-array name="planets_array">
         <item>仓库管理</item>
         <item>订单管理</item>
@@ -23,9 +40,4 @@
         <item>视频监控</item>
         <item>安防报警</item>
     </string-array>
-    <string name="drawer_open">Open navigation drawer</string>
-    <string name="drawer_close">Close navigation drawer</string>
-    <string name="action_websearch">Web search</string>
-    <string name="app_not_available">Sorry, there\'s no web browser available</string>
-    <string name="share">share</string>
 </resources>

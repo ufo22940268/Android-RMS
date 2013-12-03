@@ -5,6 +5,7 @@ import java.util.Locale;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
@@ -26,6 +27,7 @@ import android.content.ComponentName;
 import android.content.pm.*;
 import java.util.*;
 
+import me.biubiubiu.rms.util.*;
 /**
  * This example illustrates a common usage of the DrawerLayout widget
  * in the Android support library.
@@ -53,14 +55,15 @@ import java.util.*;
  * An action should be an operation performed on the current contents of the window,
  * for example enabling or disabling a data overlay on top of the current content.</p>
  */
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
     private DrawerLayout mDrawerLayout;
-    private View mDrawerList;
+    private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
 
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
-    private String[] mPlanetTitles;
+    private String[] mMenuTitles;
+    private Fragment[] mMenuFragments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,14 +74,28 @@ public class MainActivity extends ActionBarActivity {
             Debug.mockPermission(this);
         }
 
+        
+        mMenuFragments = new Fragment[] {
+            null,
+            new MainManageFragment(),
+            new RepoManageFragment(),
+            new OrderManageFragment(),
+            new ContactManageFragment(),
+            new AudioManageFragment(),
+            new AlertManageFragment(),
+        };
+
         mTitle = mDrawerTitle = getTitle();
-        mPlanetTitles = getResources().getStringArray(R.array.planets_array);
+        mMenuTitles = getResources().getStringArray(R.array.menus);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = findViewById(R.id.left_drawer);
+        mDrawerList = (ListView)findViewById(R.id.left_drawer);
 
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
+        mDrawerList.setAdapter(new DrawerAdapter<String>(this,
+                R.layout.drawer_list_item, mMenuTitles));
+        mDrawerList.setOnItemClickListener(this);
 
         // enable ActionBar app icon to behave as action to toggle nav drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -106,7 +123,39 @@ public class MainActivity extends ActionBarActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         if (savedInstanceState == null) {
-            selectItem();
+            selectItem(1);
+        }
+    }
+
+    public class DrawerAdapter<T> extends ArrayAdapter<T> {
+
+        private int TYPE_USER = 0;
+        private int TYPE_MENU = 1;
+
+        public DrawerAdapter(Context c, int res, T[] ts) {
+            super(c, res, ts);
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            int type = getItemViewType(position);
+            if (type == TYPE_USER) {
+                return LayoutInflater.from(MainActivity.this).inflate(R.layout.list_item_user, parent, false);
+            } else {
+                View view = super.getView(position, convertView, parent);
+                return view;
+            }
+        }
+
+        public int getItemViewType(int position) {
+            if (position == 0) {
+                return TYPE_USER;
+            } else {
+                return TYPE_MENU;
+            }
+        }
+
+        public int getViewTypeCount() {
+            return 2;
         }
     }
 
@@ -156,17 +205,19 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    private void selectItem() {
+   private void selectItem(int position) {
         // update the main content by replacing fragments
-        Fragment fragment = null;
+        Fragment fragment;
 
-        fragment = new MainManageFragment();
+        fragment = mMenuFragments[position];
         Bundle args = new Bundle();
-        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, 0);
-        fragment.setArguments(args);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+        // update selected item and title, then close the drawer
+        mDrawerList.setItemChecked(position, true);
+        setTitle(mMenuTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
@@ -233,6 +284,41 @@ public class MainActivity extends ActionBarActivity {
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggls
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView parent, View view, int pos, long id) {
+        if (pos == 0) {
+            return;
+        } else if (pos < mMenuFragments.length) {
+            selectItem(pos);
+        } else if (pos < mMenuFragments.length + 1) {
+            new EyeCloud(this).launch();
+        } else if (pos < mMenuFragments.length + 2) {
+            alertNotAvaliable();
+        } else {
+            Intent intent = new Intent(this, OperatorActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    private void alertNotAvaliable() {
+        new AlertDialog.Builder(this)
+            .setMessage("功能未开通")
+            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+
+                    /* User clicked OK so do some stuff */
+                }
+            })
+        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+                /* User clicked Cancel so do some stuff */
+            }
+        })
+        .show();
     }
 
     /**

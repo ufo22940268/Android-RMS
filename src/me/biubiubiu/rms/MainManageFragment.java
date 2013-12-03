@@ -100,7 +100,7 @@ public class MainManageFragment extends BaseFragment implements AdapterView.OnIt
                 break;
 
             case 4:
-                launchEyeCloud();
+                new EyeCloud(getActivity()).launch();
                 break;
 
             case 5:
@@ -130,45 +130,5 @@ public class MainManageFragment extends BaseFragment implements AdapterView.OnIt
         }
     }
 
-    private void launchEyeCloud() {
-        if (isPackageExisted("com.vMEyeCloud")) {
-            ComponentName cn = new ComponentName("com.vMEyeCloud", "com.vMEyeCloud.AcLogin");
-            Intent intent = new Intent();
-            intent.setComponent(cn);
-            startActivity(intent);
-        } else {
-            showEyeCloudDialog();
-        }
-    }
 
-    public boolean isPackageExisted(String targetPackage){
-        List<ApplicationInfo> packages;
-        PackageManager pm;
-        pm = getActivity().getPackageManager();        
-        packages = pm.getInstalledApplications(0);
-        for (ApplicationInfo packageInfo : packages) {
-            if(packageInfo.packageName.equals(targetPackage)) return true;
-        }        
-        return false;
-    }
-
-    private void showEyeCloudDialog() {
-        new AlertDialog.Builder(getActivity())
-            .setMessage("你尚未安装vMEyeCloud")
-            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int whichButton) {
-                    Uri uri = Uri.parse("http://192.241.196.189:8000/vMEyeCloud.apk");
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
-                     /* User clicked OK so do some stuff */
-                }
-            })
-        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-
-                /* User clicked Cancel so do some stuff */
-            }
-        })
-        .show();
-    }
 }
