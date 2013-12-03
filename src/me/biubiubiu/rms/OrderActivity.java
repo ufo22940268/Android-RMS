@@ -29,12 +29,15 @@ import com.andreabaccega.widget.FormEditText;
 import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
+import me.biubiubiu.rms.model.*;
 import com.loopj.android.http.*;
 
-public class OrderActivity extends BaseActivity {
+public class OrderActivity extends BaseActivity implements ActionBar.OnNavigationListener {
 
     private PageList mPageList;
     private OrderCheckFragment mCheckFrag;
+    private String[] mItems;
+    private EntityMap mMap;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,37 @@ public class OrderActivity extends BaseActivity {
         setContentView(R.layout.container);
         mCheckFrag = new OrderCheckFragment("order", R.layout.list_item_order);
         addContainerFragment(mCheckFrag);
-        setActionBarTitle(getIntent().getStringExtra("title"));
+
+        setActionBarTitle("");
+        ActionBar ab = getSupportActionBar();
+        ab.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        mMap = new OrderStateMap();
+        mItems = mMap.getMap().keySet().toArray(new String[]{});
+        String tmp = null;
+        for (int i = 0; i < mItems.length; i ++) {
+            String s = mItems[i];
+            if (s.equals("全部") && i != 0) {
+                tmp = mItems[0];
+                mItems[0] = s;
+                mItems[i] = tmp;
+            }
+        }
+
+        ArrayAdapter adapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_dropdown_item,
+                mItems);
+        ab.setListNavigationCallbacks(adapter, this);
+    }
+
+    public boolean onNavigationItemSelected(int itemPosition, long itemPositionemId) {
+        String value = mMap.getValue(mItems[itemPosition]);
+        if (value.equals("default")) {
+            mCheckFrag.mWhere = null;
+        } else {
+            mCheckFrag.mWhere = "status==" + value;
+        }
+        mCheckFrag.refresh();
+        return true;
     }
 }
 

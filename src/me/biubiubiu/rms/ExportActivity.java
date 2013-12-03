@@ -37,7 +37,7 @@ public class ExportActivity extends BaseActivity {
     private int mPagePos;
 
     private String[] TITLES = {
-        "添加产品",
+        "添加出库",
         "出库状态表",
         "打印列表",
     };
@@ -73,7 +73,7 @@ public class ExportActivity extends BaseActivity {
             if (position == 0) {
                 return new ExportFragment();
             } else if (position == 1) {
-                return new PageListFragment("export", R.layout.list_item_export);
+                return new PageListFragment("export", R.layout.list_item_export, "validated==1");
             } else if (position == 2) {
                 return new PrintFragment();
             }

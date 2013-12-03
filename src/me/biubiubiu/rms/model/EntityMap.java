@@ -42,6 +42,10 @@ public class EntityMap {
         mMap.put(label, value);
     }
 
+    public HashMap<String, String> getMap() {
+        return mMap;
+    }
+
     public String getValue(String label) {
         return mMap.get(label);
     }

@@ -59,7 +59,7 @@ public class AddFragment extends BaseFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.save, menu);
+        inflater.inflate(R.menu.add, menu);
     }
 
     @Override
@@ -98,7 +98,7 @@ public class AddFragment extends BaseFragment {
         ViewGroup root = mForm;
         List<FormEditText> views = ViewUtils.getTypeViews(root, FormEditText.class);
         for (FormEditText view : views) {
-            if (!view.testValidity()) {
+            if (view.getId() != R.id.comment && !view.testValidity()) {
                 view.requestFocus();
                 return false;
             }
@@ -109,9 +109,7 @@ public class AddFragment extends BaseFragment {
 
     @Override
     public void onActivityResult (int requestCode, int resultCode, Intent data) {
-        System.out.println("++++++++++++++++++++" + "onActivityResult" + "++++++++++++++++++++");
         if (requestCode == Constants.REQUEST_SCAN) {
-            System.out.println("++++++++++++++++++++" + data.getExtras().getString("SCAN_RESULT") + "++++++++++++++++++++");
             String barcode = data.getExtras().getString("SCAN_RESULT");
             mForm.setProductSnum(barcode);
             loadProduct(barcode);

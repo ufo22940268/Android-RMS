@@ -280,6 +280,27 @@
 
         </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="入库状态"
+                style="@style/form_label"
+                />
+
+            <me.biubiubiu.rms.ui.EntityView
+                android:id="@+id/state"
+                android:hint="点击选择入库状态"
+                form:type="import_state"
+                />
+
+        </TableRow>
+
     </me.biubiubiu.rms.ui.Form>
 
 </ScrollView>

@@ -38,6 +38,10 @@ public class ValidateFragment extends CheckListFragment {
         inflater.inflate(R.menu.validate_check_list, menu);
     }
 
+    public PageList getPageList() {
+        return mPageList;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

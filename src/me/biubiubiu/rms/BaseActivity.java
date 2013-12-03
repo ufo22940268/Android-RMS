@@ -19,6 +19,7 @@ import android.net.*;
 import android.opengl.*;
 import android.graphics.*;
 import android.view.animation.*;
+import android.view.inputmethod.*;
 
 import java.util.*;
 import org.json.*;
@@ -103,5 +104,13 @@ public class BaseActivity extends ActionBarActivity {
         if (view != null) {
             ((TextView)view).setText(s);
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        InputMethodManager imm = (InputMethodManager)getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken() , 0);
     }
 }

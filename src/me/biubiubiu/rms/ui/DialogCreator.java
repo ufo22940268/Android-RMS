@@ -47,8 +47,11 @@ public class DialogCreator {
     }
 
     public EntryDialog createDialog(String type) {
-        if (type.equals("yes_or_no")) {
-            return new YesOrNoDialog(mContext, mEnd, mEv);
+        EntityMap map  = EntityMapUtil.getMap(type);
+        if (map != null) {
+            SimpleMapDialog smd =  new SimpleMapDialog(mContext, mEnd, mEv);
+            smd.init(map);
+            return smd;
         } else {
             return new CustomDialog(mContext, mEnd, mEv);
         }

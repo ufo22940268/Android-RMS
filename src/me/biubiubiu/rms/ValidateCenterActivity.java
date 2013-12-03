@@ -36,13 +36,15 @@ import me.biubiubiu.rms.util.HttpHandler.ResponseHandler;
 import me.biubiubiu.rms.util.*;
 import me.biubiubiu.rms.ui.*;
 
-public class ValidateCenterActivity extends BaseActivity  {
+public class ValidateCenterActivity extends BaseActivity implements ActionBar.OnNavigationListener {
 
     private String[] TITLES = {
-        "出库",
         "入库",
+        "出库",
         "产品",
     };
+
+    private int mValidateStatus;
 
     private ContentAdapter mAdapter;
 
@@ -63,7 +65,20 @@ public class ValidateCenterActivity extends BaseActivity  {
         pager.setAdapter(mAdapter);
         indicator.setOnPageChangeListener(mAdapter);
         indicator.setViewPager(pager);
-        setActionBarTitle("审核中心");
+
+        setActionBarTitle("");
+        ActionBar ab = getSupportActionBar();
+        ab.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        ArrayAdapter adapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_dropdown_item,
+                new String[]{"全部", "未审核", "已审核"});
+        ab.setListNavigationCallbacks(adapter, this);
+    }
+
+    public boolean onNavigationItemSelected(int itemPosition, long itemPositionemId) {
+        mValidateStatus = itemPosition;
+        mAdapter.refreshAll();
+        return true;
     }
 
     private class ContentAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
@@ -91,6 +106,17 @@ public class ValidateCenterActivity extends BaseActivity  {
             }
 
             return null;
+        }
+
+        private void refreshAll() {
+            for (ValidateFragment frag : new ValidateFragment[]{frag0, frag1, frag2}) {
+                if (mValidateStatus != 0) {
+                    frag.mWhere = "validated == " + (mValidateStatus - 1);
+                } else {
+                    frag.mWhere = null;
+                }
+                frag.refresh();
+            }
         }
 
         @Override

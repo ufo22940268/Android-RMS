@@ -1,10 +1,11 @@
 /*
- * OrderStatusDialog.java
+ * YesOrNoMap.java
  * Copyright (C) 2013 garlic <garlic@localhost>
  *
  * Distributed under terms of the MIT license.
  */
-package me.biubiubiu.rms.ui;
+
+package me.biubiubiu.rms.model;
 
 import android.util.*;
 import android.widget.*;
@@ -20,18 +21,18 @@ import android.opengl.*;
 import android.graphics.*;
 import android.view.animation.*;
 import android.text.TextUtils;
-import org.apache.commons.lang3.StringUtils;
+import me.biubiubiu.rms.R;
+import android.content.res.TypedArray;
 
 import java.util.*;
 
-import me.biubiubiu.rms.R;
+public class ImportStateMap extends EntityMap {
 
-public class YesOrNoDialog extends MapDialog {
-
-    public YesOrNoDialog(Context context, String end, EntityView ev) {
-        super(context, end, ev);
-        mMap = new HashMap<String, String>();
-        mMap.put("是", "1");
-        mMap.put("否", "0");
+	public ImportStateMap() {
+        put("待审核", "pending");
+        put("已入库", "imported");
+        put("已取消", "canceled");
 	}
 }
+
+

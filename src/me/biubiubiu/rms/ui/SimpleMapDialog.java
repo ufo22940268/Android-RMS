@@ -1,5 +1,5 @@
 /*
- * OrderStatusDialog.java
+ * MapDialog.java
  * Copyright (C) 2013 garlic <garlic@localhost>
  *
  * Distributed under terms of the MIT license.
@@ -25,13 +25,15 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 
 import me.biubiubiu.rms.R;
+import me.biubiubiu.rms.model.*;
 
-public class YesOrNoDialog extends MapDialog {
+public class SimpleMapDialog extends MapDialog {
 
-    public YesOrNoDialog(Context context, String end, EntityView ev) {
+    public SimpleMapDialog(Context context, String end, EntityView ev) {
         super(context, end, ev);
-        mMap = new HashMap<String, String>();
-        mMap.put("是", "1");
-        mMap.put("否", "0");
-	}
+    }
+
+    public void init(EntityMap em) {
+        mMap = em.getMap();
+    }
 }

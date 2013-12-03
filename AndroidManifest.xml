@@ -15,19 +15,22 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
-    <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
-    <uses-feature android:name="android.hardware.camera" android:required="false"/>
-    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
-    <!-- TODO replace above two with next line after Android 4.2 -->
-    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
-    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
-    <uses-feature android:name="android.hardware.screen.landscape"/>
-    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
-    <!-- This excludes Google TV, which is unfortunately included by virtue of not requiring a camera -->
-    <uses-feature android:name="android.hardware.touchscreen"/>
-    <!-- TODO make this not required again after android.hardware.camera.any is available -->
-    <!--=====permissions migrate from barcode end=====-->
+    <!--Disable these features for not let device show a crash when app first run. Enable when give app to customer or it will cause the barcode
+         scanner runs abnormal.-->
+
+    <!--[> Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 <]-->
+    <!--<uses-feature android:name="android.hardware.camera" android:required="false"/>-->
+    <!--<uses-feature android:name="android.hardware.camera.front" android:required="false"/>-->
+    <!--[> TODO replace above two with next line after Android 4.2 <]-->
+    <!--[> <uses-feature android:name="android.hardware.camera.any"/> <]-->
+    <!--<uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>-->
+    <!--<uses-feature android:name="android.hardware.camera.flash" android:required="false"/>-->
+    <!--<uses-feature android:name="android.hardware.screen.landscape"/>-->
+    <!--<uses-feature android:name="android.hardware.wifi" android:required="false"/>-->
+    <!--[> This excludes Google TV, which is unfortunately included by virtue of not requiring a camera <]-->
+    <!--<uses-feature android:name="android.hardware.touchscreen"/>-->
+    <!--[> TODO make this not required again after android.hardware.camera.any is available <]-->
+    <!--[>=====permissions migrate from barcode end=====<]-->
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="16" />
@@ -35,11 +38,13 @@
         >
         <activity android:name="MainActivity"   
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:label="@string/app_name">
-             <intent-filter> 
-                 <action android:name="android.intent.action.MAIN" /> 
-                 <category android:name="android.intent.category.LAUNCHER" /> 
-             </intent-filter> 
+             <!--<intent-filter> -->
+                 <!--<action android:name="android.intent.action.MAIN" /> -->
+                 <!--<category android:name="android.intent.category.LAUNCHER" /> -->
+             <!--</intent-filter> -->
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -58,6 +63,8 @@
 
         <activity android:name="ExportActivity"   
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
             <intent-filter>
@@ -67,6 +74,8 @@
 
         <activity android:name="ProductActivity"   
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
             <intent-filter>
@@ -76,6 +85,8 @@
 
         <activity android:name="DetailActivity"   
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
             <intent-filter>
@@ -85,6 +96,8 @@
 
         <activity android:name="OperatorDetailActivity"   
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
             <intent-filter>
@@ -94,6 +107,8 @@
 
         <activity android:name="EditActivity"   
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
             <intent-filter>
@@ -103,6 +118,8 @@
 
         <activity android:name="SearchActivity"   
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
             <intent-filter>
@@ -111,6 +128,8 @@
         </activity>
 
         <activity android:name="SearchResultActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -120,6 +139,8 @@
         </activity>
 
         <activity android:name="ProviderActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -129,6 +150,8 @@
         </activity>
 
         <activity android:name="AddActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -138,6 +161,8 @@
         </activity>
 
         <activity android:name="OperatorActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -147,6 +172,8 @@
         </activity>
 
         <activity android:name="CustomerActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -156,15 +183,23 @@
         </activity>
 
         <activity android:name="OrderActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
+             <intent-filter> 
+                 <action android:name="android.intent.action.MAIN" /> 
+                 <category android:name="android.intent.category.LAUNCHER" /> 
+             </intent-filter> 
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <activity android:name="PermissionListActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -174,6 +209,8 @@
         </activity>
 
         <activity android:name="SetupPermissionActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -183,6 +220,8 @@
         </activity>
 
         <activity android:name="ValidateCenterActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -192,6 +231,8 @@
         </activity>
 
         <activity android:name="LoginActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -218,6 +259,8 @@
         </activity>
 
         <activity android:name="AudioRecordActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -227,6 +270,8 @@
         </activity>
 
         <activity android:name="AudioRecordDetailActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -236,6 +281,8 @@
         </activity>
 
         <activity android:name="ContactActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -249,6 +296,8 @@
         </activity>
 
         <activity android:name="SearchCustomerActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -258,6 +307,8 @@
         </activity>
 
         <activity android:name="SearchOrderActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -267,6 +318,8 @@
         </activity>
 
         <activity android:name="OpenOrderActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -276,6 +329,8 @@
         </activity>
 
         <activity android:name="SubMainActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -285,6 +340,8 @@
         </activity>
 
         <activity android:name="ItemBaseActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -294,6 +351,8 @@
         </activity>
 
         <activity android:name="TestActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.AppCompat"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -303,6 +362,8 @@
         </activity>
 
         <activity android:name="SearchProviderActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -312,6 +373,8 @@
         </activity>
 
         <activity android:name="SearchContactActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -321,6 +384,8 @@
         </activity>
 
         <activity android:name="GetPasswordActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">
@@ -329,7 +394,21 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="SearchProductActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
+            android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
+            android:windowSoftInputMode="stateHidden" 
+            android:label="@string/app_name">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
         <activity android:name="AlertProductActivity"   
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" 
             android:theme="@style/Theme.Light.NoTitleBar.PageIndicatorDefaults"
             android:windowSoftInputMode="stateHidden" 
             android:label="@string/app_name">

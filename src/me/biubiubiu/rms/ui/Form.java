@@ -72,7 +72,6 @@ public class Form extends TableLayout implements View.OnClickListener {
                 }
             });
 
-            registerClick(R.id.operator);
         }
 
         ViewGroup form = (ViewGroup)findViewById(R.id.form);
@@ -83,6 +82,7 @@ public class Form extends TableLayout implements View.OnClickListener {
             }
         }
 
+        registerClick(R.id.operator);
 
         ////TODO Refactor to make it satify to register
         ////all kinds of MapDialog.
@@ -90,12 +90,11 @@ public class Form extends TableLayout implements View.OnClickListener {
 
         //Init snum.
         View v = findViewById(R.id.snum);
-        if (v != null) {
+        if (v != null && !mEndPoint.equals("product")) {
             TextView snumView = (TextView)v;
             snumView.setText(generateSn(mEndPoint.toUpperCase()));
         }
     }
-    
 
     private void registerTypeListener(final View v) {
         final String end = mEndPoint;
@@ -111,21 +110,6 @@ public class Form extends TableLayout implements View.OnClickListener {
                     dialog.show();
                 }
             });
-        }
-    }
-
-    private void registerMapListener(int res) {
-        final View v = findViewById(res);
-        final String end = mEndPoint;
-        if (v != null && v instanceof EntityView) {
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    OrderStatusDialog dialog = new OrderStatusDialog(getContext(), end, (EntityView)v);
-                    dialog.show();
-                }
-            });
-            
         }
     }
 

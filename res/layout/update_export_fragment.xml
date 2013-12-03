@@ -26,7 +26,7 @@
 
             <TextView 
                 android:id="@+id/label"
-                android:text="入库单号"
+                android:text="出库单号"
                 style="@style/form_label"
                 />
 
@@ -46,7 +46,7 @@
 
             <TextView 
                 android:id="@+id/label"
-                android:text="入库日期"
+                android:text="出库日期"
                 style="@style/form_label"
                 />
 
@@ -66,7 +66,7 @@
 
             <TextView 
                 android:id="@+id/label"
-                android:text="入库类型"
+                android:text="出库类型"
                 style="@style/form_label"
                 />
 
@@ -277,6 +277,27 @@
                 android:hint="请输入数字"
                 style="@style/form_field"
                 editTextFormExample:testType="numeric"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            >
+
+            <TextView 
+                android:id="@+id/label"
+                android:text="出库状态"
+                style="@style/form_label"
+                />
+
+            <me.biubiubiu.rms.ui.EntityView
+                android:id="@+id/state"
+                android:hint="点击选择出库状态"
+                form:type="export_state"
                 />
 
         </TableRow>

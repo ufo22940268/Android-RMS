@@ -38,7 +38,7 @@ public class SearchActivity extends BaseActivity {
     private String[] TITLES = {
         "入库查询",
         "出库查询",
-        "产品查询",
+        "库存结存",
     };
 
     @Override

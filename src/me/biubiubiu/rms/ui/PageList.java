@@ -32,7 +32,8 @@ import com.loopj.android.http.*;
 import me.biubiubiu.rms.R;
 import com.kanak.emptylayout.EmptyLayout;
 
-public class PageList extends FrameLayout implements AdapterView.OnItemLongClickListener, View.OnClickListener, AdapterView.OnItemClickListener {
+public class PageList extends FrameLayout implements AdapterView.OnItemLongClickListener,
+       View.OnClickListener, AdapterView.OnItemClickListener {
 
     public List<Map<String, String>> mDataList = new ArrayList<Map<String, String>>();
     private String mEndPoint;
@@ -53,6 +54,7 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
         mListView = (ListView)findViewById(R.id.list);
         mPageView = (TextView)findViewById(R.id.page);
         mEmptyLayout = new EmptyLayout(getContext(), mListView);
+        mListView.setItemsCanFocus(true);
 
         initView();
     }
@@ -61,6 +63,7 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
     public void setAdapter(PageListAdapter adapter) {
         mAdapter = adapter;
         getListView().setAdapter(mAdapter);
+        mListView.setItemsCanFocus(true);
     }
 
     public void condition(String where) {
@@ -103,6 +106,9 @@ public class PageList extends FrameLayout implements AdapterView.OnItemLongClick
 
                         //Set original data list.
                         mAdapter.setList(mDataList);
+                    } else {
+                        mDataList = dataList;
+                        mAdapter.setList(dataList);
                     }
                 }
 

@@ -31,7 +31,8 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
         {"产品出库", "Warehousing Managemengt"},
         {"产品出入库查询", "Infomation notice"},
         {"产品信息管理", "Products Management"},
-        {"操作员信息管理", "Operator Management"},
+        //{"操作员信息管理", "Operator Management"},
+        {"产品信息查询", "Auth Management"},
         {"审核中心", "Auth Management"},
     };
 
@@ -40,6 +41,7 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
         R.drawable.menu_export,
         R.drawable.menu_query,
         R.drawable.menu_product,
+        //R.drawable.menu_operator,
         R.drawable.menu_operator,
         R.drawable.menu_validate_center,
     };
@@ -101,9 +103,17 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
                 }
                 break;
 
+            //case 4:
+                //if (mPermissionManager.checkPermission("operator", 0)) {
+                    //Intent intent = new Intent(getActivity(), OperatorActivity.class);
+                    //intent.putExtra("title", TITLES[pos][0]);
+                    //startActivity(intent);
+                //}
+                //break;
+
             case 4:
                 if (mPermissionManager.checkPermission("operator", 0)) {
-                    Intent intent = new Intent(getActivity(), OperatorActivity.class);
+                    Intent intent = new Intent(getActivity(), SearchProductActivity.class);
                     intent.putExtra("title", TITLES[pos][0]);
                     startActivity(intent);
                 }

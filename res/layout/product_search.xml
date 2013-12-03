@@ -67,47 +67,6 @@
 
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dip"
-                android:paddingBottom="10dip"
-                >
-
-                <TextView 
-                    android:id="@+id/label"
-                    android:text="起始时间"
-                    style="@style/form_label"
-                    />
-
-                <TextView
-                    android:id="@+id/from"
-                    android:hint="点击以选择日期"
-                    />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dip"
-                android:paddingBottom="10dip"
-                >
-
-                <TextView 
-                    android:id="@+id/label"
-                    android:text="结束时间"
-                    style="@style/form_label"
-                    />
-
-                <TextView
-                    android:id="@+id/to"
-                    android:hint="点击以选择日期"
-                    />
-
-            </TableRow>
-
-
         </me.biubiubiu.rms.ui.Form>
 
         <Button

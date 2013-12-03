@@ -26,11 +26,16 @@ import android.content.res.TypedArray;
 
 import java.util.*;
 
-public class YesOrNoMap extends EntityMap {
+public class OrderStateMap extends EntityMap {
 
-	public YesOrNoMap() {
-        put("是", "1");		
-        put("否", "0");		
+	public OrderStateMap() {
+        put("全部", "default");
+        put("等待买家付款", "wait_for_buyer");
+        put("买家已付款", "buyer_paid");
+        put("卖家已发货", "seller_delivered");
+        put("仓库已发货", "repo_delivered");
+        put("已退款", "refund");
+        put("卖家已退货", "buyer_returned");
 	}
 }
 

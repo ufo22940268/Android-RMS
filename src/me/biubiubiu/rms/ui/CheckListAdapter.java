@@ -48,6 +48,7 @@ public class CheckListAdapter extends PageListAdapter {
         View view = super.getView(position, convertView, parent);
         CheckBox cb = (CheckBox)view.findViewById(R.id.check_box);
         cb.setVisibility(View.VISIBLE);
+        cb.setFocusable(false);
         cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

@@ -30,10 +30,19 @@
                 style="@style/form_label"
                 />
 
-            <TextView
+            <com.andreabaccega.widget.FormEditText
                 android:id="@+id/snum"
+                android:hint="手动输入"
                 style="@style/form_field"
+                editTextFormExample:testType="alphaNumeric"/>
+
+            <Button
+                android:id="@+id/scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="扫描"
                 />
+
 
         </TableRow>
 
@@ -140,7 +149,7 @@
             >
 
             <TextView 
-                android:text="库存上线"
+                android:text="库存上限"
                 style="@style/form_label"
                 />
 
@@ -159,7 +168,7 @@
             >
 
             <TextView 
-                android:text="库存下线"
+                android:text="库存下限"
                 style="@style/form_label"
                 />
 
@@ -184,7 +193,7 @@
                 />
 
             <com.andreabaccega.widget.FormEditText
-                android:id="@+id/product_name"
+                android:id="@+id/name"
                 style="@style/form_field"
                 />
 

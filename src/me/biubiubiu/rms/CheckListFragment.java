@@ -37,10 +37,10 @@ public class CheckListFragment extends BaseFragment {
 
     private ListView mListView;
     public CheckListAdapter mAdapter;
-    private PageList mPageList;
+    protected PageList mPageList;
     public String mEndPoint;
     private int mItemLayout;
-    private String mWhere;
+    protected String mWhere;
     private Class mCustomDetail;
 
     public CheckListFragment(String endPoint, int itemLayout) {
@@ -99,6 +99,7 @@ public class CheckListFragment extends BaseFragment {
 
     public void refresh() {
         if (mPageList != null) {
+            mPageList.condition(mWhere);
             mPageList.load();
         }
     }
