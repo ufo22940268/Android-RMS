@@ -299,6 +299,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
             alertNotAvaliable();
         } else {
             Intent intent = new Intent(this, OperatorActivity.class);
+            intent.putExtra("title", "操作员设置");
             startActivity(intent);
         }
     }

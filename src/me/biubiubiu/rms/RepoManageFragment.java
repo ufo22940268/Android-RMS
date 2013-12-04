@@ -42,7 +42,7 @@ public class RepoManageFragment extends BaseFragment implements AdapterView.OnIt
         R.drawable.menu_query,
         R.drawable.menu_product,
         //R.drawable.menu_operator,
-        R.drawable.menu_operator,
+        R.drawable.menu_product_query,
         R.drawable.menu_validate_center,
     };
 

@@ -57,13 +57,13 @@ public class MainManageFragment extends BaseFragment implements AdapterView.OnIt
             return null;
         }
 
-        GridView grid = (GridView)inflater.inflate(
-                R.layout.repo_manage_fragment, container, false);
+        View parent = inflater.inflate(R.layout.main_manage_fragment, container, false);
+        GridView grid = (GridView)parent.findViewById(R.id.grid);
         mAdapter = new BlockAdapter(getActivity(), TITLES, IMAGE_RES);
         grid.setAdapter(mAdapter);
         grid.setOnItemClickListener(this);
 
-        return grid;
+        return parent;
     }
 
     @Override
