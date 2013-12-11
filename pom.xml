@@ -196,10 +196,11 @@
                                     <includes>
                                         <include>target/*.apk</include>
                                     </includes>
-                                    <keystore>/Users/ccheng/workspace/msx-crazysight/meishixing.keystore</keystore>
-                                    <storepass>meishigo</storepass>
-                                    <keypass>meishigo</keypass>
-                                    <alias>meishixing</alias>
+                                    <keystore>/Users/ccheng/workspace/Android-RMS/android.keystore
+</keystore>
+                                    <storepass>aa123456</storepass>
+                                    <keypass>aa123456</keypass>
+                                    <alias>android.keystore</alias>
                                     <arguments>
                                         <argument>-sigalg</argument><argument>MD5withRSA</argument>
                                         <argument>-digestalg</argument><argument>SHA1</argument>
