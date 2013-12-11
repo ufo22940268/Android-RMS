@@ -1,0 +1,1442 @@
+<ers/ccheng/.virtualenvs/zero-server-demo/bin/activate; fi 
+(zero-server-demo)➜  appname git:(master) ✗ 
+
+(zero-server-demo)➜  appname git:(master) ✗ 
+
+(zero-server-demo)➜  appname git:(master) ✗ 
+
+(zero-server-demo)➜  appname git:(master) ✗ 
+
+(zero-server-demo)➜  appname git:(master) ✗ ls
+ls
+__init__.py	assets.pyc	controllers	models.py	settings.pyc
+__init__.pyc	common_util.py	forms.py	models.pyc	static
+assets.py	common_util.pyc	forms.pyc	settings.py	templates
+(zero-server-demo)➜  appname git:(master) ✗ cd ..
+cd ..
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ls
+ls
+CHANGELOG.md		a.jpg			fabfile.pyc		run.py
+LICENSE.md		appname			kill.sh			tests
+Makefile		database.db		manage.py		todo.org
+README.md		docs			manager.py
+TAGS			fabfile.py		requirements.txt
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 11
+    from flask.ext.admin.model.fields import InlineFormField, InlineFieldListfrom flask.ext.pymongo import PyMongo
+                                                                                      ^
+SyntaxError: invalid syntax
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 55
+SyntaxError: Non-ASCII character '\xe5' in file /Users/ccheng/workspace/zero-server-demo/appname/__init__.py on line 55, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 12, in <module>
+    from flask.ext.admin.model.fields import InlineFormField, InlineFieldListfrom
+ImportError: cannot import name InlineFieldListfrom
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 12, in <module>
+    from flask.ext.admin.model.fields import InlineFormField, InlineFieldListfrom
+ImportError: cannot import name InlineFieldListfrom
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 21, in <module>
+    mongo = PyMongo()
+NameError: name 'PyMongo' is not defined
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 56, in create_app
+    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+AttributeError: 'module' object has no attribute 'add_view'
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 56, in create_app
+    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+AttributeError: 'module' object has no attribute 'add_view'
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 55, in create_app
+    admin = admin.Admin(app, u'用户管理系统')
+UnboundLocalError: local variable 'admin' referenced before assignment
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 55, in create_app
+    admin = admin.Admin(app, u'用户管理系统')
+UnboundLocalError: local variable 'admin' referenced before assignment
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 55, in create_app
+    admin = admin.Admin(app, u'用户管理系统')
+UnboundLocalError: local variable 'admin' referenced before assignment
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 9
+    import flask.ext admin
+                         ^
+SyntaxError: invalid syntax
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 57, in create_app
+    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/contrib/pymongo/view.py", line 65, in __init__
+    super(ModelView, self).__init__(None, name, category, endpoint, url)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 495, in __init__
+    self._refresh_cache()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 516, in _refresh_cache
+    self._create_form_class = self.get_create_form()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 731, in get_create_form
+    return self.get_form()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 723, in get_form
+    return self.scaffold_form()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/contrib/pymongo/view.py", line 127, in scaffold_form
+    raise NotImplemented()
+TypeError: 'NotImplementedType' object is not callable
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 24, in <module>
+    class SuperUserView(ModelView):
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 27, in SuperUserView
+    form = UserForm()
+NameError: name 'UserForm' is not defined
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 24, in <module>
+    class UserForm(form.Form):
+NameError: name 'form' is not defined
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 25, in <module>
+    class UserForm(form.Form):
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 26, in UserForm
+    name = fields.TextField(u'用户名')
+NameError: name 'fields' is not defined
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 13
+    from wtforms import form.fields
+                            ^
+SyntaxError: invalid syntax
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 08:59:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:29] "GET /static/public/css/common.css?2005af21 HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 08:59:29] "GET /static/public/js/common.js?4cf07a9d HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:29] "GET /static/public/js/operator_list.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:33] "GET /admin HTTP/1.1" 301 -
+127.0.0.1 - - [10/Dec/2013 08:59:33] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:33] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:33] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:33] "GET /admin/static/admin/css/admin.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:33] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:33] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:33] "GET /admin/static/select2/select2.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:36] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:36] "GET /admin/static/select2/select2.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:36] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:36] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:36] "GET /admin/static/admin/js/form.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:36] "GET /admin/static/admin/js/filters.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:36] "GET /admin/static/admin/js/actions.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:37] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:38] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:39] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:40] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:40] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:42] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:43] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:43] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:48] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:48] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:49] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:50] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:50] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:51] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:51] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:52] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:53] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:53] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:54] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 08:59:54] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 09:00:02] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 09:00:03] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 09:00:06] "GET / HTTP/1.1" 200 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/__init__.py', reloading
+ * Restarting with reloader
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 34, in <module>
+    @babel.localeselector
+NameError: name 'babel' is not defined
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 127.0.0.1 - - [10/Dec/2013 09:00:03] "GET /admin/super_userview/ HTTP/1.1" 200 -
+<7.0.0.1 - - [10/Dec/2013 09:00:03] "GET /admin/super_userview/ HTTP/1.1" 200 -
+zsh: bad pattern: [10/Dec/2013
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 127.0.0.1 - - [10/Dec/2013 09:00:03] "GET /admin/super_userview/ HTTP/1.1" 200 -
+<7.0.0.1 - - [10/Dec/2013 09:00:03] "GET /admin/super_userview/ HTTP/1.1" 200 -
+zsh: bad pattern: [10/Dec/2013
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 13, in <module>
+    from flask.ext.babelex import Babel
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/exthook.py", line 87, in load_module
+    raise ImportError('No module named %s' % fullname)
+ImportError: No module named flask.ext.babelex
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 35, in <module>
+    @babel.localeselector
+NameError: name 'babel' is not defined
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 68, in create_app
+    admin.locale_selector(get_locale)
+AttributeError: 'Admin' object has no attribute 'locale_selector'
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ AttributeError: 'Admin' object has no attribute 'locale_selector'
+<tributeError: 'Admin' object has no attribute 'locale_selector'
+zsh: command not found: AttributeError:
+ 
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+ 
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ AttributeError: 'Admin' object has no attribute 'locale_selector'
+<tributeError: 'Admin' object has no attribute 'locale_selector'
+zsh: command not found: AttributeError:
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 67, in create_app
+    admin.locale_selector(get_locale)
+AttributeError: 'Admin' object has no attribute 'locale_selector'
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 69, in create_app
+    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/contrib/pymongo/view.py", line 65, in __init__
+    super(ModelView, self).__init__(None, name, category, endpoint, url)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 495, in __init__
+    self._refresh_cache()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 503, in _refresh_cache
+    self._list_columns = self.get_list_columns()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 620, in get_list_columns
+    return [(c, self.get_column_name(c)) for c in columns]
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 603, in get_column_name
+    return self.prettify_name(field)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 932, in prettify_name
+    return prettify_name(name)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/helpers.py", line 10, in prettify_name
+    return name.replace('_', ' ').title()
+AttributeError: 'tuple' object has no attribute 'replace'
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py runserver
+./manage.py runserver
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/__init__.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 69, in create_app
+    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/contrib/pymongo/view.py", line 65, in __init__
+    super(ModelView, self).__init__(None, name, category, endpoint, url)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 495, in __init__
+    self._refresh_cache()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 503, in _refresh_cache
+    self._list_columns = self.get_list_columns()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 614, in get_list_columns
+    columns = self.scaffold_list_columns()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/contrib/pymongo/view.py", line 85, in scaffold_list_columns
+    raise NotImplemented()
+TypeError: 'NotImplementedType' object is not callable
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+
+ 
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ls
+ls
+CHANGELOG.md		a.jpg			fabfile.pyc		run.py
+LICENSE.md		appname			kill.sh			tests
+Makefile		database.db		manage.py		todo.org
+README.md		docs			manager.py
+TAGS			fabfile.py		requirements.txt
+(zero-server-demo)➜  zero-server-demo git:(master) ✗
+
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py 
+./manage.py 
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 15, in <module>
+    from appname.model.operator_model import *
+  File "/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py", line 18
+SyntaxError: Non-ASCII character '\xe7' in file /Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py on line 18, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py 
+./manage.py 
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 15, in <module>
+    from appname.model.operator_model import *
+  File "/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py", line 15, in <module>
+    from appname import assets, mongo
+ImportError: cannot import name mongo
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py 
+./manage.py 
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 15, in <module>
+    from appname.model.operator_model import *
+  File "/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py", line 15, in <module>
+    from appname import assets, mongo
+ImportError: cannot import name mongo
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py 
+./manage.py 
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 15, in <module>
+    from appname.model import operator_model
+  File "/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py", line 15, in <module>
+    from appname import assets, mongo
+ImportError: cannot import name mongo
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py 
+./manage.py 
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 61, in create_app
+    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+NameError: global name 'SuperUserView' is not defined
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py 
+./manage.py 
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 61, in create_app
+    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/contrib/pymongo/view.py", line 65, in __init__
+    super(ModelView, self).__init__(None, name, category, endpoint, url)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 495, in __init__
+    self._refresh_cache()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 503, in _refresh_cache
+    self._list_columns = self.get_list_columns()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 614, in get_list_columns
+    columns = self.scaffold_list_columns()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/contrib/pymongo/view.py", line 85, in scaffold_list_columns
+    raise NotImplemented()
+TypeError: 'NotImplementedType' object is not callable
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py 
+./manage.py 
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+usage: manage.py [-h] {createdb,shell,server,runserver} ...
+
+positional arguments:
+  {createdb,shell,server,runserver}
+    createdb            Creates a database with all of the tables defined in your Alchemy models
+    shell               Runs a Python shell inside Flask application context.
+    server              Runs the Flask development server i.e. app.run()
+    runserver           Runs the Flask development server i.e. app.run()
+
+optional arguments:
+  -h, --help            show this help message and exit
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py  server
+./manage.py  server
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 11:25:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:16] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:18] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:21] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:22] "GET /admin/super_userview/ HTTP/1.1" 200 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 11:25:32] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:32] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:33] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:33] "GET /admin/static/admin/css/admin.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:33] "GET /admin/static/select2/select2.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:33] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 11:25:33] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:33] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:33] "GET /admin/static/select2/select2.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:33] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 11:25:33] "GET /admin/static/admin/js/form.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:33] "GET /admin/static/admin/js/filters.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 11:25:33] "GET /admin/static/admin/js/actions.js HTTP/1.1" 200 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/__init__.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 13:16:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:16:51] "GET /static/public/css/common.css?2005af21 HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:16:51] "GET /static/public/js/common.js?4cf07a9d HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:16:51] "GET /static/public/js/operator_list.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:16:56] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:16:58] "GET /admin/super_userview/ HTTP/1.1" 200 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+Traceback (most recent call last):
+  File "./manage.py", line 9, in <module>
+    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 61, in create_app
+    admin.add_view(SuperUserView(mongo.db.super_user, u'创建操作员'))
+NameError: global name 'SuperUserView' is not defined
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 127.0.0.1 - - [10/Dec/2013 13:16:51] "GET /static/public/js/common.js?4cf07a9d HTTP/1.1" 200 -
+<7.0.0.1 - - [10/Dec/2013 13:16:51] "GET /static/public/js/common.js?4cf07a9d HTTP/1.1" 200 -
+zsh: bad pattern: [10/Dec/2013
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ ./manage.py  server
+./manage.py  server
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+ * Running on http://127.0.0.1:5000/
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 13:20:15] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:16] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:20:19] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:20:19] "GET /admin/super_userview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:20:35] "GET / HTTP/1.1" 200 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/__init__.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/__init__.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 13:20:57] "GET /admin/super_userview/ HTTP/1.1" 404 -
+127.0.0.1 - - [10/Dec/2013 13:20:59] "GET /admin/super_userview/ HTTP/1.1" 404 -
+127.0.0.1 - - [10/Dec/2013 13:20:59] "GET /admin/super_userview/ HTTP/1.1" 404 -
+127.0.0.1 - - [10/Dec/2013 13:21:08] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:10] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:10] "GET /admin/static/bootstrap/img/glyphicons-halflings.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:20] "GET /admin/operatorview/new/?url=%2Fadmin%2Foperatorview%2F HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/base.py", line 60, in inner
+    return f(self, *args, **kwargs)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/base.py", line 60, in inner
+    return f(self, *args, **kwargs)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/base.py", line 60, in inner
+    return f(self, *args, **kwargs)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 1194, in create_view
+    form = self.create_form()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 747, in create_form
+    return self._create_form_class(get_form_data(), obj=obj)
+TypeError: 'OperatorForm' object is not callable
+127.0.0.1 - - [10/Dec/2013 13:21:20] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:20] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:20] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:20] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:20] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:20] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:21] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:30] "GET /admin/operatorview/new/?url=%2Fadmin%2Foperatorview%2F HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/base.py", line 60, in inner
+    return f(self, *args, **kwargs)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/base.py", line 60, in inner
+    return f(self, *args, **kwargs)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/base.py", line 60, in inner
+    return f(self, *args, **kwargs)
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 1194, in create_view
+    form = self.create_form()
+  File "/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_admin/model/base.py", line 747, in create_form
+    return self._create_form_class(get_form_data(), obj=obj)
+TypeError: 'OperatorForm' object is not callable
+127.0.0.1 - - [10/Dec/2013 13:21:30] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:30] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:30] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:30] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:30] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:30] "GET /admin/operatorview/new/?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:21:48] "GET /admin/operatorview/new/?__debugger__=yes&cmd=source&frm=4585336272&s=8WZZzdANFL5Zb8V3qVX6 HTTP/1.1" 200 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 13:22:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:22:30] "GET /static/public/css/common.css?2005af21 HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:30] "GET /static/public/js/common.js?4cf07a9d HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:22:30] "GET /static/public/js/operator_list.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:32] "GET /admin/operatorview/new/?url=%2Fadmin%2Foperatorview%2F HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:22:32] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:32] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:32] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:32] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:32] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:32] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:32] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:32] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:32] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:32] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:22:35] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:22:37] "GET /admin/operatorview/new/?url=%2Fadmin%2Foperatorview%2F HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:22:37] "GET /admin/operatorview/ HTTP/1.1" 200 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:35] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:44] "POST /admin/operatorview/delete/?url=%2Fadmin%2Foperatorview%2F&id=52a5395a1d24ea5c9cb751cb HTTP/1.1" 302 -
+127.0.0.1 - - [10/Dec/2013 13:25:44] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:47] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:50] "POST /admin/operatorview/delete/?url=%2Fadmin%2Foperatorview%2F&id=52a527c71d24ead1b573960e HTTP/1.1" 302 -
+127.0.0.1 - - [10/Dec/2013 13:25:50] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 13:25:51] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 13:26:32] "GET /admin/operatorview/new/?url=%2Fadmin%2Foperatorview%2F HTTP/1.1" 200 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 20:34:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 20:34:19] "GET /static/public/css/common.css?2005af21 HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 20:34:19] "GET /static/public/js/common.js?4cf07a9d HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 20:34:19] "GET /static/public/js/operator_list.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:11:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:11:25] "GET /admin/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:11:27] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:11:27] "GET /admin/static/bootstrap/img/glyphicons-halflings.png HTTP/1.1" 200 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 21:12:30] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:12:30] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:30] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:30] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:30] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:30] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:30] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:31] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:31] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:31] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:31] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:31] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:31] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:31] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:12:32] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:16:19] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:28] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:17:34] "GET /admin/operatorview/new/?url=%2Fadmin%2Foperatorview%2F HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:18:24] "POST /admin/operatorview/delete/?url=%2Fadmin%2Foperatorview%2F&id=52a528d41d24ead1b5739610 HTTP/1.1" 302 -
+127.0.0.1 - - [10/Dec/2013 21:18:24] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:18:28] "POST /admin/operatorview/delete/?url=%2Fadmin%2Foperatorview%2F&id=52a531cf1d24ea1f5437f4b8 HTTP/1.1" 302 -
+127.0.0.1 - - [10/Dec/2013 21:18:28] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:30] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/operatorview/ HTTP/1.1" 200 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/bootstrap/css/bootstrap.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/bootstrap/css/bootstrap-responsive.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/admin/css/admin.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/select2/select2.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/vendor/jquery-1.8.3.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/select2/select2.min.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/admin/js/form.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/admin/js/filters.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Dec/2013 21:18:31] "GET /admin/static/admin/js/actions.js HTTP/1.1" 304 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+/Users/ccheng/.virtualenvs/zero-server-demo/lib/python2.7/site-packages/flask_cache/__init__.py:100: UserWarning: Flask-Cache: CACHE_TYPE is set to null, caching is effectively disabled.
+  warnings.warn("Flask-Cache: CACHE_TYPE is set to null, "
+127.0.0.1 - - [10/Dec/2013 21:29:37] "GET /admin/operatorview/new/?url=%2Fadmin%2Foperatorview%2F HTTP/1.1" 200 -
+ * Detected change in '/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py', reloading
+ * Restarting with reloader
+Traceback (most recent call last):
+  File "./manage.py", line 5, in <module>
+    from appname import create_app
+  File "/Users/ccheng/workspace/zero-server-demo/appname/__init__.py", line 15, in <module>
+    from appname.model.operator_model import *
+  File "/Users/ccheng/workspace/zero-server-demo/appname/model/operator_model.py", line 28
+    
+    ^
+SyntaxError: EOF while scanning triple-quoted string literal
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+
+ 
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ 
+
+(zero-server-demo)➜  zero-server-demo git:(master) ✗ cd ~/workspace/
+cd ~/workspace/
+(zero-server-demo)➜  workspace  ls
+ls
+Android-Empty-Layout				jayway-maven-android-plugin-samples-3a0e938
+Android-RMS					learn-ios
+Android-ViewPagerIndicator			meishixing_android
+Android_Simple_Barcode_Example			msx-android-demo
+BaiduMap_AndroidSDK_v1.3.5			msx-calendar
+MultiChoiceAdapter				msx-crazysight
+NavigationDrawer				msx-order
+README.md					one-server
+SlidingMenu					phonegap
+android-barcode					pom.xml
+android-bootstrap				pro_yishouguan(5)
+android-form-edittext				proguard.cfg
+android-menudrawer				rms-admin
+auto-save-list					rms-rest
+default.properties				snippets
+empty						svn
+eshell						test
+eve						test_db
+eve-demo					tmp
+eve-demo-client					tmux-config
+eve-docs					url
+flask-admin					zero-android-demo
+flask-restful					zero-app
+flask-sqlalchemy				zero-server-demo
+(zero-server-demo)➜  workspace  cd android-rm
+cd android-rm
+cd:cd:13: no such file or directory: android-rm
+(zero-server-demo)➜  workspace  cd Android-RMS/
+cd Android-RMS/
+(zero-server-demo)➜  Android-RMS git:(master) ls
+ls
+AndroidManifest.xml	TAGS			proguard-project.txt	target
+EntityMapUtils.java	ant.properties		project.properties	tests
+Makefile		local.properties	res
+README.md		pom.xml			src
+(zero-server-demo)➜  Android-RMS git:(master
+
+(zero-server-demo)➜  Android-RMS git:(master) 
+
+ 
+(zero-server-demo)➜  Android-RMS git:(master) 
+ 
+(zero-server-demo)➜  Android-RMS git:(master) 
+(zero-server-demo)➜  Android-RMS git:(master) 
+
+(zero-server-demo)➜  Android-RMS git:(master) 
+
+(zero-server-demo)➜  Android-RMS git:(master) 
+
+(zero-server-demo)➜  Android-RMS git:(master) keytool -genkey -v -keystore biubiubiu.keystore
+-alias biubiubiu -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore biubiubiu.keystore
+输入密钥库口令:  
+(zero-server-demo)➜  Android-RMS git:(master) keytool -genkey -v -keystore biubiubiu.keystore
+-alias biubiubiu -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore biubiubiu.keystore
+输入密钥库口令:  
+再次输入新口令: aa
+
+它们不匹配。请重试
+输入密钥库口令:  aa
+
+密钥库口令太短 - 至少必须为 6 个字符
+输入密钥库口令:  123456
+
+再次输入新口令: 123456
+
+您的名字与姓氏是什么?
+  [Unknown]:  garlic
+garlic
+您的组织单位名称是什么?
+  [Unknown]:  yuedu
+yuedu
+您的组织名称是什么?
+  [Unknown]:  yuedu
+yuedu
+您所在的城市或区域名称是什么?
+  [Unknown]:  hangzhou
+hangzhou
+您所在的省/市/自治区名称是什么?
+  [Unknown]:  zhejiang
+zhejiang
+该单位的双字母国家/地区代码是什么?
+  [Unknown]:  cn
+cn
+CN=garlic, OU=yuedu, O=yuedu, L=hangzhou, ST=zhejiang, C=cn是否正确?
+  [否]:  yes
+yes
+您的名字与姓氏是什么?
+  [garlic]:  garlic
+garlic
+您的组织单位名称是什么?
+  [yuedu]:  yuedu
+yuedu
+您的组织名称是什么?
+  [yuedu]: yuedu
+yuedu
+您所在的城市或区域名称是什么?
+  [hangzhou]:  hanghzou
+hanghzou
+您所在的省/市/自治区名称是什么?
+  [zhejiang]:  zhejiang
+zhejiang
+该单位的双字母国家/地区代码是什么?
+  [cn]:  cn
+cn
+CN=garlic, OU=yuedu, O=yuedu, L=hanghzou, ST=zhejiang, C=cn是否正确?
+  [否]:  
+
+您的名字与姓氏是什么?
+  [garlic]:  
+
+您的组织单位名称是什么?
+  [yuedu]:  
+
+您的组织名称是什么?
+  [yuedu]:  
+
+您所在的城市或区域名称是什么?
+  [hanghzou]:  
+
+您所在的省/市/自治区名称是什么?
+  [zhejiang]:  
+
+该单位的双字母国家/地区代码是什么?
+  [cn]:  
+
+CN=garlic, OU=yuedu, O=yuedu, L=hanghzou, ST=zhejiang, C=cn是否正确?
+  [否]:  是
+是
+
+正在为以下对象生成 1,024 位DSA密钥对和自签名证书 (SHA1withDSA) (有效期为 90 天):
+	 CN=garlic, OU=yuedu, O=yuedu, L=hanghzou, ST=zhejiang, C=cn
+输入 <mykey> 的密钥口令
+	(如果和密钥库口令相同, 按回车):  
+
+[正在存储biubiubiu.keystore]
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ /bin/sh -c cd /Users/ccheng/workspace/Android-RMS && /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/../bin/jarsigner -sigalg MD5withRSA -digestalg SHA1 -keystore /Users/ccheng/workspace/Android-RMS/biubiubiu.keystore -storepass '*****' -keypass '*****' /Users/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+<ers/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+jarsigner 错误: java.lang.RuntimeException: 密钥库加载: Keystore was tampered with, or password was incorrect
+(zero-server-demo)➜  Android-RMS git:(master) ✗ /bin/sh -c cd /Users/ccheng/workspace/Android-RMS && /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/../bin/jarsigner -sigalg MD5withRSA -digestalg SHA1 -keystore /Users/ccheng/workspace/Android-RMS/biubiubiu.keystore -storepass '*****' -keypass '*****' /Users/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+<ers/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+jarsigner 错误: java.lang.RuntimeException: 密钥库加载: Keystore was tampered with, or password was incorrect
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool -genkey -v -keystore biubiubiu.keystore
+-alias biubiubiu -keyalg MD5withRSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore biubiubiu.keystore
+输入密钥库口令:  
+keytool 错误: java.io.IOException: Keystore was tampered with, or password was incorrect
+java.io.IOException: Keystore was tampered with, or password was incorrect
+	at sun.security.provider.JavaKeyStore.engineLoad(JavaKeyStore.java:772)
+	at sun.security.provider.JavaKeyStore$JKS.engineLoad(JavaKeyStore.java:55)
+	at java.security.KeyStore.load(KeyStore.java:1214)
+	at sun.security.tools.KeyTool.doCommands(KeyTool.java:885)
+	at sun.security.tools.KeyTool.run(KeyTool.java:340)
+	at sun.security.tools.KeyTool.main(KeyTool.java:333)
+Caused by: java.security.UnrecoverableKeyException: Password verification failed
+	at sun.security.provider.JavaKeyStore.engineLoad(JavaKeyStore.java:770)
+	... 5 more
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool -genkey -v -keystore biubiubiu.keystore
+-alias biubiubiu -keyalg MD5withRSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore biubiubiu.keystore
+输入密钥库口令:  
+keytool 错误: java.io.IOException: Keystore was tampered with, or password was incorrect
+java.io.IOException: Keystore was tampered with, or password was incorrect
+	at sun.security.provider.JavaKeyStore.engineLoad(JavaKeyStore.java:772)
+	at sun.security.provider.JavaKeyStore$JKS.engineLoad(JavaKeyStore.java:55)
+	at java.security.KeyStore.load(KeyStore.java:1214)
+	at sun.security.tools.KeyTool.doCommands(KeyTool.java:885)
+	at sun.security.tools.KeyTool.run(KeyTool.java:340)
+	at sun.security.tools.KeyTool.main(KeyTool.java:333)
+Caused by: java.security.UnrecoverableKeyException: Password verification failed
+	at sun.security.provider.JavaKeyStore.engineLoad(JavaKeyStore.java:770)
+	... 5 more
+(zero-server-demo)➜  Android-RMS git:(master) ✗ rm biubiubiu.keystore 
+rm biubiubiu.keystore 
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool -genkey -v -keystore biubiubiu.keystore
+-alias biubiubiu -keyalg MD5withRSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore biubiubiu.keystore
+输入密钥库口令:  
+再次输入新口令: 123456
+
+它们不匹配。请重试
+输入密钥库口令:  123456
+
+再次输入新口令: 123456
+
+您的名字与姓氏是什么?
+  [Unknown]:  garlic
+garlic
+您的组织单位名称是什么?
+  [Unknown]:  yuedu
+yuedu
+您的组织名称是什么?
+  [Unknown]:  yuedu
+yuedu
+您所在的城市或区域名称是什么?
+  [Unknown]:  hanghzou
+hanghzou
+您所在的省/市/自治区名称是什么?
+  [Unknown]:  zhejiang
+zhejiang
+该单位的双字母国家/地区代码是什么?
+  [Unknown]:  cn
+cn
+CN=garlic, OU=yuedu, O=yuedu, L=hanghzou, ST=zhejiang, C=cn是否正确?
+  [否]:  是
+是
+
+正在为以下对象生成 1,024 位DSA密钥对和自签名证书 (SHA1withDSA) (有效期为 90 天):
+	 CN=garlic, OU=yuedu, O=yuedu, L=hanghzou, ST=zhejiang, C=cn
+输入 <mykey> 的密钥口令
+	(如果和密钥库口令相同, 按回车):  
+
+[正在存储biubiubiu.keystore]
+(zero-server-demo)➜  Android-RMS git:(master) ✗ /bin/sh -c cd /Users/ccheng/workspace/Android-RMS && /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/../bin/jarsigner -sigalg MD5withRSA -keystore Users/ccheng/workspace/Android-RMS/biubiubiu.keystore -storepass '*****' -keypass '*****' /Users/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+<torepass '*****' -keypass '*****' /Users/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+jarsigner 错误: java.lang.RuntimeException: 密钥库加载: /Users/ccheng/workspace/Android-RMS/Users/ccheng/workspace/Android-RMS/biubiubiu.keystore (No such file or directory)
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ /bin/sh -c cd /Users/ccheng/workspace/Android-RMS && /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/../bin/jarsigner -sigalg MD5withRSA -keystore Users/ccheng/workspace/Android-RMS/biubiubiu.keystore -storepass '*****' -keypass '*****' /Users/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+<torepass '*****' -keypass '*****' /Users/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+jarsigner 错误: java.lang.RuntimeException: 密钥库加载: /Users/ccheng/workspace/Android-RMS/Users/ccheng/workspace/Android-RMS/biubiubiu.keystore (No such file or directory)
+(zero-server-demo)➜  Android-RMS git:(master) ✗ ls
+ls
+*shell*			README.md		local.properties	res
+AndroidManifest.xml	TAGS			pom.xml			src
+EntityMapUtils.java	ant.properties		proguard-project.txt	target
+Makefile		biubiubiu.keystore	project.properties	tests
+(zero-server-demo)➜  Android-RMS git:(master) ✗ Makefile		biubiubiu.keystore	project.properties	tests
+Makefile
+biubiubiu.keystoreproject.propertiestests
+zsh: command not found: Makefilebiubiubiu.keystoreproject.propertiestests
+ 
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+(zero-server-demo)➜  Android-RMS git:(master) ✗ /bin/sh -c cd /Users/ccheng/workspace/Android-RMS && /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/../bin/jarsigner -sigalg MD5withRSA -keystore Users/ccheng/workspace/Android-RMS/biubiubiu.keystore -storepass '123456' -keypass '123456' /Users/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+<torepass '123456' -keypass '123456' /Users/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+jarsigner 错误: java.lang.RuntimeException: 密钥库加载: /Users/ccheng/workspace/Android-RMS/Users/ccheng/workspace/Android-RMS/biubiubiu.keystore (No such file or directory)
+(zero-server-demo)➜  Android-RMS git:(master) ✗ /bin/sh -c cd /Users/ccheng/workspace/Android-RMS && /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/../bin/jarsigner -sigalg MD5withRSA -keystore /Users/ccheng/workspace/Android-RMS/biubiubiu.keystore -storepass '123456' -keypass '123456' /Users/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+<storepass '123456' -keypass '123456' /Users/ccheng/workspace/Android-RMS/target/rms.apk biubiubiu
+jarsigner: 找不到biubiubiu的证书链。biubiubiu必须引用包含私有密钥和相应的公共密钥证书链的有效密钥库密钥条目。
+(zero-server-demo)➜  Android-RMS git:(master) ✗ jarsigner: 找不到biubiubiu的证书链。biubiubiu必须引用包含私有密钥和相应的公共密钥证书链的有效密钥库密钥条目。
+<r: 找不到biubiubiu的证书链。biubiubiu必须引用包含私有密钥和相应的公共密钥证书链的有效密钥库密钥条目。
+zsh: command not found: jarsigner:
+ 
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore
+my_application.apk alias_name
+<er -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore
+请指定 jarfile 名称
+
+请键入 jarsigner -help 以了解用法
+my_application.apk alias_name
+(zero-server-demo)➜  Android-RMS git:(master) ✗ my_application.apk alias_name
+zsh: command not found: my_application.apk
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool -genkey -v -keystore my-release-key.keystore
+-alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore my-release-key.keystore
+输入密钥库口令:  
+再次输入新口令: 123456
+
+它们不匹配。请重试
+输入密钥库口令:  123456
+
+再次输入新口令: 123456
+
+您的名字与姓氏是什么?
+  [Unknown]:  
+
+您的组织单位名称是什么?
+  [Unknown]:  
+
+您的组织名称是什么?
+  [Unknown]:  
+
+您所在的城市或区域名称是什么?
+  [Unknown]:  
+
+您所在的省/市/自治区名称是什么?
+  [Unknown]:  
+
+该单位的双字母国家/地区代码是什么?
+  [Unknown]:  
+
+CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown是否正确?
+  [否]:  是
+是
+
+正在为以下对象生成 1,024 位DSA密钥对和自签名证书 (SHA1withDSA) (有效期为 90 天):
+	 CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
+输入 <mykey> 的密钥口令
+	(如果和密钥库口令相同, 按回车):  
+
+[正在存储my-release-key.keystore]
+(zero-server-demo)➜  Android-RMS git:(master) ✗ /bin/sh -c cd /Users/ccheng/workspace/Android-RMS && /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/../bin/jarsigner -keystore /Users/ccheng/workspace/Android-RMS/my-release-key.keystore -storepass '*****' -keypass '*****' /Users/ccheng/workspace/Android-RMS/target/rms.apk alias_name
+<**' -keypass '*****' /Users/ccheng/workspace/Android-RMS/target/rms.apk alias_name
+jarsigner 错误: java.lang.RuntimeException: 密钥库加载: Keystore was tampered with, or password was incorrect
+(zero-server-demo)➜  Android-RMS git:(master) ✗ jarsigner 错误: java.lang.RuntimeException: 密钥库加载: Keystore was tampered with, or password was incorrect
+<er 错误: java.lang.RuntimeException: 密钥库加载: Keystore was tampered with, or password was incorrect
+
+
+只能指定一个别名
+
+请键入 jarsigner -help 以了解用法
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+(zero-server-demo)➜  Android-RMS git:(master) ✗ /bin/sh -c cd /Users/ccheng/workspace/Android-RMS && /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/../bin/jarsigner -keystore /Users/ccheng/workspace/Android-RMS/my-release-key.keystore -storepass '123456' -keypass '123456' /Users/ccheng/workspace/Android-RMS/target/rms.apk alias_name
+<456' -keypass '123456' /Users/ccheng/workspace/Android-RMS/target/rms.apk alias_name
+jarsigner: 找不到alias_name的证书链。alias_name必须引用包含私有密钥和相应的公共密钥证书链的有效密钥库密钥条目。
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ /bin/sh -c cd /Users/ccheng/workspace/Android-RMS && /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/../bin/jarsigner -keystore /Users/ccheng/workspace/Android-RMS/my-release-key.keystore -storepass '123456' -keypass '123456' /Users/ccheng/workspace/Android-RMS/target/rms.apk alias_name
+<456' -keypass '123456' /Users/ccheng/workspace/Android-RMS/target/rms.apk alias_name
+jarsigner: 找不到alias_name的证书链。alias_name必须引用包含私有密钥和相应的公共密钥证书链的有效密钥库密钥条目。
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool -genkey -v -keystore my-release-key.keystore
+-alias  my-release-key.keystore -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore my-release-key.keystore
+输入密钥库口令:  
+keytool 错误: java.io.IOException: Keystore was tampered with, or password was incorrect
+java.io.IOException: Keystore was tampered with, or password was incorrect
+	at sun.security.provider.JavaKeyStore.engineLoad(JavaKeyStore.java:772)
+	at sun.security.provider.JavaKeyStore$JKS.engineLoad(JavaKeyStore.java:55)
+	at java.security.KeyStore.load(KeyStore.java:1214)
+	at sun.security.tools.KeyTool.doCommands(KeyTool.java:885)
+	at sun.security.tools.KeyTool.run(KeyTool.java:340)
+	at sun.security.tools.KeyTool.main(KeyTool.java:333)
+Caused by: java.security.UnrecoverableKeyException: Password verification failed
+	at sun.security.provider.JavaKeyStore.engineLoad(JavaKeyStore.java:770)
+	... 5 more
+(zero-server-demo)➜  Android-RMS git:(master) ✗ rm my-release-key.keystore 
+rm my-release-key.keystore 
+(zero-server-demo)➜  Android-RMS git:(master) ✗ rm my-release-key.keystore 
+rm my-release-key.keystore 
+rm: my-release-key.keystore: No such file or directory
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool -genkey -v -keystore my-release-key.keystore
+-alias  my-release-key.keystore -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore my-release-key.keystore
+输入密钥库口令:  
+再次输入新口令: 
+
+它们不匹配。请重试
+输入密钥库口令:  123456
+
+再次输入新口令: 123456
+
+您的名字与姓氏是什么?
+  [Unknown]:  
+
+您的组织单位名称是什么?
+  [Unknown]:  
+
+您的组织名称是什么?
+  [Unknown]:  
+
+您所在的城市或区域名称是什么?
+  [Unknown]:  
+
+您所在的省/市/自治区名称是什么?
+  [Unknown]:  
+
+该单位的双字母国家/地区代码是什么?
+  [Unknown]:  
+
+CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown是否正确?
+  [否]:  是
+是
+
+正在为以下对象生成 1,024 位DSA密钥对和自签名证书 (SHA1withDSA) (有效期为 90 天):
+	 CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
+输入 <mykey> 的密钥口令
+	(如果和密钥库口令相同, 按回车):  123456
+
+再次输入新口令: 123456
+
+[正在存储my-release-key.keystore]
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool -genkey -v -keystore my-release-key.keystore
+-alias  my-release-key.keystore -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore my-release-key.keystore
+输入密钥库口令:  
+keytool 错误: java.io.IOException: Keystore was tampered with, or password was incorrect
+java.io.IOException: Keystore was tampered with, or password was incorrect
+	at sun.security.provider.JavaKeyStore.engineLoad(JavaKeyStore.java:772)
+	at sun.security.provider.JavaKeyStore$JKS.engineLoad(JavaKeyStore.java:55)
+	at java.security.KeyStore.load(KeyStore.java:1214)
+	at sun.security.tools.KeyTool.doCommands(KeyTool.java:885)
+	at sun.security.tools.KeyTool.run(KeyTool.java:340)
+	at sun.security.tools.KeyTool.main(KeyTool.java:333)
+Caused by: java.security.UnrecoverableKeyException: Password verification failed
+	at sun.security.provider.JavaKeyStore.engineLoad(JavaKeyStore.java:770)
+	... 5 more
+(zero-server-demo)➜  Android-RMS git:(master) ✗ /bin/sh -c cd /Users/ccheng/workspace/Android-RMS && /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/../bin/jarsigner -keystore /Users/ccheng/workspace/Android-RMS/my-release-key.keystore -storepass '123456' -keypass '123456' /Users/ccheng/workspace/Android-RMS/target/rms.apk my-release-key.keystore
+<456' -keypass '123456' /Users/ccheng/workspace/Android-RMS/target/rms.apk my-release-key.keystore
+jarsigner: 找不到my-release-key.keystore的证书链。my-release-key.keystore必须引用包含私有密钥和相应的公共密钥证书链的有效密钥库密钥条目。
+(zero-server-demo)➜  Android-RMS git:(master) ✗ cp ~/workspace/msx-crazysight/meishixing.keystore biubiubiu.keysotre
+<rkspace/msx-crazysight/meishixing.keystore biubiubiu.keysotre
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool biubiubiu.keystore 
+keytool biubiubiu.keystore 
+非法选项:  biubiubiu.keystore
+密钥和证书管理工具
+
+命令:
+
+ -certreq            生成证书请求
+ -changealias        更改条目的别名
+ -delete             删除条目
+ -exportcert         导出证书
+ -genkeypair         生成密钥对
+ -genseckey          生成密钥
+ -gencert            根据证书请求生成证书
+ -importcert         导入证书或证书链
+ -importkeystore     从其他密钥库导入一个或所有条目
+ -keypasswd          更改条目的密钥口令
+ -list               列出密钥库中的条目
+ -printcert          打印证书内容
+ -printcertreq       打印证书请求的内容
+ -printcrl           打印 CRL 文件的内容
+ -storepasswd        更改密钥库的存储口令
+
+使用 "keytool -command_name -help" 获取 command_name 的用法
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool biubiubiu.keystore -printcert
+keytool biubiubiu.keystore -printcert
+非法选项:  biubiubiu.keystore
+密钥和证书管理工具
+
+命令:
+
+ -certreq            生成证书请求
+ -changealias        更改条目的别名
+ -delete             删除条目
+ -exportcert         导出证书
+ -genkeypair         生成密钥对
+ -genseckey          生成密钥
+ -gencert            根据证书请求生成证书
+ -importcert         导入证书或证书链
+ -importkeystore     从其他密钥库导入一个或所有条目
+ -keypasswd          更改条目的密钥口令
+ -list               列出密钥库中的条目
+ -printcert          打印证书内容
+ -printcertreq       打印证书请求的内容
+ -printcrl           打印 CRL 文件的内容
+ -storepasswd        更改密钥库的存储口令
+
+使用 "keytool -command_name -help" 获取 command_name 的用法
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool  -printcert biubiubiu.keystore
+keytool  -printcert biubiubiu.keystore
+非法选项:  biubiubiu.keystore
+keytool -printcert [OPTION]...
+
+打印证书内容
+
+选项:
+
+ -rfc                        以 RFC 样式输出
+ -file <filename>            输入文件名
+ -sslserver <server[:port]>  SSL 服务器主机和端口
+ -jarfile <filename>         已签名的 jar 文件
+ -v                          详细输出
+
+使用 "keytool -help" 获取所有可用命令
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 使用 "keytool -help" 获取所有可用命令
+使用 "keytool -help" 获取所有可用命令
+zsh: command not found: 使用
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool -rfc  -printcert biubiubiu.keystore
+keytool -rfc  -printcert biubiubiu.keystore
+非法选项:  biubiubiu.keystore
+keytool -printcert [OPTION]...
+
+打印证书内容
+
+选项:
+
+ -rfc                        以 RFC 样式输出
+ -file <filename>            输入文件名
+ -sslserver <server[:port]>  SSL 服务器主机和端口
+ -jarfile <filename>         已签名的 jar 文件
+ -v                          详细输出
+
+使用 "keytool -help" 获取所有可用命令
+(zero-server-demo)➜  Android-RMS git:(master) ✗  -v                          详细输出
+ -v                          详细输出
+zsh: command not found: -v
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+
+ 
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
+(zero-server-demo)➜  Android-RMS git:(master) ✗ keytool 
+keytool 
+密钥和证书管理工具
+
+命令:
+
+ -certreq            生成证书请求
+ -changealias        更改条目的别名
+ -delete             删除条目
+ -exportcert         导出证书
+ -genkeypair         生成密钥对
+ -genseckey          生成密钥
+ -gencert            根据证书请求生成证书
+ -importcert         导入证书或证书链
+ -importkeystore     从其他密钥库导入一个或所有条目
+ -keypasswd          更改条目的密钥口令
+ -list               列出密钥库中的条目
+ -printcert          打印证书内容
+ -printcertreq       打印证书请求的内容
+ -printcrl           打印 CRL 文件的内容
+ -storepasswd        更改密钥库的存储口令
+
+使用 "keytool -command_name -help" 获取 command_name 的用法
+(zero-server-demo)➜  Android-RMS git:(master) ✗ rm biubiubiu.keystore 
+rm biubiubiu.keystore 
+(zero-server-demo)➜  Android-RMS git:(master) ✗ mv biubiubiu.keysotre biubiubiu.keystore
+mv biubiubiu.keysotre biubiubiu.keystore
+(zero-server-demo)➜  Android-RMS git:(master) keytool -genkey -alias android.keystore -keyalg RSA -validity 20000 -keystore android.keystore 
+< -genkey -alias android.keystore -keyalg RSA -validity 20000 -keystore android.keystore 
+输入密钥库口令:  aa123456
+
+再次输入新口令: aa123456
+
+您的名字与姓氏是什么?
+  [Unknown]:  
+
+您的组织单位名称是什么?
+  [Unknown]:  
+
+您的组织名称是什么?
+  [Unknown]:  
+
+您所在的城市或区域名称是什么?
+  [Unknown]:  
+
+您所在的省/市/自治区名称是什么?
+  [Unknown]:  
+
+该单位的双字母国家/地区代码是什么?
+  [Unknown]:  
+
+CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown是否正确?
+  [否]:  是
+是
+
+输入 <android.keystore> 的密钥口令
+	(如果和密钥库口令相同, 按回车):  
+
+(zero-server-demo)➜  Android-RMS git:(master) ✗ /bin/sh -c cd /Users/ccheng/workspace/Android-RMS && /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/../bin/jarsigner -sigalg MD5withRSA -digestalg SHA1 -keystore /Users/ccheng/workspace/msx-crazysight/android.keystore -storepass 'aa123456' -keypass 'aa123456' /Users/ccheng/workspace/Android-RMS/target/rms.apk android.keystore
+<56' /Users/ccheng/workspace/Android-RMS/target/rms.apk android.keystore
+jarsigner 错误: java.lang.RuntimeException: 密钥库加载: /Users/ccheng/workspace/msx-crazysight/android.keystore (No such file or directory)
+(zero-server-demo)➜  Android-RMS git:(master) ✗ ls
+ls
+*shell*			TAGS			my-release-key.keystore	src
+AndroidManifest.xml	android.keystore	pom.xml			target
+EntityMapUtils.java	ant.properties		proguard-project.txt	tests
+Makefile		biubiubiu.keystore	project.properties
+README.md		local.properties	res
+(zero-server-demo)➜  Android-RMS git:(master) ✗rm .#\*shell\* 
+rm .#\*shell\* 
+(zero-server-demo)➜  Android-RMS git:(master) ✗ ls
+ls
+*shell*			TAGS			my-release-key.keystore	src
+AndroidManifest.xml	android.keystore	pom.xml			target
+EntityMapUtils.java	ant.properties		proguard-project.txt	tests
+Makefile		biubiubiu.keystore	project.properties
+README.md		local.properties	res
+(zero-server-demo)➜  Android-RMS git:(master) ✗ ls
+ls
+AndroidManifest.xml	android.keystore	pom.xml			target
+EntityMapUtils.java	ant.properties		proguard-project.txt	tests
+Makefile		biubiubiu.keystore	project.properties
+README.md		local.properties	res
+TAGS			my-release-key.keystore	src
+(zero-server-demo)➜  Android-RMS git:(master) ✗ 
